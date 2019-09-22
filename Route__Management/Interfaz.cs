@@ -136,16 +136,8 @@ namespace Route__Managment
 
         public void clear()
         {
-            foreach (String st in MetroCa.BusStations.Keys)
-            {
-                foreach (String pt in MetroCa.BusStops.Keys)
-                {
-
-                }
-
-
-            }
-
+            marker = null;
+            markerOverlay = null;
         }
 
         private void button3_Click(object sender, EventArgs e)

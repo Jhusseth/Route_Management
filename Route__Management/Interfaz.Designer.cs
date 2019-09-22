@@ -174,6 +174,7 @@
             this.Controls.Add(this.gMapControl1);
             this.ForeColor = System.Drawing.Color.White;
             this.Name = "Interfaz";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MIO Transport System";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.zoomBar)).EndInit();
