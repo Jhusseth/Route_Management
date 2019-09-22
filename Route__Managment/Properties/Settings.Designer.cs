@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Transport_System_MIO.Properties
+namespace Route__Managment.Properties
 {
 
 
