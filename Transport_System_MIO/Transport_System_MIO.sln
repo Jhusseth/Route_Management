@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.438
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Transport_System_MIO", "Transport_System_MIO\Transport_System_MIO.csproj", "{D18820C4-7A62-4650-9563-E1E9C52A367A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Route__Managment", "..\Route__Managment\Route__Managment.csproj", "{B88C5AB8-C823-4BEF-9AF3-7EC6F9B279AF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Modelo", "..\Modelo\Modelo.csproj", "{A41A1F54-2F5D-4AC8-B4B1-D6F022A13AA2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{D18820C4-7A62-4650-9563-E1E9C52A367A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D18820C4-7A62-4650-9563-E1E9C52A367A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D18820C4-7A62-4650-9563-E1E9C52A367A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D18820C4-7A62-4650-9563-E1E9C52A367A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B88C5AB8-C823-4BEF-9AF3-7EC6F9B279AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B88C5AB8-C823-4BEF-9AF3-7EC6F9B279AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B88C5AB8-C823-4BEF-9AF3-7EC6F9B279AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B88C5AB8-C823-4BEF-9AF3-7EC6F9B279AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A41A1F54-2F5D-4AC8-B4B1-D6F022A13AA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A41A1F54-2F5D-4AC8-B4B1-D6F022A13AA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A41A1F54-2F5D-4AC8-B4B1-D6F022A13AA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A41A1F54-2F5D-4AC8-B4B1-D6F022A13AA2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
