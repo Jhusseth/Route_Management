@@ -37,6 +37,7 @@ namespace Route__Managment
         {   
             //Esta parte se usó para crear elarchivo.dat que da la parsistencia 
             //a la HashTable que uso en la clase MetroCali.
+            //La documentación se encuentra en la carpeta bin
             /*
             int counter = 0;
             String line;
