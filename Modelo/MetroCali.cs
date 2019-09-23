@@ -15,6 +15,8 @@ namespace Modelo
 
         public Hashtable BusStops { get => busStops; set => busStops = value; }
 
+        
+
         public MetroCali()
         {
             BusStations = new Hashtable();
