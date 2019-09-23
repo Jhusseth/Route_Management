@@ -16,3 +16,12 @@ C:\Users\fsociety\source\repos\Jhusseth\Route__Managment\Modelo\obj\Debug\netsta
 C:\Users\fsociety\source\repos\Jhusseth\Route__Managment\Modelo\obj\Debug\netstandard2.0\Modelo.AssemblyInfo.cs
 C:\Users\fsociety\source\repos\Jhusseth\Route__Managment\Modelo\obj\Debug\netstandard2.0\Modelo.dll
 C:\Users\fsociety\source\repos\Jhusseth\Route__Managment\Modelo\obj\Debug\netstandard2.0\Modelo.pdb
+C:\Users\jeank\source\repos\Route_Manangment\Route_Management\Modelo\bin\Debug\netstandard2.0\Modelo.deps.json
+C:\Users\jeank\source\repos\Route_Manangment\Route_Management\Modelo\bin\Debug\netstandard2.0\Modelo.dll
+C:\Users\jeank\source\repos\Route_Manangment\Route_Management\Modelo\bin\Debug\netstandard2.0\Modelo.pdb
+C:\Users\jeank\source\repos\Route_Manangment\Route_Management\Modelo\obj\Debug\netstandard2.0\Modelo.csprojAssemblyReference.cache
+C:\Users\jeank\source\repos\Route_Manangment\Route_Management\Modelo\obj\Debug\netstandard2.0\Modelo.csproj.CoreCompileInputs.cache
+C:\Users\jeank\source\repos\Route_Manangment\Route_Management\Modelo\obj\Debug\netstandard2.0\Modelo.AssemblyInfoInputs.cache
+C:\Users\jeank\source\repos\Route_Manangment\Route_Management\Modelo\obj\Debug\netstandard2.0\Modelo.AssemblyInfo.cs
+C:\Users\jeank\source\repos\Route_Manangment\Route_Management\Modelo\obj\Debug\netstandard2.0\Modelo.dll
+C:\Users\jeank\source\repos\Route_Manangment\Route_Management\Modelo\obj\Debug\netstandard2.0\Modelo.pdb

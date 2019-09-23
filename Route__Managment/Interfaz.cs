@@ -80,7 +80,7 @@ namespace Route__Managment
                 //MessageBox.Show(b.Latitude1 + " " + b.Lenght);
                 showStops(b.Latitude1, b.Lenght, b.LongName);
             }
-            gMapControl1.Zoom = 12;
+            gMapControl1.Zoom = 13;
 
         }
 
