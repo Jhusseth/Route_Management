@@ -12,6 +12,7 @@ namespace Modelo
         private double Latitude;
         private double lenght;
 
+        //Documentación proyecto
         public BusStation(string stationId, string longName, double latitude, double lenght)
         {
             this.StationId = stationId;
