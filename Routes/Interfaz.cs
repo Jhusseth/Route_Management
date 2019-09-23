@@ -136,8 +136,7 @@ namespace Route__Managment
 
         public void clear()
         {
-            marker = null;
-            markerOverlay = null;
+            gMapControl1.Overlays.Add(markerOverlay);
         }
 
         private void button3_Click(object sender, EventArgs e)
