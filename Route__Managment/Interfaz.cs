@@ -70,6 +70,7 @@ namespace Route__Managment
 
             gMapControl1.Zoom = 12;                
         }
+        //Hola
 
         public void paintStops()
         {
