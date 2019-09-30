@@ -166,6 +166,7 @@ namespace Modelo
 
             StreamReader st = new StreamReader("Bus1.csv");
             String line = "";
+            st.ReadLine();
             while((line= st.ReadLine()) != null) {
                 String [] lines = st.ReadLine().Split(';');
                 double latitud = Convert.ToDouble(lines[4]);
@@ -181,6 +182,7 @@ namespace Modelo
 
             StreamReader st = new StreamReader("Bus1.csv");
             String line = "";
+            st.ReadLine();
             while ((line = st.ReadLine()) != null)
             {
                 String[] lines = st.ReadLine().Split(';');
