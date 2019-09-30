@@ -64,9 +64,10 @@ namespace Route__Managment
             {
                 
                 BusStation b = (BusStation)MetroCa.BusStations[de];
-                if (b.Latitude1 >= 3.4470 && b.Latitude1 <= 3.4498 && b.Lenght >= -76.512240 && b.Lenght <= -76.546208) ;
+                if ((b.Latitude1 >= 3.447095 && b.Latitude1 <= 3.449836) && (b.Lenght >= -76.512240 && b.Lenght <= -76.546208)&&
+                    (b.Latitude1>=0));
                 {
-                    MessageBox.Show("hola");
+                   // MessageBox.Show("hola");
                 }
                 showStations(b.Latitude1, b.Lenght, b.LongName);     
             }
@@ -80,7 +81,7 @@ namespace Route__Managment
                 BusStation b = (BusStation)MetroCa.BusStations[de];
                 if (ValidateSector1(b) == true)
                 {
-                    MessageBox.Show(b.Latitude1 + " " + b.Lenght);
+                   // MessageBox.Show(b.Latitude1 + " " + b.Lenght);
                     showStations(b.Latitude1, b.Lenght, b.LongName);
                 }
             }
@@ -112,7 +113,10 @@ namespace Route__Managment
         public void showStations(double lat, double len, String name)
         {
             PointLatLng point = new PointLatLng(lat, len);
-            marker = new GMarkerGoogle(point, GMarkerGoogleType.blue_dot);
+            Bitmap bmpMaker = (Bitmap)Image.FromFile("stationMarker.png");
+
+            marker = new GMarkerGoogle(point,bmpMaker);
+
             markerOverlay = new GMapOverlay("markers");
             markerOverlay.Markers.Add(marker);
             marker.ToolTipMode = MarkerTooltipMode.OnMouseOver;
@@ -123,7 +127,8 @@ namespace Route__Managment
         public void showStops(double lat, double len, String name)
         {
             PointLatLng point = new PointLatLng(lat, len);
-            marker = new GMarkerGoogle(point, GMarkerGoogleType.red_dot);
+            Bitmap bmpMaker = (Bitmap)Image.FromFile("marker.png");
+            marker = new GMarkerGoogle(point,bmpMaker);
             markerOverlay = new GMapOverlay("markersP");
             markerOverlay.Markers.Add(marker);
             marker.ToolTipMode = MarkerTooltipMode.OnMouseOver;
