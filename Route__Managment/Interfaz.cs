@@ -76,7 +76,10 @@ namespace Route__Managment
             paintSector3();
             paintSector4();
             paintSector5();
-            
+            paintSector6();
+            paintSector7();
+            paintSector8();
+
             gMapControl1.Zoom = 13;          
         }
 
