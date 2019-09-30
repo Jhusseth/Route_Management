@@ -123,7 +123,7 @@ namespace Route__Managment
         public void showStations(double lat, double len, String name)
         {
             PointLatLng point = new PointLatLng(lat, len);
-            Bitmap bmpMaker = (Bitmap)Image.FromFile("stationMarker.png");
+            Bitmap bmpMaker = (Bitmap)Image.FromFile("bus.png");
 
             marker = new GMarkerGoogle(point,bmpMaker);
 
