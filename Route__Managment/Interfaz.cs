@@ -217,8 +217,15 @@ namespace Route__Managment
 
         private void Simulate_Click(object sender, EventArgs e)
         {
+            List<Double> x = MetroCa.Bus1.Latitude;
+            List<Double> y = MetroCa.Bus1.Lenght;
+            Double[] x1 = x.ToArray();
+            Double[] x2 = y.ToArray();
+            for (int i = 0; i < x1.Length; i++)
+            {
 
-            
+            }
+
         }
 
         //ESTE METODO DESMARCA TODAS LAS OPCIONES EN CASO DE QUE SE SELECCIONE "Todos" en el check
