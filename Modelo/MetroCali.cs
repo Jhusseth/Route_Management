@@ -8,6 +8,7 @@ namespace Modelo
 {
     public class MetroCali
     {
+        int x = 0;
         private Hashtable busStations;
         private Hashtable busStops;
 
