@@ -1,0 +1,51 @@
+C:\Users\jeank\source\repos\Route__Managment\Modelo\bin\Debug\netstandard2.0\Modelo.deps.json
+C:\Users\jeank\source\repos\Route__Managment\Modelo\bin\Debug\netstandard2.0\Modelo.dll
+C:\Users\jeank\source\repos\Route__Managment\Modelo\bin\Debug\netstandard2.0\Modelo.pdb
+C:\Users\jeank\source\repos\Route__Managment\Modelo\obj\Debug\netstandard2.0\Modelo.csprojAssemblyReference.cache
+C:\Users\jeank\source\repos\Route__Managment\Modelo\obj\Debug\netstandard2.0\Modelo.csproj.CoreCompileInputs.cache
+C:\Users\jeank\source\repos\Route__Managment\Modelo\obj\Debug\netstandard2.0\Modelo.AssemblyInfoInputs.cache
+C:\Users\jeank\source\repos\Route__Managment\Modelo\obj\Debug\netstandard2.0\Modelo.AssemblyInfo.cs
+C:\Users\jeank\source\repos\Route__Managment\Modelo\obj\Debug\netstandard2.0\Modelo.dll
+C:\Users\jeank\source\repos\Route__Managment\Modelo\obj\Debug\netstandard2.0\Modelo.pdb
+C:\Users\fsociety\source\repos\Jhusseth\Route__Managment\Modelo\bin\Debug\netstandard2.0\Modelo.deps.json
+C:\Users\fsociety\source\repos\Jhusseth\Route__Managment\Modelo\bin\Debug\netstandard2.0\Modelo.dll
+C:\Users\fsociety\source\repos\Jhusseth\Route__Managment\Modelo\bin\Debug\netstandard2.0\Modelo.pdb
+C:\Users\fsociety\source\repos\Jhusseth\Route__Managment\Modelo\obj\Debug\netstandard2.0\Modelo.csprojAssemblyReference.cache
+C:\Users\fsociety\source\repos\Jhusseth\Route__Managment\Modelo\obj\Debug\netstandard2.0\Modelo.csproj.CoreCompileInputs.cache
+C:\Users\fsociety\source\repos\Jhusseth\Route__Managment\Modelo\obj\Debug\netstandard2.0\Modelo.AssemblyInfoInputs.cache
+C:\Users\fsociety\source\repos\Jhusseth\Route__Managment\Modelo\obj\Debug\netstandard2.0\Modelo.AssemblyInfo.cs
+C:\Users\fsociety\source\repos\Jhusseth\Route__Managment\Modelo\obj\Debug\netstandard2.0\Modelo.dll
+C:\Users\fsociety\source\repos\Jhusseth\Route__Managment\Modelo\obj\Debug\netstandard2.0\Modelo.pdb
+C:\Users\jeank\source\repos\Route_Manangment\Route_Management\Modelo\bin\Debug\netstandard2.0\Modelo.deps.json
+C:\Users\jeank\source\repos\Route_Manangment\Route_Management\Modelo\bin\Debug\netstandard2.0\Modelo.dll
+C:\Users\jeank\source\repos\Route_Manangment\Route_Management\Modelo\bin\Debug\netstandard2.0\Modelo.pdb
+C:\Users\jeank\source\repos\Route_Manangment\Route_Management\Modelo\obj\Debug\netstandard2.0\Modelo.csprojAssemblyReference.cache
+C:\Users\jeank\source\repos\Route_Manangment\Route_Management\Modelo\obj\Debug\netstandard2.0\Modelo.csproj.CoreCompileInputs.cache
+C:\Users\jeank\source\repos\Route_Manangment\Route_Management\Modelo\obj\Debug\netstandard2.0\Modelo.AssemblyInfoInputs.cache
+C:\Users\jeank\source\repos\Route_Manangment\Route_Management\Modelo\obj\Debug\netstandard2.0\Modelo.AssemblyInfo.cs
+C:\Users\jeank\source\repos\Route_Manangment\Route_Management\Modelo\obj\Debug\netstandard2.0\Modelo.dll
+C:\Users\jeank\source\repos\Route_Manangment\Route_Management\Modelo\obj\Debug\netstandard2.0\Modelo.pdb
+C:\Users\jeank\source\repos\Pi\Route_Management\Modelo\bin\Debug\netstandard2.0\Modelo.deps.json
+C:\Users\jeank\source\repos\Pi\Route_Management\Modelo\bin\Debug\netstandard2.0\Modelo.dll
+C:\Users\jeank\source\repos\Pi\Route_Management\Modelo\bin\Debug\netstandard2.0\Modelo.pdb
+C:\Users\jeank\source\repos\Pi\Route_Management\Modelo\obj\Debug\netstandard2.0\Modelo.csprojAssemblyReference.cache
+C:\Users\jeank\source\repos\Pi\Route_Management\Modelo\obj\Debug\netstandard2.0\Modelo.csproj.CoreCompileInputs.cache
+C:\Users\jeank\source\repos\Pi\Route_Management\Modelo\obj\Debug\netstandard2.0\Modelo.AssemblyInfoInputs.cache
+C:\Users\jeank\source\repos\Pi\Route_Management\Modelo\obj\Debug\netstandard2.0\Modelo.AssemblyInfo.cs
+C:\Users\jeank\source\repos\Pi\Route_Management\Modelo\obj\Debug\netstandard2.0\Modelo.dll
+C:\Users\jeank\source\repos\Pi\Route_Management\Modelo\obj\Debug\netstandard2.0\Modelo.pdb
+C:\Users\jeank\source\repos\Route_Management\Modelo\obj\Debug\netstandard2.0\Modelo.csprojAssemblyReference.cache
+C:\Users\jeank\source\repos\Route_Management\Modelo\obj\Debug\netstandard2.0\Modelo.csproj.CoreCompileInputs.cache
+C:\Users\jeank\source\repos\Route_Management\Modelo\obj\Debug\netstandard2.0\Modelo.AssemblyInfoInputs.cache
+C:\Users\jeank\source\repos\Route_Management\Modelo\obj\Debug\netstandard2.0\Modelo.AssemblyInfo.cs
+C:\Users\jeank\source\repos\Route_Management\Modelo\obj\Debug\netstandard2.0\Modelo.dll
+C:\Users\jeank\source\repos\Route_Management\Modelo\obj\Debug\netstandard2.0\Modelo.pdb
+D:\2019-2\Proyecto Integrador\Repost\Route_Management\Modelo\obj\Debug\netstandard2.0\Modelo.csprojAssemblyReference.cache
+D:\2019-2\Proyecto Integrador\Repost\Route_Management\Modelo\obj\Debug\netstandard2.0\Modelo.csproj.CoreCompileInputs.cache
+D:\2019-2\Proyecto Integrador\Repost\Route_Management\Modelo\obj\Debug\netstandard2.0\Modelo.AssemblyInfoInputs.cache
+D:\2019-2\Proyecto Integrador\Repost\Route_Management\Modelo\obj\Debug\netstandard2.0\Modelo.AssemblyInfo.cs
+D:\2019-2\Proyecto Integrador\Repost\Route_Management\Modelo\obj\Debug\netstandard2.0\Modelo.dll
+D:\2019-2\Proyecto Integrador\Repost\Route_Management\Modelo\obj\Debug\netstandard2.0\Modelo.pdb
+D:\2019-2\Proyecto Integrador\Repost\Route_Management\Modelo\bin\Debug\netstandard2.0\Modelo.deps.json
+D:\2019-2\Proyecto Integrador\Repost\Route_Management\Modelo\bin\Debug\netstandard2.0\Modelo.dll
+D:\2019-2\Proyecto Integrador\Repost\Route_Management\Modelo\bin\Debug\netstandard2.0\Modelo.pdb
