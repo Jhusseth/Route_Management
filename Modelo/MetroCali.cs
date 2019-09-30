@@ -91,7 +91,7 @@ namespace Modelo
             BusStops b = stops;
             if (BusStops[b.StopId] == null)
             {
-                BusStops.Add(stops.StopId, b);
+                BusStops.Add(stops.StopId, b); 
             }
             FileStream fs = new FileStream("DataFileP.dat", FileMode.Create);
 

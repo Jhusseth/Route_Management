@@ -208,7 +208,7 @@ namespace Route__Managment
             PointLatLng point = new PointLatLng(lat, len);
             Bitmap bmpMaker = (Bitmap)Image.FromFile("bus.png");
             marker = new GMarkerGoogle(point, bmpMaker);
-            markerOverlay = new GMapOverlay("markers");
+            markerOverlay = new GMapOverlay("markersB");
             markerOverlay.Markers.Add(marker);
             marker.ToolTipMode = MarkerTooltipMode.OnMouseOver;
             marker.ToolTipText = string.Format("E21");
