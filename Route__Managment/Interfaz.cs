@@ -58,28 +58,46 @@ namespace Route__Managment
         }
 
         public void paintStations()
-        {
-            MetroCa.deserializeS();
+        {          
+            gMapControl1.Zoom = 12;           
+            foreach (String de in MetroCa.BusStations.Keys)
+            {
+                
+                BusStation b = (BusStation)MetroCa.BusStations[de];
+                if (b.Latitude1 >= 3.4470 && b.Latitude1 <= 3.4498 && b.Lenght >= -76.512240 && b.Lenght <= -76.546208) ;
+                {
+                    MessageBox.Show("hola");
+                }
+                showStations(b.Latitude1, b.Lenght, b.LongName);     
+            }
+            
+            gMapControl1.Zoom = 13;          
+        }
+
+        public void paintStations1() {
             foreach (String de in MetroCa.BusStations.Keys)
             {
                 BusStation b = (BusStation)MetroCa.BusStations[de];
-                //MessageBox.Show(b.Latitude1 + " " + b.Lenght);
-                showStations(b.Latitude1, b.Lenght, b.LongName);
-
+                if (ValidateSector1(b) == true)
+                {
+                    MessageBox.Show(b.Latitude1 + " " + b.Lenght);
+                    showStations(b.Latitude1, b.Lenght, b.LongName);
+                }
             }
+        }
 
-            gMapControl1.Zoom = 12;
-            paintSector1();
-            paintSector2();
-            paintSector3();
-            paintSector8();
-            paintSector7();
-            paintSector4();
-            paintSector5();
+        public bool ValidateSector1(BusStation b) {
+            int x = 0;
+            bool validation = false;
+            if (b.Latitude1 <= 3.46&&b.Latitude1>=3.44&&b.Lenght>=-76.51&&b.Lenght<=-76.5894) {
+                validation = true;
+            }
+           
+            return validation;
         }
 
         public void paintStops()
-        {
+       {
             MetroCa.deserializeP();
             foreach (String de in MetroCa.BusStops.Keys)
             {
@@ -160,7 +178,6 @@ namespace Route__Managment
             if (markerOverlay != null) {
                 markerOverlay.Clear();
             }
-
             showStations(Initiallatitude, initialLength, ".");
             initialLength += 50;
         }
@@ -181,6 +198,7 @@ namespace Route__Managment
             
         }
 
+        //ESTE METODO DESMARCA TODAS LAS OPCIONES EN CASO DE QUE SE SELECCIONE "Todos" en el check
         private void AllSectors_CheckedChanged(object sender, EventArgs e)
         {
             if (AllSectors.Checked == true)
@@ -216,7 +234,12 @@ namespace Route__Managment
             }
         }
 
+
+        //PINTA LOS 8 SECTORES DE LA CIUDAD, SE DIVIDIERON 
+        //EN 8 METODOS PARA OBTENER UNA REFERENCIA POR CADA UNO
         public void paintSector1() {
+
+            markerOverlay = new GMapOverlay("Poligon");
             List<PointLatLng> points = new List<PointLatLng>();
             PointLatLng p1 = new PointLatLng(3.506029,-76.491583);
             PointLatLng p2 = new PointLatLng(3.467794, -76.512240);
@@ -233,6 +256,8 @@ namespace Route__Managment
             points.Add(p6);
             GMapPolygon poligonos = new GMapPolygon(points,"Poligono");
             markerOverlay.Polygons.Add(poligonos);
+      
+            gMapControl1.Overlays.Add(markerOverlay);
             gMapControl1.Zoom = 11;
             gMapControl1.Zoom = 13;
 
@@ -369,5 +394,46 @@ namespace Route__Managment
 
         }
 
+        public void paintSector6()
+        {
+            List<PointLatLng> points = new List<PointLatLng>();
+            PointLatLng p1 = new PointLatLng(3.41145, -76.51855);
+            PointLatLng p2 = new PointLatLng(3.37705, -76.50698);
+            PointLatLng p3 = new PointLatLng(3.31936, -76.51477);
+            PointLatLng p4 = new PointLatLng(3.32004, -76.5527);
+            PointLatLng p5 = new PointLatLng(3.36434, -76.56145);
+            PointLatLng p6 = new PointLatLng(3.37433, -76.54002);
+            PointLatLng p7 = new PointLatLng(3.40974, -76.5491);
+            
+
+            points.Add(p1);
+            points.Add(p2);
+            points.Add(p3);
+            points.Add(p4);
+            points.Add(p5);
+            points.Add(p6);
+            points.Add(p7);
+
+            GMapPolygon poligonos = new GMapPolygon(points, "Poligono");
+            markerOverlay.Polygons.Add(poligonos);
+            gMapControl1.Zoom = 11;
+            gMapControl1.Zoom = 13;
+
+        }
+
+        private void Sector1_CheckedChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void Sector2_CheckedChanged(object sender, EventArgs e)
+        {
+          
+        }
+
+        private void Sector3_CheckedChanged(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

@@ -205,6 +205,7 @@
             this.Sector1.TabIndex = 13;
             this.Sector1.Text = "1";
             this.Sector1.UseVisualStyleBackColor = true;
+            this.Sector1.CheckedChanged += new System.EventHandler(this.Sector1_CheckedChanged);
             // 
             // Sector2
             // 
@@ -216,6 +217,7 @@
             this.Sector2.TabIndex = 14;
             this.Sector2.Text = "2";
             this.Sector2.UseVisualStyleBackColor = true;
+            this.Sector2.CheckedChanged += new System.EventHandler(this.Sector2_CheckedChanged);
             // 
             // Sector3
             // 
@@ -227,6 +229,7 @@
             this.Sector3.TabIndex = 15;
             this.Sector3.Text = "3";
             this.Sector3.UseVisualStyleBackColor = true;
+            this.Sector3.CheckedChanged += new System.EventHandler(this.Sector3_CheckedChanged);
             // 
             // Sector4
             // 
