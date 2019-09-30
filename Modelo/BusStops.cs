@@ -7,6 +7,7 @@ namespace Modelo
     [Serializable]
     public class BusStops
     {
+        int x = 0;
         private String stopId;
         private String longName;
         private double Latitude;
