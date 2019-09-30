@@ -41,6 +41,16 @@
             this.label6 = new System.Windows.Forms.Label();
             this.Simulate = new System.Windows.Forms.Button();
             this.updateMap = new System.Windows.Forms.Timer(this.components);
+            this.label1 = new System.Windows.Forms.Label();
+            this.Sector1 = new System.Windows.Forms.CheckBox();
+            this.Sector2 = new System.Windows.Forms.CheckBox();
+            this.Sector3 = new System.Windows.Forms.CheckBox();
+            this.Sector4 = new System.Windows.Forms.CheckBox();
+            this.Sector5 = new System.Windows.Forms.CheckBox();
+            this.Sector6 = new System.Windows.Forms.CheckBox();
+            this.Sector7 = new System.Windows.Forms.CheckBox();
+            this.Sector8 = new System.Windows.Forms.CheckBox();
+            this.AllSectors = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.zoomBar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -163,7 +173,7 @@
             // 
             this.Simulate.BackColor = System.Drawing.Color.Cyan;
             this.Simulate.ForeColor = System.Drawing.Color.Black;
-            this.Simulate.Location = new System.Drawing.Point(243, 508);
+            this.Simulate.Location = new System.Drawing.Point(711, 508);
             this.Simulate.Name = "Simulate";
             this.Simulate.Size = new System.Drawing.Size(96, 37);
             this.Simulate.TabIndex = 11;
@@ -176,12 +186,131 @@
             this.updateMap.Interval = 1000;
             this.updateMap.Tick += new System.EventHandler(this.UpdateMap_Tick);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(127, 520);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(49, 13);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "Sectores";
+            // 
+            // Sector1
+            // 
+            this.Sector1.AutoSize = true;
+            this.Sector1.Location = new System.Drawing.Point(243, 516);
+            this.Sector1.Name = "Sector1";
+            this.Sector1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.Sector1.Size = new System.Drawing.Size(32, 17);
+            this.Sector1.TabIndex = 13;
+            this.Sector1.Text = "1";
+            this.Sector1.UseVisualStyleBackColor = true;
+            // 
+            // Sector2
+            // 
+            this.Sector2.AutoSize = true;
+            this.Sector2.Location = new System.Drawing.Point(281, 516);
+            this.Sector2.Name = "Sector2";
+            this.Sector2.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.Sector2.Size = new System.Drawing.Size(32, 17);
+            this.Sector2.TabIndex = 14;
+            this.Sector2.Text = "2";
+            this.Sector2.UseVisualStyleBackColor = true;
+            // 
+            // Sector3
+            // 
+            this.Sector3.AutoSize = true;
+            this.Sector3.Location = new System.Drawing.Point(319, 516);
+            this.Sector3.Name = "Sector3";
+            this.Sector3.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.Sector3.Size = new System.Drawing.Size(32, 17);
+            this.Sector3.TabIndex = 15;
+            this.Sector3.Text = "3";
+            this.Sector3.UseVisualStyleBackColor = true;
+            // 
+            // Sector4
+            // 
+            this.Sector4.AutoSize = true;
+            this.Sector4.Location = new System.Drawing.Point(357, 516);
+            this.Sector4.Name = "Sector4";
+            this.Sector4.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.Sector4.Size = new System.Drawing.Size(32, 17);
+            this.Sector4.TabIndex = 16;
+            this.Sector4.Text = "4";
+            this.Sector4.UseVisualStyleBackColor = true;
+            // 
+            // Sector5
+            // 
+            this.Sector5.AutoSize = true;
+            this.Sector5.Location = new System.Drawing.Point(395, 516);
+            this.Sector5.Name = "Sector5";
+            this.Sector5.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.Sector5.Size = new System.Drawing.Size(32, 17);
+            this.Sector5.TabIndex = 17;
+            this.Sector5.Text = "5";
+            this.Sector5.UseVisualStyleBackColor = true;
+            // 
+            // Sector6
+            // 
+            this.Sector6.AutoSize = true;
+            this.Sector6.Location = new System.Drawing.Point(433, 516);
+            this.Sector6.Name = "Sector6";
+            this.Sector6.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.Sector6.Size = new System.Drawing.Size(32, 17);
+            this.Sector6.TabIndex = 18;
+            this.Sector6.Text = "6";
+            this.Sector6.UseVisualStyleBackColor = true;
+            // 
+            // Sector7
+            // 
+            this.Sector7.AutoSize = true;
+            this.Sector7.Location = new System.Drawing.Point(471, 516);
+            this.Sector7.Name = "Sector7";
+            this.Sector7.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.Sector7.Size = new System.Drawing.Size(32, 17);
+            this.Sector7.TabIndex = 19;
+            this.Sector7.Text = "7";
+            this.Sector7.UseVisualStyleBackColor = true;
+            // 
+            // Sector8
+            // 
+            this.Sector8.AutoSize = true;
+            this.Sector8.Location = new System.Drawing.Point(509, 516);
+            this.Sector8.Name = "Sector8";
+            this.Sector8.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.Sector8.Size = new System.Drawing.Size(32, 17);
+            this.Sector8.TabIndex = 20;
+            this.Sector8.Text = "8";
+            this.Sector8.UseVisualStyleBackColor = true;
+            // 
+            // AllSectors
+            // 
+            this.AllSectors.AutoSize = true;
+            this.AllSectors.Location = new System.Drawing.Point(547, 516);
+            this.AllSectors.Name = "AllSectors";
+            this.AllSectors.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.AllSectors.Size = new System.Drawing.Size(56, 17);
+            this.AllSectors.TabIndex = 21;
+            this.AllSectors.Text = "Todos";
+            this.AllSectors.UseVisualStyleBackColor = true;
+            this.AllSectors.CheckedChanged += new System.EventHandler(this.AllSectors_CheckedChanged);
+            // 
             // Interfaz
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(859, 557);
+            this.Controls.Add(this.AllSectors);
+            this.Controls.Add(this.Sector8);
+            this.Controls.Add(this.Sector7);
+            this.Controls.Add(this.Sector6);
+            this.Controls.Add(this.Sector5);
+            this.Controls.Add(this.Sector4);
+            this.Controls.Add(this.Sector3);
+            this.Controls.Add(this.Sector2);
+            this.Controls.Add(this.Sector1);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.Simulate);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -217,6 +346,16 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button Simulate;
         private System.Windows.Forms.Timer updateMap;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.CheckBox Sector1;
+        private System.Windows.Forms.CheckBox Sector2;
+        private System.Windows.Forms.CheckBox Sector3;
+        private System.Windows.Forms.CheckBox Sector4;
+        private System.Windows.Forms.CheckBox Sector5;
+        private System.Windows.Forms.CheckBox Sector6;
+        private System.Windows.Forms.CheckBox Sector7;
+        private System.Windows.Forms.CheckBox Sector8;
+        private System.Windows.Forms.CheckBox AllSectors;
     }
 }
 
