@@ -5,7 +5,7 @@ using System.Threading;
 
 namespace Modelo
 {
-    class ThreadBus
+    public class ThreadBus
     {
         private String name;
         private int time;
@@ -18,12 +18,12 @@ namespace Modelo
 
         }
         //creamos un nuevo metodo
-        public void tasks1()
+        public void pause()
         {
-            Console.WriteLine(name + "Este hilo solo durara" + time + "segundos");
+            //Console.WriteLine(name + "Este hilo solo durara" + time + "segundos");
 
             Thread.Sleep(time * 1000); 
-            Console.WriteLine("Hilo terminado " + name);
+            //Console.WriteLine("Hilo terminado " + name);
 
         }
 

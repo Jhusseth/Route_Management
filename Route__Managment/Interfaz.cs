@@ -26,10 +26,12 @@ namespace Route__Managment
         double Initiallatitude = 3.42158;
         double initialLength = -76.5205;
         private MetroCali MetroCa;
+        private ThreadBus thread;
         public Interfaz()
         {
             InitializeComponent();
             MetroCa = new MetroCali();
+            thread = new ThreadBus("",0);
         }
 
         private void Button1_Click(object sender, EventArgs e)
@@ -188,7 +190,7 @@ namespace Route__Managment
 
         private void UpdateMap_Tick(object sender, EventArgs e)
         {
-           
+            
         }
 
         private void UpdateMap_Tick(object sender, FormClosingEventArgs e)
@@ -203,7 +205,13 @@ namespace Route__Managment
 
         private void Simulate_Click(object sender, EventArgs e)
         {
-            foreach i in MetroCa.Bus1.Latitude
+            List<Double> x = MetroCa.Bus1.Latitude;
+            List<Double> y = MetroCa.Bus1.Lenght;
+            Double[] x1 = x.ToArray();
+            Double[] x2 = y.ToArray();
+            for (int i = 0; i < x1.Length; i++) {
+
+            }
            
             
         }
