@@ -201,10 +201,20 @@ namespace Route__Managment
             
         }
 
+        public void paintBus(Double lat, Double len)
+        {   
+            PointLatLng point = new PointLatLng(lat, len);
+            Bitmap bmpMaker = (Bitmap)Image.FromFile("stationMarker.png");
+            marker = new GMarkerGoogle(point, bmpMaker);
+            markerOverlay = new GMapOverlay("markers");
+            markerOverlay.Markers.Add(marker);
+            marker.ToolTipMode = MarkerTooltipMode.OnMouseOver;
+            marker.ToolTipText = string.Format("E21");
+            gMapControl1.Overlays.Add(markerOverlay);
+        }
+
         private void Simulate_Click(object sender, EventArgs e)
         {
-            foreach i in MetroCa.Bus1.Latitude
-           
             
         }
 
