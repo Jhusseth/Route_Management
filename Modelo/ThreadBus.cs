@@ -22,7 +22,7 @@ namespace Modelo
         {
             //Console.WriteLine(name + "Este hilo solo durara" + time + "segundos");
 
-            Thread.Sleep(time * 1000); 
+            Thread.Sleep(500); 
             //Console.WriteLine("Hilo terminado " + name);
 
         }

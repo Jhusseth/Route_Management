@@ -208,7 +208,7 @@ namespace Route__Managment
             PointLatLng point = new PointLatLng(lat, len);
             Bitmap bmpMaker = (Bitmap)Image.FromFile("bus.png");
             marker = new GMarkerGoogle(point, bmpMaker);
-            markerOverlay = new GMapOverlay("markers");
+            markerOverlay = new GMapOverlay("markersV");
             markerOverlay.Markers.Add(marker);
             marker.ToolTipMode = MarkerTooltipMode.OnMouseOver;
             marker.ToolTipText = string.Format("E21");
@@ -224,9 +224,18 @@ namespace Route__Managment
             for (int i = 0; i < x1.Length; i++)
             {
                 //MessageBox.Show("" + x1[i]);
+                paintBus(x1[i], x2[i]);
+                gMapControl1.Zoom = 11;
+                gMapControl1.Zoom = 12;
+                thread.pause();
+                //MessageBox.Show(".");
+                gMapControl1.Overlays.Clear();
             }
 
+            MessageBox.Show("finalizó");
+
         }
+        int x;
 
         //ESTE METODO DESMARCA TODAS LAS OPCIONES EN CASO DE QUE SE SELECCIONE "Todos" en el check
         private void AllSectors_CheckedChanged(object sender, EventArgs e)
