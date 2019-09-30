@@ -223,9 +223,7 @@ namespace Route__Managment
             Double[] x2 = y.ToArray();
             for (int i = 0; i < x1.Length; i++)
             {
-                paintBus(x1[i], x2[i]);
-                thread.pause();
-                gMapControl1.Overlays.Clear();
+                //MessageBox.Show("" + x1[i]);
             }
 
         }
