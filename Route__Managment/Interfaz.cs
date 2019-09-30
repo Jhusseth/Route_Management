@@ -206,7 +206,7 @@ namespace Route__Managment
         public void paintBus(Double lat, Double len)
         {   
             PointLatLng point = new PointLatLng(lat, len);
-            Bitmap bmpMaker = (Bitmap)Image.FromFile("stationMarker.png");
+            Bitmap bmpMaker = (Bitmap)Image.FromFile("bus.png");
             marker = new GMarkerGoogle(point, bmpMaker);
             markerOverlay = new GMapOverlay("markers");
             markerOverlay.Markers.Add(marker);
