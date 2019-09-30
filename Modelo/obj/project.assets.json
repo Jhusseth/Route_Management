@@ -185,11 +185,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jeank\\source\\repos\\Pi\\Route_Management\\Modelo\\Modelo.csproj",
+      "projectUniqueName": "C:\\Users\\jeank\\source\\repos\\Route_Management\\Modelo\\Modelo.csproj",
       "projectName": "Modelo",
-      "projectPath": "C:\\Users\\jeank\\source\\repos\\Pi\\Route_Management\\Modelo\\Modelo.csproj",
+      "projectPath": "C:\\Users\\jeank\\source\\repos\\Route_Management\\Modelo\\Modelo.csproj",
       "packagesPath": "C:\\Users\\jeank\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jeank\\source\\repos\\Pi\\Route_Management\\Modelo\\obj\\",
+      "outputPath": "C:\\Users\\jeank\\source\\repos\\Route_Management\\Modelo\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
