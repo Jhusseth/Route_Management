@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Modelo
 {
-    class Bus
+   public  class Bus
     {
 
         private int idBus;

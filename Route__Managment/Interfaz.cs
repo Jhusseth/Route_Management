@@ -188,11 +188,7 @@ namespace Route__Managment
 
         private void UpdateMap_Tick(object sender, EventArgs e)
         {
-            if (markerOverlay != null) {
-                markerOverlay.Clear();
-            }
-            showStations(Initiallatitude, initialLength, ".");
-            initialLength += 50;
+           
         }
 
         private void UpdateMap_Tick(object sender, FormClosingEventArgs e)
@@ -207,7 +203,8 @@ namespace Route__Managment
 
         private void Simulate_Click(object sender, EventArgs e)
         {
-            updateMap.Enabled = true;
+            foreach i in MetroCa.Bus1.Latitude
+           
             
         }
 

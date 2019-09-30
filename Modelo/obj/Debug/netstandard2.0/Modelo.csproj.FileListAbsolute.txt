@@ -34,3 +34,9 @@ C:\Users\jeank\source\repos\Pi\Route_Management\Modelo\obj\Debug\netstandard2.0\
 C:\Users\jeank\source\repos\Pi\Route_Management\Modelo\obj\Debug\netstandard2.0\Modelo.AssemblyInfo.cs
 C:\Users\jeank\source\repos\Pi\Route_Management\Modelo\obj\Debug\netstandard2.0\Modelo.dll
 C:\Users\jeank\source\repos\Pi\Route_Management\Modelo\obj\Debug\netstandard2.0\Modelo.pdb
+C:\Users\jeank\source\repos\Route_Management\Modelo\obj\Debug\netstandard2.0\Modelo.csprojAssemblyReference.cache
+C:\Users\jeank\source\repos\Route_Management\Modelo\obj\Debug\netstandard2.0\Modelo.csproj.CoreCompileInputs.cache
+C:\Users\jeank\source\repos\Route_Management\Modelo\obj\Debug\netstandard2.0\Modelo.AssemblyInfoInputs.cache
+C:\Users\jeank\source\repos\Route_Management\Modelo\obj\Debug\netstandard2.0\Modelo.AssemblyInfo.cs
+C:\Users\jeank\source\repos\Route_Management\Modelo\obj\Debug\netstandard2.0\Modelo.dll
+C:\Users\jeank\source\repos\Route_Management\Modelo\obj\Debug\netstandard2.0\Modelo.pdb
