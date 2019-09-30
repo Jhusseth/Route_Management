@@ -203,16 +203,21 @@ namespace Route__Managment
             
         }
 
+        public void paintBus(Double lat, Double len)
+        {   
+            PointLatLng point = new PointLatLng(lat, len);
+            Bitmap bmpMaker = (Bitmap)Image.FromFile("stationMarker.png");
+            marker = new GMarkerGoogle(point, bmpMaker);
+            markerOverlay = new GMapOverlay("markers");
+            markerOverlay.Markers.Add(marker);
+            marker.ToolTipMode = MarkerTooltipMode.OnMouseOver;
+            marker.ToolTipText = string.Format("E21");
+            gMapControl1.Overlays.Add(markerOverlay);
+        }
+
         private void Simulate_Click(object sender, EventArgs e)
         {
-            List<Double> x = MetroCa.Bus1.Latitude;
-            List<Double> y = MetroCa.Bus1.Lenght;
-            Double[] x1 = x.ToArray();
-            Double[] x2 = y.ToArray();
-            for (int i = 0; i < x1.Length; i++) {
 
-            }
-           
             
         }
 
