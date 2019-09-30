@@ -40,3 +40,9 @@ C:\Users\jeank\source\repos\Route_Management\Modelo\obj\Debug\netstandard2.0\Mod
 C:\Users\jeank\source\repos\Route_Management\Modelo\obj\Debug\netstandard2.0\Modelo.AssemblyInfo.cs
 C:\Users\jeank\source\repos\Route_Management\Modelo\obj\Debug\netstandard2.0\Modelo.dll
 C:\Users\jeank\source\repos\Route_Management\Modelo\obj\Debug\netstandard2.0\Modelo.pdb
+D:\2019-2\Proyecto Integrador\Repost\Route_Management\Modelo\obj\Debug\netstandard2.0\Modelo.csprojAssemblyReference.cache
+D:\2019-2\Proyecto Integrador\Repost\Route_Management\Modelo\obj\Debug\netstandard2.0\Modelo.csproj.CoreCompileInputs.cache
+D:\2019-2\Proyecto Integrador\Repost\Route_Management\Modelo\obj\Debug\netstandard2.0\Modelo.AssemblyInfoInputs.cache
+D:\2019-2\Proyecto Integrador\Repost\Route_Management\Modelo\obj\Debug\netstandard2.0\Modelo.AssemblyInfo.cs
+D:\2019-2\Proyecto Integrador\Repost\Route_Management\Modelo\obj\Debug\netstandard2.0\Modelo.dll
+D:\2019-2\Proyecto Integrador\Repost\Route_Management\Modelo\obj\Debug\netstandard2.0\Modelo.pdb
