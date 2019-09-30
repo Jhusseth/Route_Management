@@ -39,6 +39,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.Simulate = new System.Windows.Forms.Button();
+            this.updateMap = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.zoomBar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -157,12 +159,30 @@
             this.label6.TabIndex = 10;
             this.label6.Text = "  ";
             // 
+            // Simulate
+            // 
+            this.Simulate.BackColor = System.Drawing.Color.Cyan;
+            this.Simulate.ForeColor = System.Drawing.Color.Black;
+            this.Simulate.Location = new System.Drawing.Point(243, 508);
+            this.Simulate.Name = "Simulate";
+            this.Simulate.Size = new System.Drawing.Size(96, 37);
+            this.Simulate.TabIndex = 11;
+            this.Simulate.Text = "Simular";
+            this.Simulate.UseVisualStyleBackColor = false;
+            this.Simulate.Click += new System.EventHandler(this.Simulate_Click);
+            // 
+            // updateMap
+            // 
+            this.updateMap.Interval = 1000;
+            this.updateMap.Tick += new System.EventHandler(this.UpdateMap_Tick);
+            // 
             // Interfaz
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(862, 494);
+            this.ClientSize = new System.Drawing.Size(859, 557);
+            this.Controls.Add(this.Simulate);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -175,7 +195,7 @@
             this.ForeColor = System.Drawing.Color.White;
             this.Name = "Interfaz";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "MIO Transport System";
+            this.Text = "<";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.zoomBar)).EndInit();
             this.ResumeLayout(false);
@@ -195,6 +215,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button Simulate;
+        private System.Windows.Forms.Timer updateMap;
     }
 }
 

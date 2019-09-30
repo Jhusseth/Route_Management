@@ -131,17 +131,47 @@ namespace Route__Managment
         {
             MetroCa.deserializeP();
             paintStops();
+            gMapControl1.Zoom = 12;
+            gMapControl1.Zoom = 13;
         }
 
 
         public void clear()
         {
-            gMapControl1.Overlays.Add(markerOverlay);
+            gMapControl1.Overlays.Clear();
+            gMapControl1.Zoom = 12;
+            gMapControl1.Zoom = 13;
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             clear();
+        }
+
+        private void UpdateMap_Tick(object sender, EventArgs e)
+        {
+            if (markerOverlay != null) {
+                markerOverlay.Clear();
+            }
+
+            showStations(Initiallatitude, initialLength, ".");
+            initialLength += 50;
+        }
+
+        private void UpdateMap_Tick(object sender, FormClosingEventArgs e)
+        {
+            MessageBox.Show("Hola");
+        }
+
+        private void Timer2_Tick(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void Simulate_Click(object sender, EventArgs e)
+        {
+            updateMap.Enabled = true;
+            
         }
     }
 }
