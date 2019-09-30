@@ -46,3 +46,6 @@ D:\2019-2\Proyecto Integrador\Repost\Route_Management\Modelo\obj\Debug\netstanda
 D:\2019-2\Proyecto Integrador\Repost\Route_Management\Modelo\obj\Debug\netstandard2.0\Modelo.AssemblyInfo.cs
 D:\2019-2\Proyecto Integrador\Repost\Route_Management\Modelo\obj\Debug\netstandard2.0\Modelo.dll
 D:\2019-2\Proyecto Integrador\Repost\Route_Management\Modelo\obj\Debug\netstandard2.0\Modelo.pdb
+D:\2019-2\Proyecto Integrador\Repost\Route_Management\Modelo\bin\Debug\netstandard2.0\Modelo.deps.json
+D:\2019-2\Proyecto Integrador\Repost\Route_Management\Modelo\bin\Debug\netstandard2.0\Modelo.dll
+D:\2019-2\Proyecto Integrador\Repost\Route_Management\Modelo\bin\Debug\netstandard2.0\Modelo.pdb
