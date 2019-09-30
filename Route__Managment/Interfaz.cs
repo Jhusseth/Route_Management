@@ -71,6 +71,11 @@ namespace Route__Managment
                 }
                 showStations(b.Latitude1, b.Lenght, b.LongName);     
             }
+            paintSector1();
+            paintSector2();
+            paintSector3();
+            paintSector4();
+            paintSector5();
             
             gMapControl1.Zoom = 13;          
         }
