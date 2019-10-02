@@ -70,7 +70,7 @@
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.Cyan;
+            this.button1.BackColor = System.Drawing.Color.DarkGray;
             this.button1.ForeColor = System.Drawing.Color.Black;
             this.button1.Location = new System.Drawing.Point(243, 454);
             this.button1.Name = "button1";
@@ -97,7 +97,7 @@
             // 
             // button2
             // 
-            this.button2.BackColor = System.Drawing.Color.Cyan;
+            this.button2.BackColor = System.Drawing.Color.DarkGray;
             this.button2.ForeColor = System.Drawing.Color.Black;
             this.button2.Location = new System.Drawing.Point(381, 454);
             this.button2.Name = "button2";
@@ -109,7 +109,7 @@
             // 
             // button3
             // 
-            this.button3.BackColor = System.Drawing.Color.Cyan;
+            this.button3.BackColor = System.Drawing.Color.DarkGray;
             this.button3.ForeColor = System.Drawing.Color.Black;
             this.button3.Location = new System.Drawing.Point(515, 454);
             this.button3.Name = "button3";
@@ -132,6 +132,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.Black;
             this.label4.Location = new System.Drawing.Point(31, 466);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(46, 13);
@@ -141,6 +142,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.Color.Black;
             this.label5.Location = new System.Drawing.Point(127, 466);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(59, 13);
@@ -161,7 +163,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Black;
+            this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(862, 494);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
