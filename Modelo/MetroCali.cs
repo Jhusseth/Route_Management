@@ -12,13 +12,12 @@ namespace Modelo
     {
         private Hashtable busStations;
         private Hashtable busStops;
-        private Bus bus1;
         private Hashtable lines;
 
         public Hashtable BusStations { get => busStations; set => busStations = value; }
 
         public Hashtable BusStops { get => busStops; set => busStops = value; }
-        public Bus Bus1 { get => bus1; set => bus1 = value; }
+        
         public Hashtable Lines { get => lines; set => lines = value; }
 
         public MetroCali()
@@ -134,19 +133,23 @@ namespace Modelo
             }
         }
 
-        public void serializeBus1(Bus bus) {
+        public void serializeL(Line lines)
+        {
             // To serialize the hashtable and its key/value pairs,  
             // you must first open a stream for writing. 
             // In this case, use a file stream.
-            Bus b = bus;
-            
-            FileStream fs = new FileStream("Bus1.dat", FileMode.Create);
+            Line l = lines;
+            if (BusStops[l.LineId] == null)
+            {
+                Lines.Add(lines.LineId, l);
+            }
+            FileStream fs = new FileStream("DataFileL.dat", FileMode.Create);
 
             // Construct a BinaryFormatter and use it to serialize the data to the stream.
             BinaryFormatter formatter = new BinaryFormatter();
             try
             {
-                formatter.Serialize(fs, BusStops);
+                formatter.Serialize(fs, Lines);
             }
             catch (SerializationException e)
             {
@@ -159,37 +162,50 @@ namespace Modelo
             }
         }
 
-        public List<Double> latitudeBus() {
+        public void deserializeL()
+        {
+            // Open the file containing the data that you want to deserialize.
+            FileStream fs = new FileStream("DataFileL.dat", FileMode.Open);
+            try
+            {
+                BinaryFormatter formatter = new BinaryFormatter();
 
-            List<Double> latitude = new List<Double>();
-
-            StreamReader st = new StreamReader("Bus1.csv");
-            String line = "";
-            st.ReadLine();
-            while((line= st.ReadLine()) != null) {
-                String [] lines = st.ReadLine().Split(';');
-                double latitud = Convert.ToDouble(lines[4]);
-                latitud = latitud / 10000000;
-                latitude.Add(latitud);
+                // Deserialize the hashtable from the file and 
+                // assign the reference to the local variable.
+                Lines = (Hashtable)formatter.Deserialize(fs);
             }
-            return latitude;
+            catch (SerializationException e)
+            {
+                Console.WriteLine("Failed to deserialize. Reason: " + e.Message);
+                throw;
+            }
+            finally
+            {
+                fs.Close();
+            }
         }
-        public List<Double> lenghtBus()
+
+
+        public void dataReading(String file)
+        {
+            StreamReader st = new StreamReader(file);
+            String lin = "";
+            st.ReadLine();
+            while ((lin = st.ReadLine()) != null)
+            {
+                String[] line = st.ReadLine().Split(';');
+                int idLine = Convert.ToInt32(line[0]);
+                string shortName = line[0];
+                Line l = new Line(idLine,shortName);
+
+                addLines(l);
+            }
+
+        }
+
+        public void dataSerealize()
         {
 
-            List<Double> lenght = new List<Double>();
-
-            StreamReader st = new StreamReader("Bus1.csv");
-            String line = "";
-            st.ReadLine();
-            while ((line = st.ReadLine()) != null)
-            {
-                String[] lines = st.ReadLine().Split(';');
-                double latitud = Convert.ToDouble(lines[5]);
-                latitud = latitud / 10000000;
-                lenght.Add(latitud);
-            }
-            return lenght;
         }
 
         public void addLines(Line line) {

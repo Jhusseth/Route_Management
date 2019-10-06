@@ -9,18 +9,20 @@ namespace Modelo
     {
 
         private int idBus;
-        private string plate;
+        private int busNumber;
+        private String identif;
         private List<Double> lenght;
         private List<Double> latitude;
         
 
    
-        public Bus(int idBus, string plate, List<Double> lenght, List<Double> latitude)
+        public Bus(int idBus,int busNumer, String identif, List<Double> lenght, List<Double> latitude)
         {
             this.IdBus = idBus;
-            this.plate = plate;
+            this.Identif = identif;
             this.Lenght = lenght;
-            this.Latitude = latitude;           
+            this.Latitude = latitude;
+            this.BusNumber = busNumber;
 
         }
 
@@ -33,9 +35,11 @@ namespace Modelo
         {
             lenght.Add(l);
         }
-        public int IdBus { get => idBus; set => idBus = value; }       
+        public int IdBus { get => idBus; set => idBus = value; }
 
-        public string plate1 { get => plate; set => plate = value; }
+        public int BusNumber { get => busNumber; set => busNumber = value; }
+
+        public String Identif { get => identif; set => identif = value; }
         public List<Double> Lenght { get => lenght; set => lenght = value; }
         public List<Double> Latitude { get => latitude; set => latitude = value; }
     }
