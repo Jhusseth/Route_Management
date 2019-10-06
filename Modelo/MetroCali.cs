@@ -7,26 +7,25 @@ using System.Collections.Generic;
 
 namespace Modelo
 {
+    [Serializable]
     public class MetroCali
     {
         private Hashtable busStations;
         private Hashtable busStops;
         private Bus bus1;
-        
+        private Hashtable lines;
 
         public Hashtable BusStations { get => busStations; set => busStations = value; }
 
         public Hashtable BusStops { get => busStops; set => busStops = value; }
         public Bus Bus1 { get => bus1; set => bus1 = value; }
+        public Hashtable Lines { get => lines; set => lines = value; }
 
         public MetroCali()
         {
             BusStations = new Hashtable();
             BusStops = new Hashtable();
-            List<Double> x=latitudeBus();
-            List<Double> y = lenghtBus();
-            Bus1 = new Bus(1, 525, y, x);
-
+            Lines = new Hashtable();
         }
 
         public void serializeS(BusStation station)
@@ -191,6 +190,10 @@ namespace Modelo
                 lenght.Add(latitud);
             }
             return lenght;
+        }
+
+        public void addLines(Line line) {
+            Lines.Add(line.LineId, line);
         }
     }  
 

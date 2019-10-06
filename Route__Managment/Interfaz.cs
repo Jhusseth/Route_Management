@@ -5,6 +5,8 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -30,8 +32,12 @@ namespace Route__Managment
         public Interfaz()
         {
             InitializeComponent();
-            MetroCa = new MetroCali();
+            MetroCa = deserializeMainClass();
             thread = new ThreadBus("",0);
+            //addLines();
+            //serializeMainClass();
+            //MetroCa.Lines.Clear();
+            MessageBox.Show(""+MetroCa.Lines.ContainsKey("131"));
         }
 
         private void Button1_Click(object sender, EventArgs e)
@@ -58,6 +64,8 @@ namespace Route__Managment
             //MessageBox.Show(""+ b.LongName);
             paintStations();
         }
+
+        public void serializeClassPrincipal() { }
 
         public void paintStations()
         {          
@@ -462,6 +470,75 @@ namespace Route__Managment
             gMapControl1.Zoom = 11;
             gMapControl1.Zoom = 13;
 
+        }
+
+        public void serializeMainClass() {
+            // To serialize the hashtable and its key/value pairs,  
+            // you must first open a stream for writing. 
+            // In this case, use a file stream.
+           
+            FileStream fs = new FileStream("MetroCali.dat", FileMode.Create);
+            MessageBox.Show("compiló");
+
+
+            // Construct a BinaryFormatter and use it to serialize the data to the stream.
+            BinaryFormatter formatter = new BinaryFormatter();
+            try
+            {
+                formatter.Serialize(fs, MetroCa);
+            }
+            catch (SerializationException e)
+            {
+                Console.WriteLine("Failed to serialize. Reason: " + e.Message);
+                throw;
+            }
+            finally
+            {
+                fs.Close();
+            }
+        }
+
+        public MetroCali deserializeMainClass() {
+            // Open the file containing the data that you want to deserialize.
+            MetroCali me = new MetroCali();
+            FileStream fs = new FileStream("MetroCali.dat", FileMode.Open);
+            try
+            {
+                BinaryFormatter formatter = new BinaryFormatter();
+
+                // Deserialize the hashtable from the file and 
+                // assign the reference to the local variable.
+                me = (MetroCali)formatter.Deserialize(fs);
+            }
+            catch (SerializationException e)
+            {
+                Console.WriteLine("Failed to deserialize. Reason: " + e.Message);
+                throw;
+            }
+            finally
+            {
+                fs.Close();
+            }
+            return me;
+        }
+
+        public void addLines() {
+            StreamReader st = new StreamReader("lines.csv");
+            st.ReadLine();
+            String line;
+            while ((line = st.ReadLine()) != null) {
+                String[] temporalLine = line.Split(';');
+                String lineId = temporalLine[0];
+                String shortName = temporalLine[2];
+                if (MetroCa.Lines.ContainsKey(lineId)== true) {
+                    MessageBox.Show("No entró");
+                }
+                else { 
+                Line l = new Line(lineId, shortName);
+                MetroCa.addLines(l);
+                }
+            }
+            serializeMainClass();
         }
 
         private void Sector1_CheckedChanged(object sender, EventArgs e)

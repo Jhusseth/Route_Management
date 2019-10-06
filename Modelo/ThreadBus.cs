@@ -4,7 +4,8 @@ using System.Text;
 using System.Threading;
 
 namespace Modelo
-{
+{   
+    [Serializable]
     public class ThreadBus
     {
         private String name;
