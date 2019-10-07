@@ -9,7 +9,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 using System.Windows.Forms;
 using GMap.NET;
 using GMap.NET.MapProviders;
@@ -34,7 +34,6 @@ namespace Route__Managment
         {
             InitializeComponent();
             MetroCa = new MetroCali();
-            thread = new ThreadLine(this,1);
             //addLines();
             //serializeMainClass();
             //MetroCa.Lines.Clear();
@@ -260,7 +259,7 @@ namespace Route__Managment
             //}
 
             //MessageBox.Show("finalizó");
-
+            thread = new ThreadLine(this, 1);
             MetroCa.dataSerealize();
             list();
             thread.tasks1();
@@ -521,6 +520,7 @@ namespace Route__Managment
             
         }
 
+
         private void Sector2_CheckedChanged(object sender, EventArgs e)
         {
           
@@ -537,17 +537,38 @@ namespace Route__Managment
 
             foreach (Line v in MetroCa.Lines)
             {
-                //if (v.ShortName.Equals("T31"))
-                //{
-                    // foreach (int bu in v.Buses.Keys)
-                    //{
-                    //  v.busLine(bu);
-                    //Bus bus = (Bus) v.Buses[bu];
+                if (v.ShortName.Equals("T47B"))
+                {
 
-                    //paintList(v.latitudeBus(v.LineId), v.lenghtBus(v.LineId), v);
+                    //foreach (int bu in v.Buses.Keys)
+
+                    //{
+                    // v.busLine(bu);
+
+
+                    // Bus bus = (Bus)v.Buses[bu];
+
+
+                    // MessageBox.Show("" + bus.IdBus);
+
+
+                    // List<Double> lat = v.latitudeBus(bus.IdBus);
+
+                    // List<Double> len = v.lenghtBus(bus.IdBus);
+                    // paintList(lat, len, v);                 
+                    //}
+                    // }
+
+                    gMapControl1.Refresh();
+                    paintList(v.latitudeBus(v.LineId), v.lenghtBus(v.LineId), v);
                     List<Double> lat = MetroCa.latitudeLine(v.LineId);
                     List<Double> len = MetroCa.lenghtLine(v.LineId);
                     paintList(lat, len, v);
+                    this.Refresh();
+                    
+
+
+
                     //}
 
 
@@ -558,7 +579,7 @@ namespace Route__Managment
                     //     Bus bus = (Bus) b[bu];
                     //     paintList(bus.Latitude, bus.Lenght, v);
                     // }
-                //}
+                }
             }
         }
 
@@ -573,15 +594,10 @@ namespace Route__Managment
                 paintBus(x1[i],x2[i],l);
                 gMapControl1.Zoom = 11;
                 gMapControl1.Zoom = 12;
-               // thread.pause();
-                gMapControl1.Refresh();
-               // gMapControl1.Overlays.Clear();
+                //thread.pause();
+                gMapControl1.Overlays.Clear();
                 i++;
             }
-
-            //MessageBox.Show("linea: " + l.ShortName + " pintada");
-
-
         }
         private void listBox_SelectedIndexChanged(object sender, EventArgs e)
         {

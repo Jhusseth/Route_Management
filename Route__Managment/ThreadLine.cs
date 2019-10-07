@@ -33,7 +33,7 @@ namespace Modelo
         public void tasks1()
         {
             main.readingList();
-            Thread.Sleep(time * 800);
+            Thread.Sleep(time * 1000);
             main.Refresh();
         }
     }
