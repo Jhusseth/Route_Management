@@ -23,7 +23,6 @@ namespace Modelo
             this.Lenght = lenght;
             this.Latitude = latitude;
             this.BusNumber = busNumber;
-
         }
 
         public void addLenght(double l)

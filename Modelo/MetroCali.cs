@@ -225,9 +225,9 @@ namespace Modelo
                 String[] lines = lin.Split(';');
                 if (lineId == Convert.ToInt32(lines[7]))
                 {
-                    double latitud = Convert.ToDouble(lines[5]);
-                    latitud = latitud / 10000000;
-                    lenght.Add(latitud);
+                    double lent = Convert.ToDouble(lines[5]);
+                    lent = lent / 10000000;
+                    lenght.Add(lent);
                 }
 
             }

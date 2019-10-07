@@ -25,6 +25,27 @@ namespace Route__Managment
         GMarkerGoogle marker;
         GMapOverlay markerOverlay;
 
+        GMapOverlay markerOverlay1;
+        GMapOverlay markerOverlay2;
+        GMapOverlay markerOverlay3;
+        GMapOverlay markerOverlay4;
+        GMapOverlay markerOverlay5;
+        GMapOverlay markerOverlay6;
+        GMapOverlay markerOverlay7;
+        GMapOverlay markerOverlay8;
+
+
+        GMapPolygon poligonos1;
+        GMapPolygon poligonos2;
+        GMapPolygon poligonos3;
+        GMapPolygon poligonos4;
+        GMapPolygon poligonos5;
+        GMapPolygon poligonos6;
+        GMapPolygon poligonos7;
+        GMapPolygon poligonos8;
+
+
+
 
         double Initiallatitude = 3.42158;
         double initialLength = -76.5205;
@@ -265,7 +286,16 @@ namespace Route__Managment
                 Sector6.Checked = false;
                 Sector7.Checked = false;
                 Sector8.Checked = false;
-               
+
+                Sector1.Checked = true;
+                Sector2.Checked = true;
+                Sector3.Checked = true;
+                Sector4.Checked = true;
+                Sector5.Checked = true;
+                Sector6.Checked = true;
+                Sector7.Checked = true;
+                Sector8.Checked = true;
+
             }
             else {
                 Sector1.Enabled = true;
@@ -276,203 +306,275 @@ namespace Route__Managment
                 Sector6.Enabled = true;
                 Sector7.Enabled = true;
                 Sector8.Enabled = true;
-                
+
+                Sector1.Checked = false;
+                Sector2.Checked = false;
+                Sector3.Checked = false;
+                Sector4.Checked = false;
+                Sector5.Checked = false;
+                Sector6.Checked = false;
+                Sector7.Checked = false;
+                Sector8.Checked = false;
+
             }
 
-            paintSector1();
-            paintSector2();
-            paintSector3();
-            paintSector4();
-            paintSector5();
-            paintSector6();
-            paintSector7();
-            paintSector8();
+           
+
+
         }
 
 
         //PINTA LOS 8 SECTORES DE LA CIUDAD, SE DIVIDIERON 
         //EN 8 METODOS PARA OBTENER UNA REFERENCIA POR CADA UNO
         public void paintSector1() {
+            if (Sector1.Checked == true)
+            {
+                markerOverlay1 = new GMapOverlay("Poligon");
+                List<PointLatLng> points = new List<PointLatLng>();
+                PointLatLng p1 = new PointLatLng(3.506029, -76.491583);
+                PointLatLng p2 = new PointLatLng(3.467794, -76.512240);
+                PointLatLng p3 = new PointLatLng(3.447095, -76.546208);
+                PointLatLng p4 = new PointLatLng(3.449836, -76.579166);
+                PointLatLng p5 = new PointLatLng(3.465260, -76.589468);
+                PointLatLng p6 = new PointLatLng(3.464230, -76.559254);
 
-            markerOverlay = new GMapOverlay("Poligon");
-            List<PointLatLng> points = new List<PointLatLng>();
-            PointLatLng p1 = new PointLatLng(3.506029,-76.491583);
-            PointLatLng p2 = new PointLatLng(3.467794, -76.512240);
-            PointLatLng p3 = new PointLatLng(3.447095, -76.546208);
-            PointLatLng p4 = new PointLatLng(3.449836, -76.579166);
-            PointLatLng p5 = new PointLatLng(3.465260, -76.589468);
-            PointLatLng p6 = new PointLatLng(3.464230, -76.559254);
-            //PointLatLng p7 = new PointLatLng(3.464230, -76.559254);
-            points.Add(p1);
-            points.Add(p2);
-            points.Add(p3);
-            points.Add(p4);
-            points.Add(p5);
-            points.Add(p6);
-            GMapPolygon poligonos = new GMapPolygon(points,"Poligono");
-            markerOverlay.Polygons.Add(poligonos);
-      
-            gMapControl1.Overlays.Add(markerOverlay);
-            gMapControl1.Zoom = 11;
-            gMapControl1.Zoom = 13;
+                points.Add(p1);
+                points.Add(p2);
+                points.Add(p3);
+                points.Add(p4);
+                points.Add(p5);
+                points.Add(p6);
+
+                poligonos1 = new GMapPolygon(points, "Poligono");
+                markerOverlay1.Polygons.Add(poligonos1);
+
+                gMapControl1.Overlays.Add(markerOverlay1);
+                gMapControl1.Zoom = 11;
+                gMapControl1.Zoom = 11.2;
+            }
+            else
+            {
+                markerOverlay1.Clear();
+            }
 
         }
         public void paintSector2()
         {
-            List<PointLatLng> points = new List<PointLatLng>();
-            PointLatLng p1 = new PointLatLng(3.506029, -76.491583);
-            PointLatLng p2 = new PointLatLng(3.467794, -76.512240);
-            PointLatLng p3 = new PointLatLng(3.465259, -76.473766);
-            PointLatLng p4 = new PointLatLng(3.440926, -76.475141);
-            PointLatLng p5 = new PointLatLng(3.448809, -76.514622);
-            
-            //PointLatLng p7 = new PointLatLng(3.464230, -76.559254);
-            points.Add(p2);
-            points.Add(p1);
-            points.Add(p3);
-            points.Add(p4);
-            points.Add(p5);          
-            GMapPolygon poligonos = new GMapPolygon(points, "Poligono");
-            markerOverlay.Polygons.Add(poligonos);
-            gMapControl1.Zoom = 11;
-            gMapControl1.Zoom = 13;
+            if (Sector2.Checked == true)
+            {
+                markerOverlay2 = new GMapOverlay("Poligon");
+                List<PointLatLng> points = new List<PointLatLng>();
+                PointLatLng p1 = new PointLatLng(3.506029, -76.491583);
+                PointLatLng p2 = new PointLatLng(3.467794, -76.512240);
+                PointLatLng p3 = new PointLatLng(3.465259, -76.473766);
+                PointLatLng p4 = new PointLatLng(3.440926, -76.475141);
+                PointLatLng p5 = new PointLatLng(3.448809, -76.514622);
+
+                
+                points.Add(p2);
+                points.Add(p1);
+                points.Add(p3);
+                points.Add(p4);
+                points.Add(p5);
+                poligonos2 = new GMapPolygon(points, "Poligono");
+                markerOverlay2.Polygons.Add(poligonos2);
+                gMapControl1.Overlays.Add(markerOverlay2);
+                gMapControl1.Zoom = 11;
+                gMapControl1.Zoom = 11.2;
+            }
+            else
+            {
+                markerOverlay2.Clear();
+            }
 
         }
 
         public void paintSector3()
         {
-            List<PointLatLng> points = new List<PointLatLng>();
-            PointLatLng p1 = new PointLatLng(3.448809, -76.514622);
-            PointLatLng p2 = new PointLatLng(3.41145, -76.51855);
-            PointLatLng p3 = new PointLatLng(3.42927, -76.49795);
-            PointLatLng p4 = new PointLatLng(3.44344, -76.49409);
-            points.Add(p1);
-            points.Add(p2);
-            points.Add(p3);
-            points.Add(p4);
+            if (Sector3.Checked == true)
+            {
+                markerOverlay3 = new GMapOverlay("Poligon");
+                List<PointLatLng> points = new List<PointLatLng>();
+                PointLatLng p1 = new PointLatLng(3.448809, -76.514622);
+                PointLatLng p2 = new PointLatLng(3.41145, -76.51855);
+                PointLatLng p3 = new PointLatLng(3.42927, -76.49795);
+                PointLatLng p4 = new PointLatLng(3.44344, -76.49409);
+                points.Add(p1);
+                points.Add(p2);
+                points.Add(p3);
+                points.Add(p4);
 
-            GMapPolygon poligonos = new GMapPolygon(points, "Poligono");
-            markerOverlay.Polygons.Add(poligonos);
-            gMapControl1.Zoom = 11;
-            gMapControl1.Zoom = 13;
+                poligonos3 = new GMapPolygon(points, "Poligono");
+                markerOverlay3.Polygons.Add(poligonos3);
+                gMapControl1.Overlays.Add(markerOverlay3);
+                gMapControl1.Zoom = 11;
+                gMapControl1.Zoom = 11.2;
+            }
+            else
+            {
+                markerOverlay3.Clear();
+            }
 
         }
 
         public void paintSector8()
         {
-            List<PointLatLng> points = new List<PointLatLng>();
-            PointLatLng p1 = new PointLatLng(3.467794, -76.512240);
-            PointLatLng p2 = new PointLatLng(3.41145, -76.51855);
-            PointLatLng p3 = new PointLatLng(3.40974, -76.5491);
-            PointLatLng p4 = new PointLatLng(3.447095, -76.546208);
-            points.Add(p1);
-            points.Add(p2);
-            points.Add(p3);
-            points.Add(p4);
+            if (Sector8.Checked == true)
+            {
+                markerOverlay8 = new GMapOverlay("Poligon");
+                List<PointLatLng> points = new List<PointLatLng>();
+                PointLatLng p1 = new PointLatLng(3.467794, -76.512240);
+                PointLatLng p2 = new PointLatLng(3.41145, -76.51855);
+                PointLatLng p3 = new PointLatLng(3.40974, -76.5491);
+                PointLatLng p4 = new PointLatLng(3.447095, -76.546208);
+                points.Add(p1);
+                points.Add(p2);
+                points.Add(p3);
+                points.Add(p4);
 
-            GMapPolygon poligonos = new GMapPolygon(points, "Poligono");
-            markerOverlay.Polygons.Add(poligonos);
-            gMapControl1.Zoom = 11;
-            gMapControl1.Zoom = 13;
+                poligonos8 = new GMapPolygon(points, "Poligono");
+                markerOverlay8.Polygons.Add(poligonos8);
+                gMapControl1.Overlays.Add(markerOverlay8);
+                gMapControl1.Zoom = 11;
+                gMapControl1.Zoom = 11.2;
+            }
+            else
+            {
+                markerOverlay8.Clear();
+            }
 
         }
 
         public void paintSector7()
         {
-            List<PointLatLng> points = new List<PointLatLng>();
-            PointLatLng p1 = new PointLatLng(3.40974, -76.5491);
-            PointLatLng p2 = new PointLatLng(3.37433, -76.54002);
-            PointLatLng p3 = new PointLatLng(3.36434, -76.56145);
-            PointLatLng p4 = new PointLatLng(3.449836, -76.579166);
-            PointLatLng p5 = new PointLatLng(3.447095, -76.546208);
+            if (Sector7.Checked == true)
+            {
+                markerOverlay7 = new GMapOverlay("Poligon");
+                List<PointLatLng> points = new List<PointLatLng>();
+                PointLatLng p1 = new PointLatLng(3.40974, -76.5491);
+                PointLatLng p2 = new PointLatLng(3.37433, -76.54002);
+                PointLatLng p3 = new PointLatLng(3.36434, -76.56145);
+                PointLatLng p4 = new PointLatLng(3.449836, -76.579166);
+                PointLatLng p5 = new PointLatLng(3.447095, -76.546208);
 
-            points.Add(p1);
-            points.Add(p2);
-            points.Add(p3);
-            points.Add(p4);
-            points.Add(p5);
+                points.Add(p1);
+                points.Add(p2);
+                points.Add(p3);
+                points.Add(p4);
+                points.Add(p5);
 
-            GMapPolygon poligonos = new GMapPolygon(points, "Poligono");
-            markerOverlay.Polygons.Add(poligonos);
-            gMapControl1.Zoom = 11;
-            gMapControl1.Zoom = 13;
+                poligonos7 = new GMapPolygon(points, "Poligono");
+                markerOverlay7.Polygons.Add(poligonos7);
+                gMapControl1.Overlays.Add(markerOverlay7);
+                gMapControl1.Zoom = 11;
+                gMapControl1.Zoom = 11.2;
+            }
+            else
+            {
+                markerOverlay7.Clear();
+            }
 
         }
 
         public void paintSector4()
         {
-            List<PointLatLng> points = new List<PointLatLng>();
-            PointLatLng p1 = new PointLatLng(3.440926, -76.475141);
-            PointLatLng p2 = new PointLatLng(3.437, -76.45301);
-            PointLatLng p3 = new PointLatLng(3.39519, -76.46777);
-            PointLatLng p4 = new PointLatLng(3.40958, -76.4894);
-            PointLatLng p5 = new PointLatLng(3.42927, -76.49795);
-            PointLatLng p6 = new PointLatLng(3.44344, -76.49409);
+            if (Sector4.Checked == true)
+            {
+                markerOverlay4 = new GMapOverlay("Poligon");
+                List<PointLatLng> points = new List<PointLatLng>();
+                PointLatLng p1 = new PointLatLng(3.440926, -76.475141);
+                PointLatLng p2 = new PointLatLng(3.437, -76.45301);
+                PointLatLng p3 = new PointLatLng(3.39519, -76.46777);
+                PointLatLng p4 = new PointLatLng(3.40958, -76.4894);
+                PointLatLng p5 = new PointLatLng(3.42927, -76.49795);
+                PointLatLng p6 = new PointLatLng(3.44344, -76.49409);
 
 
-            points.Add(p1);
-            points.Add(p2);
-            points.Add(p3);
-            points.Add(p4);
-            points.Add(p5);
-            points.Add(p6);
+                points.Add(p1);
+                points.Add(p2);
+                points.Add(p3);
+                points.Add(p4);
+                points.Add(p5);
+                points.Add(p6);
 
-            GMapPolygon poligonos = new GMapPolygon(points, "Poligono");
-            markerOverlay.Polygons.Add(poligonos);
-            gMapControl1.Zoom = 11;
-            gMapControl1.Zoom = 13;
+                poligonos4 = new GMapPolygon(points, "Poligono");
+                markerOverlay4.Polygons.Add(poligonos4);
+                gMapControl1.Overlays.Add(markerOverlay4);
+                gMapControl1.Zoom = 11;
+                gMapControl1.Zoom = 11.2;
+            }
+            else
+            {
+                markerOverlay4.Clear();
+            }
 
         }
 
         public void paintSector5()
         {
-            List<PointLatLng> points = new List<PointLatLng>();
-            PointLatLng p1 = new PointLatLng(3.42927, -76.49795);
-            PointLatLng p2 = new PointLatLng(3.40958, -76.4894);
-            PointLatLng p3 = new PointLatLng(3.39519, -76.46777);
-            PointLatLng p4 = new PointLatLng(3.37705, -76.50698);
-            PointLatLng p5 = new PointLatLng(3.41145, -76.51855);
-            //PointLatLng p6 = new PointLatLng(3.44344, -76.49409);
+            if (Sector5.Checked == true)
+            {
+                markerOverlay5 = new GMapOverlay("Poligon");
+                List<PointLatLng> points = new List<PointLatLng>();
+                PointLatLng p1 = new PointLatLng(3.42927, -76.49795);
+                PointLatLng p2 = new PointLatLng(3.40958, -76.4894);
+                PointLatLng p3 = new PointLatLng(3.39519, -76.46777);
+                PointLatLng p4 = new PointLatLng(3.37705, -76.50698);
+                PointLatLng p5 = new PointLatLng(3.41145, -76.51855);
 
 
-            points.Add(p1);
-            points.Add(p2);
-            points.Add(p3);
-            points.Add(p4);
-            points.Add(p5);
-           // points.Add(p6);
+                points.Add(p1);
+                points.Add(p2);
+                points.Add(p3);
+                points.Add(p4);
+                points.Add(p5);
 
-            GMapPolygon poligonos = new GMapPolygon(points, "Poligono");
-            markerOverlay.Polygons.Add(poligonos);
-            gMapControl1.Zoom = 11;
-            gMapControl1.Zoom = 13;
+                poligonos5 = new GMapPolygon(points, "Poligono");
+                markerOverlay5.Polygons.Add(poligonos5);
+                gMapControl1.Overlays.Add(markerOverlay5);
+                gMapControl1.Zoom = 11;
+                gMapControl1.Zoom = 11.2;
+            }
+            else
+            {
+                markerOverlay5.Clear();
+            }
 
         }
 
         public void paintSector6()
         {
-            List<PointLatLng> points = new List<PointLatLng>();
-            PointLatLng p1 = new PointLatLng(3.41145, -76.51855);
-            PointLatLng p2 = new PointLatLng(3.37705, -76.50698);
-            PointLatLng p3 = new PointLatLng(3.31936, -76.51477);
-            PointLatLng p4 = new PointLatLng(3.32004, -76.5527);
-            PointLatLng p5 = new PointLatLng(3.36434, -76.56145);
-            PointLatLng p6 = new PointLatLng(3.37433, -76.54002);
-            PointLatLng p7 = new PointLatLng(3.40974, -76.5491);
-            
+            if (Sector6.Checked == true)
+            {
+                markerOverlay6 = new GMapOverlay("Poligon");
+                List<PointLatLng> points = new List<PointLatLng>();
+                PointLatLng p1 = new PointLatLng(3.41145, -76.51855);
+                PointLatLng p2 = new PointLatLng(3.37705, -76.50698);
+                PointLatLng p3 = new PointLatLng(3.31936, -76.51477);
+                PointLatLng p4 = new PointLatLng(3.32004, -76.5527);
+                PointLatLng p5 = new PointLatLng(3.36434, -76.56145);
+                PointLatLng p6 = new PointLatLng(3.37433, -76.54002);
+                PointLatLng p7 = new PointLatLng(3.40974, -76.5491);
 
-            points.Add(p1);
-            points.Add(p2);
-            points.Add(p3);
-            points.Add(p4);
-            points.Add(p5);
-            points.Add(p6);
-            points.Add(p7);
 
-            GMapPolygon poligonos = new GMapPolygon(points, "Poligono");
-            markerOverlay.Polygons.Add(poligonos);
-            gMapControl1.Zoom = 11;
-            gMapControl1.Zoom = 13;
+                points.Add(p1);
+                points.Add(p2);
+                points.Add(p3);
+                points.Add(p4);
+                points.Add(p5);
+                points.Add(p6);
+                points.Add(p7);
+
+                poligonos6 = new GMapPolygon(points, "Poligono");
+                markerOverlay6.Polygons.Add(poligonos6);
+                gMapControl1.Overlays.Add(markerOverlay6);
+                gMapControl1.Zoom = 11;
+                gMapControl1.Zoom = 11.2;
+            }
+            else
+            {
+                markerOverlay6.Clear();
+            }
 
         }
 
@@ -522,6 +624,20 @@ namespace Route__Managment
         public void readingList()
         {
             String index = listBox.SelectedItem.ToString();
+
+            StreamReader st = new StreamReader("datagrams.csv");
+            String lin = "";
+            st.ReadLine();
+
+            while ((lin = st.ReadLine()) != null)
+            {
+                String[] lines = lin.Split(';');
+
+                Double latitude = Convert.ToDouble(lines[5]);
+                double lent = Convert.ToDouble(lines[5]);
+                lent = lent / 10000000;
+                latitude = latitude / 10000000;
+            }
 
             foreach (Line v in MetroCa.Lines)
             {
