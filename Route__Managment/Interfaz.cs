@@ -574,8 +574,8 @@ namespace Route__Managment
                 gMapControl1.Zoom = 11;
                 gMapControl1.Zoom = 12;
                // thread.pause();
-                //gMapControl1.Refresh();
-                gMapControl1.Overlays.Clear();
+                gMapControl1.Refresh();
+               // gMapControl1.Overlays.Clear();
                 i++;
             }
 
