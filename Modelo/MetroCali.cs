@@ -197,7 +197,6 @@ namespace Modelo
                 int idLine = Convert.ToInt32(line[0]);
                 string shortName = line[0];
                 Line l = new Line(idLine,shortName);
-
                 addLines(l);
             }
 
@@ -205,7 +204,14 @@ namespace Modelo
 
         public void dataSerealize()
         {
-
+            dataReading("lines.cvs");
+            
+            for(int i = 0; i < lines.Count; i++)
+            {
+                Line l = (Line)lines[i];
+                serializeL(l);
+            }
+       
         }
 
         public void addLines(Line line) {
