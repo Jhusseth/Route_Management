@@ -42,5 +42,9 @@ namespace Modelo
         public String Identif { get => identif; set => identif = value; }
         public List<Double> Lenght { get => lenght; set => lenght = value; }
         public List<Double> Latitude { get => latitude; set => latitude = value; }
+
+
+
+
     }
 }

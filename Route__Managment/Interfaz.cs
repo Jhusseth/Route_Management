@@ -29,12 +29,12 @@ namespace Route__Managment
         double Initiallatitude = 3.42158;
         double initialLength = -76.5205;
         private MetroCali MetroCa;
-        private ThreadBus thread;
+        private ThreadLine thread;
         public Interfaz()
         {
             InitializeComponent();
             MetroCa = new MetroCali();
-            thread = new ThreadBus("",0);
+            thread = new ThreadLine(this,1);
             //addLines();
             //serializeMainClass();
             //MetroCa.Lines.Clear();
@@ -263,6 +263,7 @@ namespace Route__Managment
 
             MetroCa.dataSerealize();
             list();
+            thread.tasks1();
         }
 
         //ESTE METODO DESMARCA TODAS LAS OPCIONES EN CASO DE QUE SE SELECCIONE "Todos" en el check
@@ -532,18 +533,21 @@ namespace Route__Managment
 
         public void readingList()
         {
-            String index = listBox.SelectedItem.ToString();
+            //String index = listBox.SelectedItem.ToString();
 
             foreach (Line v in MetroCa.Lines)
             {
-                if (v.ShortName.Equals(index))
-                {
-                   // foreach (int bu in v.Buses.Keys)
+                //if (v.ShortName.Equals("T31"))
+                //{
+                    // foreach (int bu in v.Buses.Keys)
                     //{
-                      //  v.busLine(bu);
-                        //Bus bus = (Bus) v.Buses[bu];
-                       
-                        paintList(v.latitudeBus(v.LineId), v.lenghtBus(v.LineId), v);
+                    //  v.busLine(bu);
+                    //Bus bus = (Bus) v.Buses[bu];
+
+                    //paintList(v.latitudeBus(v.LineId), v.lenghtBus(v.LineId), v);
+                    List<Double> lat = MetroCa.latitudeLine(v.LineId);
+                    List<Double> len = MetroCa.lenghtLine(v.LineId);
+                    paintList(lat, len, v);
                     //}
 
 
@@ -554,7 +558,7 @@ namespace Route__Managment
                     //     Bus bus = (Bus) b[bu];
                     //     paintList(bus.Latitude, bus.Lenght, v);
                     // }
-                }
+                //}
             }
         }
 
@@ -563,27 +567,25 @@ namespace Route__Managment
 
             Double[] x1 = lista1.ToArray();
             Double[] x2 = lista2.ToArray();
-            int i = 0;
-            while(i < x1.Length)
+            int i = 0;            
+            while (i < x1.Length)
             {
-                
                 paintBus(x1[i],x2[i],l);
-                gMapControl1.Zoom = 10.99;
-                thread.pause();
                 gMapControl1.Zoom = 11;
-                gMapControl1.Refresh();
+                gMapControl1.Zoom = 12;
+               // thread.pause();
+                //gMapControl1.Refresh();
                 gMapControl1.Overlays.Clear();
-                Refresh();
                 i++;
             }
 
-            MessageBox.Show("linea: " + l.ShortName + " pintada");
+            //MessageBox.Show("linea: " + l.ShortName + " pintada");
 
 
         }
         private void listBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            readingList();
+            //readingList();
         }
     }
 }

@@ -212,50 +212,47 @@ namespace Modelo
             dataReadingLines("lines.csv");
         }
 
-        public List<List<Double>> dataReadingDataGrams(String file, int lineId)
+        public List<Double> lenghtLine(int lineId)
         {
-            StreamReader st = new StreamReader(file);
+
+            List<Double> lenght = new List<Double>();
+
+            StreamReader st = new StreamReader("datagrams.csv");
             String lin = "";
             st.ReadLine();
-
-            List<List<Double>> corde = new List<List<double>>();
-            List<Double> lat = null;
-            List<Double> lon = null;
-
             while ((lin = st.ReadLine()) != null)
             {
-                String[] line = lin.Split(';');
-                lat = latitudeBus(lineId, line);
-                lon = lenghtBus(lineId, line);
-            }
+                String[] lines = lin.Split(';');
+                if (lineId == Convert.ToInt32(lines[7]))
+                {
+                    double latitud = Convert.ToDouble(lines[5]);
+                    latitud = latitud / 10000000;
+                    lenght.Add(latitud);
+                }
 
-             corde.Add(lat);
-             corde.Add(lon);
-
-            return corde;
-        }
-
-        public List<Double> latitudeBus(int lineId,String[] lines)
-        {
-            List<Double> latitude = new List<Double>();
-            if (lineId== Convert.ToInt32(lines[7]))
-            {
-                double latitud = Convert.ToDouble(lines[4]);
-                latitud = latitud / 10000000;
-                latitude.Add(latitud);
-            }         
-            return latitude;
-        }
-        public List<Double> lenghtBus(int lineId,String[] lines)
-        {
-            List<Double> lenght = new List<Double>();
-            if (lineId == Convert.ToInt32(lines[7]))
-            {
-                double latitud = Convert.ToDouble(lines[5]);
-                latitud = latitud / 10000000;
-                lenght.Add(latitud);           
             }
             return lenght;
+        }
+
+        public List<Double> latitudeLine(int lineId)
+        {
+
+            List<Double> latitude = new List<Double>();
+
+            StreamReader st = new StreamReader("datagrams.csv");
+            String lin = "";
+            st.ReadLine();
+            while ((lin = st.ReadLine()) != null)
+            {
+                String[] lines = lin.Split(';');
+                if (lineId == Convert.ToInt32(lines[7]))
+                {
+                    double latitud = Convert.ToDouble(lines[4]);
+                    latitud = latitud / 10000000;
+                    latitude.Add(latitud);
+                }
+            }
+            return latitude;
         }
 
 

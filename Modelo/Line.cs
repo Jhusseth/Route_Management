@@ -109,7 +109,7 @@ namespace Modelo
             while ((line = st.ReadLine()) != null)
             {
                 String[] lines = line.Split(';');
-                if (busId == Convert.ToInt32(lines[7]))
+                if (busId == Convert.ToInt32(lines[11]))
                 {
                     double latitud = Convert.ToDouble(lines[4]);
                     latitud = latitud / 10000000;
@@ -129,7 +129,7 @@ namespace Modelo
             while ((line = st.ReadLine()) != null)
             {
                 String[] lines = line.Split(';');
-                if (busId == Convert.ToInt32(lines[7]))
+                if (busId == Convert.ToInt32(lines[11]))
                 {
                     double latitud = Convert.ToDouble(lines[5]);
                     latitud = latitud / 10000000;
