@@ -29,7 +29,6 @@ namespace Route__Managment
         double Initiallatitude = 3.42158;
         double initialLength = -76.5205;
         private MetroCali MetroCa;
-        private ThreadLine thread;
         public Interfaz()
         {
             InitializeComponent();
@@ -95,15 +94,6 @@ namespace Route__Managment
                 }
                 showStations(b.Latitude1, b.Lenght, b.LongName);     
             }
-            paintSector1();
-            paintSector2();
-            paintSector3();
-            paintSector4();
-            paintSector5();
-            paintSector6();
-            paintSector7();
-            paintSector8();
-
             gMapControl1.Zoom = 13;          
         }
 
@@ -243,26 +233,15 @@ namespace Route__Managment
 
         private void Simulate_Click(object sender, EventArgs e)
         {
-            //  List<Double> x = MetroCa.Bus1.Latitude;
-            // List<Double> y = MetroCa.Bus1.Lenght;
-            // Double[] x1 = x.ToArray();
-            // Double[] x2 = y.ToArray();
-            //for (int i = 0; i < x1.Length; i++)
-            //{
-            //MessageBox.Show("" + x1[i]);
-            //  paintBus(x1[i], x2[i]);
-            //gMapControl1.Zoom = 11;
-            //gMapControl1.Zoom = 12;
-            // thread.pause();
-            //MessageBox.Show(".");
-            //gMapControl1.Overlays.Clear();
-            //}
-
-            //MessageBox.Show("finalizó");
-            thread = new ThreadLine(this, 1);
             MetroCa.dataSerealize();
             list();
-            thread.tasks1();
+            Refresh();
+
+            ThreadStart delegado = new ThreadStart(readingList);
+            Thread hilo = new Thread(delegado); 
+            hilo.Start();
+
+
         }
 
         //ESTE METODO DESMARCA TODAS LAS OPCIONES EN CASO DE QUE SE SELECCIONE "Todos" en el check
@@ -299,6 +278,15 @@ namespace Route__Managment
                 Sector8.Enabled = true;
                 
             }
+
+            paintSector1();
+            paintSector2();
+            paintSector3();
+            paintSector4();
+            paintSector5();
+            paintSector6();
+            paintSector7();
+            paintSector8();
         }
 
 
@@ -517,68 +505,34 @@ namespace Route__Managment
 
         private void Sector1_CheckedChanged(object sender, EventArgs e)
         {
-            
+            paintSector1();
         }
 
 
         private void Sector2_CheckedChanged(object sender, EventArgs e)
         {
-          
+            paintSector2();
         }
 
         private void Sector3_CheckedChanged(object sender, EventArgs e)
         {
-            
+            paintSector3();
         }
 
         public void readingList()
         {
-            //String index = listBox.SelectedItem.ToString();
+            String index = listBox.SelectedItem.ToString();
 
             foreach (Line v in MetroCa.Lines)
             {
-                if (v.ShortName.Equals("T47B"))
+                if (v.ShortName.Equals(index))
                 {
-
-                    //foreach (int bu in v.Buses.Keys)
-
-                    //{
-                    // v.busLine(bu);
-
-
-                    // Bus bus = (Bus)v.Buses[bu];
-
-
-                    // MessageBox.Show("" + bus.IdBus);
-
-
-                    // List<Double> lat = v.latitudeBus(bus.IdBus);
-
-                    // List<Double> len = v.lenghtBus(bus.IdBus);
-                    // paintList(lat, len, v);                 
-                    //}
-                    // }
-
                     gMapControl1.Refresh();
                     paintList(v.latitudeBus(v.LineId), v.lenghtBus(v.LineId), v);
                     List<Double> lat = MetroCa.latitudeLine(v.LineId);
                     List<Double> len = MetroCa.lenghtLine(v.LineId);
                     paintList(lat, len, v);
                     this.Refresh();
-                    
-
-
-
-                    //}
-
-
-                    // Hashtable b = v.Buses;
-                    // foreach (int bu in b.Keys)
-                    // {
-                    //     v.busLine(bu);
-                    //     Bus bus = (Bus) b[bu];
-                    //     paintList(bus.Latitude, bus.Lenght, v);
-                    // }
                 }
             }
         }
@@ -588,20 +542,45 @@ namespace Route__Managment
 
             Double[] x1 = lista1.ToArray();
             Double[] x2 = lista2.ToArray();
-            int i = 0;            
-            while (i < x1.Length)
-            {
-                paintBus(x1[i],x2[i],l);
-                gMapControl1.Zoom = 11;
-                gMapControl1.Zoom = 12;
-                //thread.pause();
-                gMapControl1.Overlays.Clear();
-                i++;
-            }
+                int i = 0;
+                while (i < x1.Length)
+                {
+                    paintBus(x1[i], x2[i], l);
+                    gMapControl1.Zoom = 11;
+                    gMapControl1.Zoom = 11.01;
+                    Thread.Sleep(100);
+                    gMapControl1.Overlays.Clear();
+                    i++;
+                }            
         }
         private void listBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //readingList();
+            readingList();
+        }
+
+        private void Sector4_CheckedChanged(object sender, EventArgs e)
+        {
+            paintSector4();
+        }
+
+        private void Sector5_CheckedChanged(object sender, EventArgs e)
+        {
+            paintSector5();
+        }
+
+        private void Sector6_CheckedChanged(object sender, EventArgs e)
+        {
+            paintSector6();
+        }
+
+        private void Sector7_CheckedChanged(object sender, EventArgs e)
+        {
+            paintSector7();
+        }
+
+        private void Sector8_CheckedChanged(object sender, EventArgs e)
+        {
+            paintSector8();
         }
     }
 }
