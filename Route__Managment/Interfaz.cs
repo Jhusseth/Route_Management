@@ -156,7 +156,7 @@ namespace Route__Managment
         public void showStations(double lat, double len, String name)
         {
             PointLatLng point = new PointLatLng(lat, len);
-            Bitmap bmpMaker = (Bitmap)Image.FromFile("bus.png");
+            Bitmap bmpMaker = (Bitmap)Image.FromFile("stationMarker.png");
 
             marker = new GMarkerGoogle(point,bmpMaker);
 
@@ -315,8 +315,6 @@ namespace Route__Managment
                 Sector6.Checked = false;
                 Sector7.Checked = false;
                 Sector8.Checked = false;
-
-
             }
 
            
@@ -626,30 +624,16 @@ namespace Route__Managment
         {
             String index = listBox.SelectedItem.ToString();
 
-            StreamReader st = new StreamReader("datagrams.csv");
-            String lin = "";
-            st.ReadLine();
-
-            while ((lin = st.ReadLine()) != null)
-            {
-                String[] lines = lin.Split(';');
-
-                Double latitude = Convert.ToDouble(lines[5]);
-                double lent = Convert.ToDouble(lines[5]);
-                lent = lent / 10000000;
-                latitude = latitude / 10000000;
-            }
-
             foreach (Line v in MetroCa.Lines)
             {
                 if (v.ShortName.Equals(index))
                 {
-                    gMapControl1.Refresh();
-                    paintList(v.latitudeBus(v.LineId), v.lenghtBus(v.LineId), v);
-                    List<Double> lat = MetroCa.latitudeLine(v.LineId);
-                    List<Double> len = MetroCa.lenghtLine(v.LineId);
-                    paintList(lat, len, v);
-                    this.Refresh();
+                   gMapControl1.Refresh();
+                   paintList(v.latitudeBus(v.LineId), v.lenghtBus(v.LineId), v);
+                   List<Double> lat = MetroCa.latitudeLine(v.LineId);
+                   List<Double> len = MetroCa.lenghtLine(v.LineId);
+                   paintList(lat, len, v);
+                   this.Refresh();
                 }
             }
         }
@@ -668,7 +652,9 @@ namespace Route__Managment
                     Thread.Sleep(100);
                     gMapControl1.Overlays.Clear();
                     i++;
-                }            
+                }
+
+            MessageBox.Show("Finalizo la linea: " + l.ShortName);
         }
         private void listBox_SelectedIndexChanged(object sender, EventArgs e)
         {
