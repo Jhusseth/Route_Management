@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -32,12 +33,13 @@ namespace Route__Managment
         public Interfaz()
         {
             InitializeComponent();
-            MetroCa = deserializeMainClass();
+            MetroCa = new MetroCali();
             thread = new ThreadBus("",0);
             //addLines();
             //serializeMainClass();
             //MetroCa.Lines.Clear();
-            MessageBox.Show(""+MetroCa.Lines.ContainsKey("131"));
+            // MessageBox.Show(""+MetroCa.Lines.ContainsKey("T31"));
+           
         }
 
         private void Button1_Click(object sender, EventArgs e)
@@ -65,7 +67,20 @@ namespace Route__Managment
             paintStations();
         }
 
-        public void serializeClassPrincipal() { }
+
+        public void lista()
+        {
+
+            List<string> items = new List<string>();
+
+            foreach (Line v in MetroCa.Lines)
+            {
+                items.Add(v.ShortName);
+            }
+     
+
+            listBox.DataSource = items;
+        }
 
         public void paintStations()
         {          
@@ -211,7 +226,7 @@ namespace Route__Managment
             
         }
 
-        public void paintBus(Double lat, Double len)
+        public void paintBus(Double lat, Double len,Line l)
         {   
             PointLatLng point = new PointLatLng(lat, len);
             Bitmap bmpMaker = (Bitmap)Image.FromFile("bus.png");
@@ -223,31 +238,32 @@ namespace Route__Managment
 
             markerOverlay.Markers.Add(marker);
             marker.ToolTipMode = MarkerTooltipMode.OnMouseOver;
-            marker.ToolTipText = string.Format("E21");
+            marker.ToolTipText = string.Format(l.ShortName);
             gMapControl1.Overlays.Add(markerOverlay);
         }
 
         private void Simulate_Click(object sender, EventArgs e)
         {
-            List<Double> x = MetroCa.Bus1.Latitude;
-            List<Double> y = MetroCa.Bus1.Lenght;
-            Double[] x1 = x.ToArray();
-            Double[] x2 = y.ToArray();
-            for (int i = 0; i < x1.Length; i++)
-            {
-                //MessageBox.Show("" + x1[i]);
-                paintBus(x1[i], x2[i]);
-                gMapControl1.Zoom = 11;
-                gMapControl1.Zoom = 12;
-                thread.pause();
-                //MessageBox.Show(".");
-                gMapControl1.Overlays.Clear();
-            }
+            //  List<Double> x = MetroCa.Bus1.Latitude;
+            // List<Double> y = MetroCa.Bus1.Lenght;
+            // Double[] x1 = x.ToArray();
+            // Double[] x2 = y.ToArray();
+            //for (int i = 0; i < x1.Length; i++)
+            //{
+            //MessageBox.Show("" + x1[i]);
+            //  paintBus(x1[i], x2[i]);
+            //gMapControl1.Zoom = 11;
+            //gMapControl1.Zoom = 12;
+            // thread.pause();
+            //MessageBox.Show(".");
+            //gMapControl1.Overlays.Clear();
+            //}
 
-            MessageBox.Show("finalizó");
+            //MessageBox.Show("finalizó");
 
+            MetroCa.dataSerealize();
+            lista();
         }
-        int x;
 
         //ESTE METODO DESMARCA TODAS LAS OPCIONES EN CASO DE QUE SE SELECCIONE "Todos" en el check
         private void AllSectors_CheckedChanged(object sender, EventArgs e)
@@ -498,48 +514,6 @@ namespace Route__Managment
             }
         }
 
-        public MetroCali deserializeMainClass() {
-            // Open the file containing the data that you want to deserialize.
-            MetroCali me = new MetroCali();
-            FileStream fs = new FileStream("MetroCali.dat", FileMode.Open);
-            try
-            {
-                BinaryFormatter formatter = new BinaryFormatter();
-
-                // Deserialize the hashtable from the file and 
-                // assign the reference to the local variable.
-                me = (MetroCali)formatter.Deserialize(fs);
-            }
-            catch (SerializationException e)
-            {
-                Console.WriteLine("Failed to deserialize. Reason: " + e.Message);
-                throw;
-            }
-            finally
-            {
-                fs.Close();
-            }
-            return me;
-        }
-
-        public void addLines() {
-            StreamReader st = new StreamReader("lines.csv");
-            st.ReadLine();
-            String line;
-            while ((line = st.ReadLine()) != null) {
-                String[] temporalLine = line.Split(';');
-                String lineId = temporalLine[0];
-                String shortName = temporalLine[2];
-                if (MetroCa.Lines.ContainsKey(lineId)== true) {
-                    MessageBox.Show("No entró");
-                }
-                else { 
-                Line l = new Line(lineId, shortName);
-                MetroCa.addLines(l);
-                }
-            }
-            serializeMainClass();
-        }
 
         private void Sector1_CheckedChanged(object sender, EventArgs e)
         {
@@ -554,6 +528,48 @@ namespace Route__Managment
         private void Sector3_CheckedChanged(object sender, EventArgs e)
         {
             
+        }
+
+        public void readingList()
+        {
+            String index = listBox.SelectedItem.ToString();
+
+
+
+            foreach (Line v in MetroCa.Lines)
+            {
+                if (v.ShortName.Equals(index))
+                {
+                    List<Double> lista1 = v.latitudeBus(v.LineId);
+                    paintList(lista1,v.lenghtBus(v.LineId),v);
+                }
+            }
+        }
+
+        public void paintList(List<Double> lista1, List<Double> lista2 ,Line l)
+        {
+
+            Double[] x1 = lista1.ToArray();
+            Double[] x2 = lista2.ToArray();
+
+            for (int i = 0; i < x1.Length; i++)
+            {
+
+                paintBus(x1[i],x2[i],l);
+                gMapControl1.Zoom = 11;
+                gMapControl1.Zoom = 12;
+                thread.pause();
+                gMapControl1.Overlays.Clear();
+            }
+
+
+        }
+        private void listBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //String n = listBox.SelectedItem.ToString();
+            //MessageBox.Show("Hola");
+
+            readingList();
         }
     }
 }

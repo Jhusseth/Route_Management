@@ -7,12 +7,12 @@ namespace Modelo
 {   
     public class ThreadBus
     {
-        private Line line;
+        private String name;
         private int time;
         
-        public ThreadBus( Line line, int time)
+        public ThreadBus(String name, int time)
         {
-            this.line = line; 
+            this.name = name; 
             this.time = time;
 
 
@@ -29,11 +29,11 @@ namespace Modelo
 
         public void tasks2()
         {
-            Console.WriteLine(line.LineId + "Este hilo solo durara" + time + "segundos");
+            Console.WriteLine(name + "Este hilo solo durara" + time + "segundos");
 
             Thread.Sleep(time * 1000);
 
-            Console.WriteLine("Hilo terminado " + line.LineId);
+            Console.WriteLine("Hilo terminado " + name);
 
         }
     }

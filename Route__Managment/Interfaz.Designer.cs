@@ -51,6 +51,7 @@
             this.Sector7 = new System.Windows.Forms.CheckBox();
             this.Sector8 = new System.Windows.Forms.CheckBox();
             this.AllSectors = new System.Windows.Forms.CheckBox();
+            this.listBox = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.zoomBar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -94,7 +95,7 @@
             // 
             // zoomBar
             // 
-            this.zoomBar.Location = new System.Drawing.Point(654, 454);
+            this.zoomBar.Location = new System.Drawing.Point(650, 488);
             this.zoomBar.Maximum = 25;
             this.zoomBar.Name = "zoomBar";
             this.zoomBar.Size = new System.Drawing.Size(196, 45);
@@ -173,9 +174,9 @@
             // 
             this.Simulate.BackColor = System.Drawing.Color.Cyan;
             this.Simulate.ForeColor = System.Drawing.Color.Black;
-            this.Simulate.Location = new System.Drawing.Point(711, 508);
+            this.Simulate.Location = new System.Drawing.Point(862, 454);
             this.Simulate.Name = "Simulate";
-            this.Simulate.Size = new System.Drawing.Size(96, 37);
+            this.Simulate.Size = new System.Drawing.Size(65, 37);
             this.Simulate.TabIndex = 11;
             this.Simulate.Text = "Simular";
             this.Simulate.UseVisualStyleBackColor = false;
@@ -298,12 +299,22 @@
             this.AllSectors.UseVisualStyleBackColor = true;
             this.AllSectors.CheckedChanged += new System.EventHandler(this.AllSectors_CheckedChanged);
             // 
+            // listBox
+            // 
+            this.listBox.FormattingEnabled = true;
+            this.listBox.Location = new System.Drawing.Point(862, 4);
+            this.listBox.Name = "listBox";
+            this.listBox.Size = new System.Drawing.Size(65, 433);
+            this.listBox.TabIndex = 22;
+            this.listBox.SelectedIndexChanged += new System.EventHandler(this.listBox_SelectedIndexChanged);
+            // 
             // Interfaz
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(859, 557);
+            this.ClientSize = new System.Drawing.Size(930, 557);
+            this.Controls.Add(this.listBox);
             this.Controls.Add(this.AllSectors);
             this.Controls.Add(this.Sector8);
             this.Controls.Add(this.Sector7);
@@ -327,7 +338,7 @@
             this.ForeColor = System.Drawing.Color.White;
             this.Name = "Interfaz";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "<";
+            this.Text = "MIO_SYSTEM_TRASNPORT";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.zoomBar)).EndInit();
             this.ResumeLayout(false);
@@ -359,6 +370,7 @@
         private System.Windows.Forms.CheckBox Sector7;
         private System.Windows.Forms.CheckBox Sector8;
         private System.Windows.Forms.CheckBox AllSectors;
+        private System.Windows.Forms.ListBox listBox;
     }
 }
 

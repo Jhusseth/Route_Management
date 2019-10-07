@@ -11,18 +11,18 @@ namespace Modelo
     public class Line
     {
         private int lineId;
-        private String ShortName;
+        private String shortName;
         private Hashtable buses;
 
         public Line(int lineId, string shortName)
         {
             this.LineId = lineId;
-            ShortName1 = shortName;
+            this.ShortName = shortName;
             this.Buses = new Hashtable();
         }
 
         public int LineId { get => lineId; set => lineId = value; }
-        public string ShortName1 { get => ShortName; set => ShortName = value; }
+        public string ShortName { get => shortName; set => shortName = value; }
         public Hashtable Buses { get => buses; set => buses = value; }
 
         public void addBus(Bus b) {
@@ -78,7 +78,27 @@ namespace Modelo
             }
         }
 
-        public List<Double> latitudeBus(String busId)
+
+        public void dataReadingBuses(String file)
+        {
+            StreamReader st = new StreamReader(file);
+            String lin = "";
+            st.ReadLine();
+            while ((lin = st.ReadLine()) != null)
+            {
+                String[] line = lin.Split(';');
+                int idBus = Convert.ToInt32(line[0]);
+                int busNumber = Convert.ToInt32(line[1]);
+                String identif = line[2];
+                List<Double> lenght = new List<Double>();
+                List<Double> latitude = new List<Double>();
+                Bus b = new Bus(idBus, busNumber, identif, lenght, latitude);
+                addBus(b);
+               // serializeBuses(b);
+            }  
+        }
+
+        public List<Double> latitudeBus(int lineId)
         {
 
             List<Double> latitude = new List<Double>();
@@ -89,7 +109,7 @@ namespace Modelo
             while ((line = st.ReadLine()) != null)
             {
                 String[] lines = st.ReadLine().Split(';');
-                if (lines[11].Equals(busId))
+                if (lineId == Convert.ToInt32(lines[7]))
                 {
                     double latitud = Convert.ToDouble(lines[4]);
                     latitud = latitud / 10000000;
@@ -98,7 +118,7 @@ namespace Modelo
             }
             return latitude;
         }
-        public List<Double> lenghtBus(String busId)
+        public List<Double> lenghtBus(int lineId)
         {
 
             List<Double> lenght = new List<Double>();
@@ -109,34 +129,15 @@ namespace Modelo
             while ((line = st.ReadLine()) != null)
             {
                 String[] lines = st.ReadLine().Split(';');
-                if (lines[11].Equals(busId))
+                if (lineId == Convert.ToInt32(lines[7]))
                 {
                     double latitud = Convert.ToDouble(lines[5]);
                     latitud = latitud / 10000000;
                     lenght.Add(latitud);
                 }
-                
+
             }
             return lenght;
-        }
-
-        public void dataReadingBuses(string file)
-        {
-            StreamReader st = new StreamReader(file);
-            String lin = "";
-            st.ReadLine();
-            while ((lin = st.ReadLine()) != null)
-            {
-                String[] line = st.ReadLine().Split(';');
-                int idBus = Convert.ToInt32(line[0]);
-                int busNumber = Convert.ToInt32(line[0]);
-                String identif = line[0];
-                List<Double> lenght = new List<double>();
-                List<Double> latitude = new List<double>();
-                Bus b = new Bus(idBus, busNumber, identif, lenght, latitude);
-
-                addBus(b);
-            }
         }
     }
 }

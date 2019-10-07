@@ -7,24 +7,24 @@ using System.Collections.Generic;
 
 namespace Modelo
 {
-    [Serializable]
+
     public class MetroCali
     {
         private Hashtable busStations;
         private Hashtable busStops;
-        private Hashtable lines;
+        private List<Line> lines;
 
         public Hashtable BusStations { get => busStations; set => busStations = value; }
 
         public Hashtable BusStops { get => busStops; set => busStops = value; }
         
-        public Hashtable Lines { get => lines; set => lines = value; }
+        public List<Line> Lines { get => lines; set => lines = value; }
 
         public MetroCali()
         {
             BusStations = new Hashtable();
             BusStops = new Hashtable();
-            Lines = new Hashtable();
+            Lines = new List<Line>();
         }
 
         public void serializeS(BusStation station)
@@ -138,11 +138,15 @@ namespace Modelo
             // To serialize the hashtable and its key/value pairs,  
             // you must first open a stream for writing. 
             // In this case, use a file stream.
-            Line l = lines;
-            if (BusStops[l.LineId] == null)
+            
+            for(int i = 0; i < Lines.Count; i++)
             {
-                Lines.Add(lines.LineId, l);
+                if(Lines[i].LineId != lines.LineId)
+                {
+                    addLines(lines);
+                }
             }
+            
             FileStream fs = new FileStream("DataFileL.dat", FileMode.Create);
 
             // Construct a BinaryFormatter and use it to serialize the data to the stream.
@@ -172,7 +176,7 @@ namespace Modelo
 
                 // Deserialize the hashtable from the file and 
                 // assign the reference to the local variable.
-                Lines = (Hashtable)formatter.Deserialize(fs);
+                Lines = (List<Line>)formatter.Deserialize(fs);
             }
             catch (SerializationException e)
             {
@@ -186,36 +190,78 @@ namespace Modelo
         }
 
 
-        public void dataReading(String file)
+        public void dataReadingLines(String file)
         {
             StreamReader st = new StreamReader(file);
             String lin = "";
-            st.ReadLine();
+            st.ReadLine();            
             while ((lin = st.ReadLine()) != null)
             {
-                String[] line = st.ReadLine().Split(';');
+                String[] line = lin.Split(';');
                 int idLine = Convert.ToInt32(line[0]);
-                string shortName = line[0];
+                string shortName = line[2];
                 Line l = new Line(idLine,shortName);
+               // l.dataReadingBuses("buses.csv");
                 addLines(l);
+                //serializeL(l);
             }
-
+            Console.Write("Finalizo");
         }
 
         public void dataSerealize()
         {
-            dataReading("lines.cvs");
-            
-            for(int i = 0; i < lines.Count; i++)
-            {
-                Line l = (Line)lines[i];
-                serializeL(l);
-            }
-       
+            dataReadingLines("lines.csv");
         }
 
+        public List<List<Double>> dataReadingDataGrams(String file, int lineId)
+        {
+            StreamReader st = new StreamReader(file);
+            String lin = "";
+            st.ReadLine();
+
+            List<List<Double>> corde = new List<List<double>>();
+            List<Double> lat = null;
+            List<Double> lon = null;
+
+            while ((lin = st.ReadLine()) != null)
+            {
+                String[] line = lin.Split(';');
+                lat = latitudeBus(lineId, line);
+                lon = lenghtBus(lineId, line);
+            }
+
+             corde.Add(lat);
+             corde.Add(lon);
+
+            return corde;
+        }
+
+        public List<Double> latitudeBus(int lineId,String[] lines)
+        {
+            List<Double> latitude = new List<Double>();
+            if (lineId== Convert.ToInt32(lines[7]))
+            {
+                double latitud = Convert.ToDouble(lines[4]);
+                latitud = latitud / 10000000;
+                latitude.Add(latitud);
+            }         
+            return latitude;
+        }
+        public List<Double> lenghtBus(int lineId,String[] lines)
+        {
+            List<Double> lenght = new List<Double>();
+            if (lineId == Convert.ToInt32(lines[7]))
+            {
+                double latitud = Convert.ToDouble(lines[5]);
+                latitud = latitud / 10000000;
+                lenght.Add(latitud);           
+            }
+            return lenght;
+        }
+
+
         public void addLines(Line line) {
-            Lines.Add(line.LineId, line);
+            Lines.Add(line);
         }
     }  
 
