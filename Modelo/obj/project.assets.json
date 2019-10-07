@@ -30,7 +30,7 @@
   },
   "libraries": {
     "Microsoft.NETCore.Platforms/1.1.0": {
-      "sha512": "a/iSwnRZb+LHFk49hQOyThh/ZNC3vsbZsF65XwQIb863qF6msmhdQtxGXFL28Ob2NsCz/drEj28BJd/YPpLRBg==",
+      "sha512": "kz0PEW2lhqygehI/d6XsPCQzD7ff7gUJaVGPVETX611eadGsA3A877GdSlU0LRVMCTH/+P3o2iDTak+S08V2+A==",
       "type": "package",
       "path": "microsoft.netcore.platforms/1.1.0",
       "files": [
@@ -179,24 +179,27 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\santi\\.nuget\\packages\\": {},
+    "C:\\Users\\jeank\\.nuget\\packages\\": {},
+    "C:\\Microsoft\\Xamarin\\NuGet\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\santi\\source\\repos\\Route_Management\\Modelo\\Modelo.csproj",
+      "projectUniqueName": "C:\\Users\\jeank\\source\\repos\\Route_Management\\Modelo\\Modelo.csproj",
       "projectName": "Modelo",
-      "projectPath": "C:\\Users\\santi\\source\\repos\\Route_Management\\Modelo\\Modelo.csproj",
-      "packagesPath": "C:\\Users\\santi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\santi\\source\\repos\\Route_Management\\Modelo\\obj\\",
+      "projectPath": "C:\\Users\\jeank\\source\\repos\\Route_Management\\Modelo\\Modelo.csproj",
+      "packagesPath": "C:\\Users\\jeank\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\jeank\\source\\repos\\Route_Management\\Modelo\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
+        "C:\\Microsoft\\Xamarin\\NuGet\\",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\santi\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\jeank\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netstandard2.0"
