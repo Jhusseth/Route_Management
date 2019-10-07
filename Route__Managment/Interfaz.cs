@@ -563,14 +563,18 @@ namespace Route__Managment
 
             Double[] x1 = lista1.ToArray();
             Double[] x2 = lista2.ToArray();
-
-            for (int i = 0; i < x1.Length; i++)
+            int i = 0;
+            while(i < x1.Length)
             {
+                
                 paintBus(x1[i],x2[i],l);
-                gMapControl1.Zoom = 11;
-                gMapControl1.Zoom = 12;
+                gMapControl1.Zoom = 10.99;
                 thread.pause();
+                gMapControl1.Zoom = 11;
+                gMapControl1.Refresh();
                 gMapControl1.Overlays.Clear();
+                Refresh();
+                i++;
             }
 
             MessageBox.Show("linea: " + l.ShortName + " pintada");

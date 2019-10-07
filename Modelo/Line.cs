@@ -103,7 +103,7 @@ namespace Modelo
 
             List<Double> latitude = new List<Double>();
 
-            StreamReader st = new StreamReader("Bus1.csv");
+            StreamReader st = new StreamReader("datagrams.csv");
             String line = "";
             st.ReadLine();
             while ((line = st.ReadLine()) != null)
@@ -123,7 +123,7 @@ namespace Modelo
 
             List<Double> lenght = new List<Double>();
 
-            StreamReader st = new StreamReader("Bus1.csv");
+            StreamReader st = new StreamReader("datagrams.csv");
             String line = "";
             st.ReadLine();
             while ((line = st.ReadLine()) != null)
