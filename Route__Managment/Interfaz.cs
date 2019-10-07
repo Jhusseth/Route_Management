@@ -39,7 +39,7 @@ namespace Route__Managment
             //serializeMainClass();
             //MetroCa.Lines.Clear();
             // MessageBox.Show(""+MetroCa.Lines.ContainsKey("T31"));
-           
+
         }
 
         private void Button1_Click(object sender, EventArgs e)
@@ -68,7 +68,7 @@ namespace Route__Managment
         }
 
 
-        public void lista()
+        public void list()
         {
 
             List<string> items = new List<string>();
@@ -262,7 +262,7 @@ namespace Route__Managment
             //MessageBox.Show("finalizó");
 
             MetroCa.dataSerealize();
-            lista();
+            list();
         }
 
         //ESTE METODO DESMARCA TODAS LAS OPCIONES EN CASO DE QUE SE SELECCIONE "Todos" en el check
@@ -534,14 +534,26 @@ namespace Route__Managment
         {
             String index = listBox.SelectedItem.ToString();
 
-
-
             foreach (Line v in MetroCa.Lines)
             {
                 if (v.ShortName.Equals(index))
                 {
-                    List<Double> lista1 = v.latitudeBus(v.LineId);
-                    paintList(lista1,v.lenghtBus(v.LineId),v);
+                   // foreach (int bu in v.Buses.Keys)
+                    //{
+                      //  v.busLine(bu);
+                        //Bus bus = (Bus) v.Buses[bu];
+                       
+                        paintList(v.latitudeBus(v.LineId), v.lenghtBus(v.LineId), v);
+                    //}
+
+
+                    // Hashtable b = v.Buses;
+                    // foreach (int bu in b.Keys)
+                    // {
+                    //     v.busLine(bu);
+                    //     Bus bus = (Bus) b[bu];
+                    //     paintList(bus.Latitude, bus.Lenght, v);
+                    // }
                 }
             }
         }
@@ -554,7 +566,6 @@ namespace Route__Managment
 
             for (int i = 0; i < x1.Length; i++)
             {
-
                 paintBus(x1[i],x2[i],l);
                 gMapControl1.Zoom = 11;
                 gMapControl1.Zoom = 12;
@@ -562,13 +573,12 @@ namespace Route__Managment
                 gMapControl1.Overlays.Clear();
             }
 
+            MessageBox.Show("linea: " + l.ShortName + " pintada");
+
 
         }
         private void listBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //String n = listBox.SelectedItem.ToString();
-            //MessageBox.Show("Hola");
-
             readingList();
         }
     }

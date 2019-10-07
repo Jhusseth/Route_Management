@@ -5,7 +5,6 @@ using System.Collections;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Runtime.Serialization;
-
 namespace Modelo
 {   [Serializable]
     public class Line
@@ -94,11 +93,12 @@ namespace Modelo
                 List<Double> latitude = new List<Double>();
                 Bus b = new Bus(idBus, busNumber, identif, lenght, latitude);
                 addBus(b);
+                //busLine(b.IdBus);
                // serializeBuses(b);
             }  
         }
 
-        public List<Double> latitudeBus(int lineId)
+        public List<Double> latitudeBus(int busId)
         {
 
             List<Double> latitude = new List<Double>();
@@ -108,8 +108,8 @@ namespace Modelo
             st.ReadLine();
             while ((line = st.ReadLine()) != null)
             {
-                String[] lines = st.ReadLine().Split(';');
-                if (lineId == Convert.ToInt32(lines[7]))
+                String[] lines = line.Split(';');
+                if (busId == Convert.ToInt32(lines[7]))
                 {
                     double latitud = Convert.ToDouble(lines[4]);
                     latitud = latitud / 10000000;
@@ -118,7 +118,7 @@ namespace Modelo
             }
             return latitude;
         }
-        public List<Double> lenghtBus(int lineId)
+        public List<Double> lenghtBus(int busId)
         {
 
             List<Double> lenght = new List<Double>();
@@ -128,8 +128,8 @@ namespace Modelo
             st.ReadLine();
             while ((line = st.ReadLine()) != null)
             {
-                String[] lines = st.ReadLine().Split(';');
-                if (lineId == Convert.ToInt32(lines[7]))
+                String[] lines = line.Split(';');
+                if (busId == Convert.ToInt32(lines[7]))
                 {
                     double latitud = Convert.ToDouble(lines[5]);
                     latitud = latitud / 10000000;
@@ -138,6 +138,20 @@ namespace Modelo
 
             }
             return lenght;
+        }
+
+
+        public void busLine(int busId)
+        {
+            foreach(int b in buses.Keys)
+            {
+                Bus bu = (Bus)buses[b];
+                if (bu.IdBus== busId)
+                {
+                    bu.Latitude = latitudeBus(busId);
+                    bu.Lenght = lenghtBus(busId);
+                }
+            }
         }
     }
 }

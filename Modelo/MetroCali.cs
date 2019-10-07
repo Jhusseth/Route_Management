@@ -201,11 +201,10 @@ namespace Modelo
                 int idLine = Convert.ToInt32(line[0]);
                 string shortName = line[2];
                 Line l = new Line(idLine,shortName);
-               // l.dataReadingBuses("buses.csv");
+                l.dataReadingBuses("buses.csv");
                 addLines(l);
                 //serializeL(l);
             }
-            Console.Write("Finalizo");
         }
 
         public void dataSerealize()
@@ -258,6 +257,7 @@ namespace Modelo
             }
             return lenght;
         }
+
 
 
         public void addLines(Line line) {
