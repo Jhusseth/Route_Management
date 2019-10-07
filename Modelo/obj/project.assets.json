@@ -179,23 +179,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\fsociety\\.nuget\\packages\\": {},
+    "C:\\Users\\santi\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\fsociety\\source\\repos\\Jhusseth\\Route__Managment\\Modelo\\Modelo.csproj",
+      "projectUniqueName": "C:\\Users\\santi\\projects\\repos\\Route_Management\\Modelo\\Modelo.csproj",
       "projectName": "Modelo",
-      "projectPath": "C:\\Users\\fsociety\\source\\repos\\Jhusseth\\Route__Managment\\Modelo\\Modelo.csproj",
-      "packagesPath": "C:\\Users\\fsociety\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\fsociety\\source\\repos\\Jhusseth\\Route__Managment\\Modelo\\obj\\",
+      "projectPath": "C:\\Users\\santi\\projects\\repos\\Route_Management\\Modelo\\Modelo.csproj",
+      "packagesPath": "C:\\Users\\santi\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\santi\\projects\\repos\\Route_Management\\Modelo\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\fsociety\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\santi\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
