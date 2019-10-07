@@ -10,6 +10,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{A663E574-415C-415D-BD14-13DEBF405AFB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestRoute_Management", "UnitTestRoute_Management\UnitTestRoute_Management.csproj", "{15E87281-F53F-4D03-8E39-6CE78FC5E745}"
+	ProjectSection(ProjectDependencies) = postProject
+		{57D30B1F-9B99-4743-84B8-48EFC7FBBCA4} = {57D30B1F-9B99-4743-84B8-48EFC7FBBCA4}
+		{B88C5AB8-C823-4BEF-9AF3-7EC6F9B279AF} = {B88C5AB8-C823-4BEF-9AF3-7EC6F9B279AF}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
