@@ -63,7 +63,7 @@
             this.gMapControl1.GrayScaleMode = false;
             this.gMapControl1.HelperLineOption = GMap.NET.WindowsForms.HelperLineOptions.DontShow;
             this.gMapControl1.LevelsKeepInMemmory = 5;
-            this.gMapControl1.Location = new System.Drawing.Point(130, 9);
+            this.gMapControl1.Location = new System.Drawing.Point(114, 3);
             this.gMapControl1.MarkersEnabled = true;
             this.gMapControl1.MaxZoom = 2;
             this.gMapControl1.MinZoom = 2;
@@ -77,7 +77,7 @@
             this.gMapControl1.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Integer;
             this.gMapControl1.SelectedAreaFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
             this.gMapControl1.ShowTileGridLines = false;
-            this.gMapControl1.Size = new System.Drawing.Size(917, 606);
+            this.gMapControl1.Size = new System.Drawing.Size(933, 612);
             this.gMapControl1.TabIndex = 0;
             this.gMapControl1.Zoom = 0D;
             // 
@@ -95,7 +95,7 @@
             // 
             // zoomBar
             // 
-            this.zoomBar.Location = new System.Drawing.Point(7, 530);
+            this.zoomBar.Location = new System.Drawing.Point(7, 544);
             this.zoomBar.Maximum = 25;
             this.zoomBar.Name = "zoomBar";
             this.zoomBar.Size = new System.Drawing.Size(101, 45);
@@ -306,10 +306,12 @@
             // 
             // listBox
             // 
+            this.listBox.BackColor = System.Drawing.SystemColors.InfoText;
+            this.listBox.ForeColor = System.Drawing.SystemColors.Info;
             this.listBox.FormattingEnabled = true;
             this.listBox.Location = new System.Drawing.Point(1053, 9);
             this.listBox.Name = "listBox";
-            this.listBox.Size = new System.Drawing.Size(65, 602);
+            this.listBox.Size = new System.Drawing.Size(94, 602);
             this.listBox.TabIndex = 22;
             this.listBox.SelectedIndexChanged += new System.EventHandler(this.listBox_SelectedIndexChanged);
             // 
@@ -318,7 +320,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(1121, 619);
+            this.ClientSize = new System.Drawing.Size(1150, 619);
             this.Controls.Add(this.listBox);
             this.Controls.Add(this.AllSectors);
             this.Controls.Add(this.Sector8);
