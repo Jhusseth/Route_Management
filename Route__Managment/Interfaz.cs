@@ -272,11 +272,13 @@ namespace Route__Managment
             list();
             Refresh();
 
-            //ThreadStart delegado = new ThreadStart(readingList);
-            //Thread hilo = new Thread(delegado); 
-            //hilo.Start();
+            ThreadStart delegado = new ThreadStart(readingList);
+            Thread hilo = new Thread(delegado); 
+            hilo.Start();
 
-            readingList();
+           // readingList();
+
+            
 
 
         }
@@ -359,6 +361,8 @@ namespace Route__Managment
                 points.Add(p4);
                 points.Add(p5);
                 points.Add(p6);
+
+                
 
                 poligonos1 = new GMapPolygon(points, "Poligono");
                 markerOverlay1.Polygons.Add(poligonos1);
@@ -659,14 +663,17 @@ namespace Route__Managment
                     st.ReadLine();
                     while ((line = st.ReadLine()) != null)
                     {
-                       String[] lines = line.Split(';');
+                        String[] lines = line.Split(';');
                         String[] timer = lines[10].Split(' ');
                         String[] timerH = timer[1].Split('.');
                         Time.Text = timerH[0] + ":" + timerH[1] + ":" + timerH[2];  
                         int lat = Convert.ToInt32(4);
                         int len = Convert.ToInt32(5);
                         paintBus(lat,len);
-                     }
+                        gMapControl1.Zoom = 11;
+                        gMapControl1.Zoom = 11.01;                            
+                        gMapControl1.Overlays.Clear();
+            }
         }
 
         public void paintList(List<Double> lista1, List<Double> lista2 ,Line l)
@@ -689,7 +696,7 @@ namespace Route__Managment
         }
         private void listBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            readingList();
+           // readingList();
         }
 
         private void Sector4_CheckedChanged(object sender, EventArgs e)
