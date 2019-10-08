@@ -50,6 +50,7 @@ namespace Route__Managment
         double Initiallatitude = 3.42158;
         double initialLength = -76.5205;
         private MetroCali MetroCa;
+        
         public Interfaz()
         {
             InitializeComponent();
@@ -155,8 +156,9 @@ namespace Route__Managment
 
         public void showStations(double lat, double len, String name)
         {
+            
             PointLatLng point = new PointLatLng(lat, len);
-            Bitmap bmpMaker = (Bitmap)Image.FromFile("bus.png");
+            Bitmap bmpMaker = (Bitmap)Image.FromFile("stationMarker.png");
 
             marker = new GMarkerGoogle(point,bmpMaker);
 
@@ -214,6 +216,22 @@ namespace Route__Managment
             gMapControl1.Overlays.Clear();
             gMapControl1.Zoom = 12;
             gMapControl1.Zoom = 13;
+            Sector1.Enabled = true;
+            Sector2.Enabled = true;
+            Sector3.Enabled = true;
+            Sector4.Enabled = true;
+            Sector5.Enabled = true;
+            Sector6.Enabled = true;
+            Sector7.Enabled = true;
+            Sector8.Enabled = true;
+            Sector1.Checked = false;
+            Sector2.Checked = false;
+            Sector3.Checked = false;
+            Sector4.Checked = false;
+            Sector5.Checked = false;
+            Sector6.Checked = false;
+            Sector7.Checked = false;
+            Sector8.Checked = false;
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -645,7 +663,7 @@ namespace Route__Managment
                 if (v.ShortName.Equals(index))
                 {
                     gMapControl1.Refresh();
-                    paintList(v.latitudeBus(v.LineId), v.lenghtBus(v.LineId), v);
+                    //paintList(v.latitudeBus(v.LineId), v.lenghtBus(v.LineId), v);
                     List<Double> lat = MetroCa.latitudeLine(v.LineId);
                     List<Double> len = MetroCa.lenghtLine(v.LineId);
                     paintList(lat, len, v);
@@ -665,7 +683,7 @@ namespace Route__Managment
                     paintBus(x1[i], x2[i], l);
                     gMapControl1.Zoom = 11;
                     gMapControl1.Zoom = 11.01;
-                    Thread.Sleep(100);
+                    Thread.Sleep(800);
                     gMapControl1.Overlays.Clear();
                     i++;
                 }            
