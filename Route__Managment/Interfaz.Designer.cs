@@ -63,7 +63,7 @@
             this.gMapControl1.GrayScaleMode = false;
             this.gMapControl1.HelperLineOption = GMap.NET.WindowsForms.HelperLineOptions.DontShow;
             this.gMapControl1.LevelsKeepInMemmory = 5;
-            this.gMapControl1.Location = new System.Drawing.Point(3, 4);
+            this.gMapControl1.Location = new System.Drawing.Point(114, 3);
             this.gMapControl1.MarkersEnabled = true;
             this.gMapControl1.MaxZoom = 2;
             this.gMapControl1.MinZoom = 2;
@@ -77,7 +77,7 @@
             this.gMapControl1.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Integer;
             this.gMapControl1.SelectedAreaFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
             this.gMapControl1.ShowTileGridLines = false;
-            this.gMapControl1.Size = new System.Drawing.Size(856, 436);
+            this.gMapControl1.Size = new System.Drawing.Size(933, 612);
             this.gMapControl1.TabIndex = 0;
             this.gMapControl1.Zoom = 0D;
             // 
@@ -85,7 +85,7 @@
             // 
             this.button1.BackColor = System.Drawing.Color.Cyan;
             this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(243, 454);
+            this.button1.Location = new System.Drawing.Point(12, 278);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(96, 37);
             this.button1.TabIndex = 1;
@@ -95,10 +95,10 @@
             // 
             // zoomBar
             // 
-            this.zoomBar.Location = new System.Drawing.Point(650, 488);
+            this.zoomBar.Location = new System.Drawing.Point(7, 544);
             this.zoomBar.Maximum = 25;
             this.zoomBar.Name = "zoomBar";
-            this.zoomBar.Size = new System.Drawing.Size(196, 45);
+            this.zoomBar.Size = new System.Drawing.Size(101, 45);
             this.zoomBar.TabIndex = 2;
             this.zoomBar.Scroll += new System.EventHandler(this.ZoomBar_Scroll);
             // 
@@ -112,7 +112,7 @@
             // 
             this.button2.BackColor = System.Drawing.Color.Cyan;
             this.button2.ForeColor = System.Drawing.Color.Black;
-            this.button2.Location = new System.Drawing.Point(381, 454);
+            this.button2.Location = new System.Drawing.Point(12, 334);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(96, 37);
             this.button2.TabIndex = 4;
@@ -124,7 +124,7 @@
             // 
             this.button3.BackColor = System.Drawing.Color.Cyan;
             this.button3.ForeColor = System.Drawing.Color.Black;
-            this.button3.Location = new System.Drawing.Point(515, 454);
+            this.button3.Location = new System.Drawing.Point(12, 456);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(96, 37);
             this.button3.TabIndex = 5;
@@ -136,7 +136,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Red;
-            this.label3.Location = new System.Drawing.Point(12, 466);
+            this.label3.Location = new System.Drawing.Point(12, 12);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(13, 13);
             this.label3.TabIndex = 7;
@@ -145,7 +145,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(31, 466);
+            this.label4.Location = new System.Drawing.Point(46, 12);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(46, 13);
             this.label4.TabIndex = 8;
@@ -154,7 +154,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(127, 466);
+            this.label5.Location = new System.Drawing.Point(46, 41);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(59, 13);
             this.label5.TabIndex = 9;
@@ -164,7 +164,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.label6.Location = new System.Drawing.Point(108, 466);
+            this.label6.Location = new System.Drawing.Point(12, 41);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(13, 13);
             this.label6.TabIndex = 10;
@@ -174,9 +174,9 @@
             // 
             this.Simulate.BackColor = System.Drawing.Color.Cyan;
             this.Simulate.ForeColor = System.Drawing.Color.Black;
-            this.Simulate.Location = new System.Drawing.Point(862, 454);
+            this.Simulate.Location = new System.Drawing.Point(12, 397);
             this.Simulate.Name = "Simulate";
-            this.Simulate.Size = new System.Drawing.Size(65, 37);
+            this.Simulate.Size = new System.Drawing.Size(96, 37);
             this.Simulate.TabIndex = 11;
             this.Simulate.Text = "Simular";
             this.Simulate.UseVisualStyleBackColor = false;
@@ -190,7 +190,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(127, 520);
+            this.label1.Location = new System.Drawing.Point(27, 85);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(49, 13);
             this.label1.TabIndex = 12;
@@ -199,7 +199,7 @@
             // Sector1
             // 
             this.Sector1.AutoSize = true;
-            this.Sector1.Location = new System.Drawing.Point(243, 516);
+            this.Sector1.Location = new System.Drawing.Point(20, 117);
             this.Sector1.Name = "Sector1";
             this.Sector1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.Sector1.Size = new System.Drawing.Size(32, 17);
@@ -211,7 +211,7 @@
             // Sector2
             // 
             this.Sector2.AutoSize = true;
-            this.Sector2.Location = new System.Drawing.Point(281, 516);
+            this.Sector2.Location = new System.Drawing.Point(73, 117);
             this.Sector2.Name = "Sector2";
             this.Sector2.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.Sector2.Size = new System.Drawing.Size(32, 17);
@@ -223,7 +223,7 @@
             // Sector3
             // 
             this.Sector3.AutoSize = true;
-            this.Sector3.Location = new System.Drawing.Point(319, 516);
+            this.Sector3.Location = new System.Drawing.Point(20, 140);
             this.Sector3.Name = "Sector3";
             this.Sector3.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.Sector3.Size = new System.Drawing.Size(32, 17);
@@ -235,7 +235,7 @@
             // Sector4
             // 
             this.Sector4.AutoSize = true;
-            this.Sector4.Location = new System.Drawing.Point(357, 516);
+            this.Sector4.Location = new System.Drawing.Point(73, 140);
             this.Sector4.Name = "Sector4";
             this.Sector4.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.Sector4.Size = new System.Drawing.Size(32, 17);
@@ -247,7 +247,7 @@
             // Sector5
             // 
             this.Sector5.AutoSize = true;
-            this.Sector5.Location = new System.Drawing.Point(395, 516);
+            this.Sector5.Location = new System.Drawing.Point(20, 163);
             this.Sector5.Name = "Sector5";
             this.Sector5.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.Sector5.Size = new System.Drawing.Size(32, 17);
@@ -259,7 +259,7 @@
             // Sector6
             // 
             this.Sector6.AutoSize = true;
-            this.Sector6.Location = new System.Drawing.Point(433, 516);
+            this.Sector6.Location = new System.Drawing.Point(73, 163);
             this.Sector6.Name = "Sector6";
             this.Sector6.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.Sector6.Size = new System.Drawing.Size(32, 17);
@@ -271,7 +271,7 @@
             // Sector7
             // 
             this.Sector7.AutoSize = true;
-            this.Sector7.Location = new System.Drawing.Point(471, 516);
+            this.Sector7.Location = new System.Drawing.Point(20, 186);
             this.Sector7.Name = "Sector7";
             this.Sector7.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.Sector7.Size = new System.Drawing.Size(32, 17);
@@ -283,7 +283,7 @@
             // Sector8
             // 
             this.Sector8.AutoSize = true;
-            this.Sector8.Location = new System.Drawing.Point(509, 516);
+            this.Sector8.Location = new System.Drawing.Point(73, 186);
             this.Sector8.Name = "Sector8";
             this.Sector8.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.Sector8.Size = new System.Drawing.Size(32, 17);
@@ -295,7 +295,7 @@
             // AllSectors
             // 
             this.AllSectors.AutoSize = true;
-            this.AllSectors.Location = new System.Drawing.Point(547, 516);
+            this.AllSectors.Location = new System.Drawing.Point(49, 222);
             this.AllSectors.Name = "AllSectors";
             this.AllSectors.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.AllSectors.Size = new System.Drawing.Size(56, 17);
@@ -306,10 +306,12 @@
             // 
             // listBox
             // 
+            this.listBox.BackColor = System.Drawing.SystemColors.InfoText;
+            this.listBox.ForeColor = System.Drawing.SystemColors.Info;
             this.listBox.FormattingEnabled = true;
-            this.listBox.Location = new System.Drawing.Point(862, 4);
+            this.listBox.Location = new System.Drawing.Point(1053, 9);
             this.listBox.Name = "listBox";
-            this.listBox.Size = new System.Drawing.Size(65, 433);
+            this.listBox.Size = new System.Drawing.Size(94, 602);
             this.listBox.TabIndex = 22;
             this.listBox.SelectedIndexChanged += new System.EventHandler(this.listBox_SelectedIndexChanged);
             // 
@@ -318,7 +320,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(930, 557);
+            this.ClientSize = new System.Drawing.Size(1150, 619);
             this.Controls.Add(this.listBox);
             this.Controls.Add(this.AllSectors);
             this.Controls.Add(this.Sector8);
