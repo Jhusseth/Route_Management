@@ -55,6 +55,8 @@ namespace Route__Managment
         {
             InitializeComponent();
             MetroCa = new MetroCali();
+            list();
+            MetroCa.dataSerealize();
             //addLines();
             //serializeMainClass();
             //MetroCa.Lines.Clear();
@@ -264,12 +266,14 @@ namespace Route__Managment
             marker.ToolTipMode = MarkerTooltipMode.OnMouseOver;
             marker.ToolTipText = string.Format("Bus");
             gMapControl1.Overlays.Add(markerOverlay);
+            gMapControl1.Zoom = 13;
+            gMapControl1.Zoom = 13.001;
         }
 
         private void Simulate_Click(object sender, EventArgs e)
         {
-            MetroCa.dataSerealize();
-            list();
+            
+            
             Refresh();
 
             //ThreadStart delegado = new ThreadStart(readingList);
@@ -657,16 +661,31 @@ namespace Route__Managment
                     StreamReader st = new StreamReader("datagrams.csv");
                     String line = "";
                     st.ReadLine();
+                    String anterior = "01:00:00";
+
                     while ((line = st.ReadLine()) != null)
                     {
+                //MessageBox.Show(".");
                        String[] lines = line.Split(';');
+                        
                         String[] timer = lines[10].Split(' ');
                         String[] timerH = timer[1].Split('.');
-                        Time.Text = timerH[0] + ":" + timerH[1] + ":" + timerH[2];  
+                        String times = timerH[0] + ":" + timerH[1] + ":" + timerH[2];
+                        Time.Text = times;
                         int lat = Convert.ToInt32(4);
                         int len = Convert.ToInt32(5);
-                        paintBus(lat,len);
-                     }
+                        paintBus(lat, len);
+                        //MessageBox.Show(times);
+                if (anterior == times)
+                {
+                    paintBus(lat, len);
+                }
+                else{
+                    gMapControl1.Overlays.Clear();
+                    anterior = times;
+                    paintBus(lat, len);
+                }
+            }
         }
 
         public void paintList(List<Double> lista1, List<Double> lista2 ,Line l)
