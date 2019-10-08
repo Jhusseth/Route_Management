@@ -96,9 +96,9 @@ namespace Route__Managment
             {
                 items.Add(v.ShortName);
             }
-     
 
-            listBox.DataSource = items;
+
+            comboBoxLines.DataSource = items;
         }
 
         public void paintStations()
@@ -236,19 +236,15 @@ namespace Route__Managment
             
         }
 
-        public void paintBus(Double lat, Double len,Line l)
+        public void paintBus(Double lat, Double len)
         {   
             PointLatLng point = new PointLatLng(lat, len);
             Bitmap bmpMaker = (Bitmap)Image.FromFile("bus.png");
             marker = new GMarkerGoogle(point, bmpMaker);
-
             markerOverlay = new GMapOverlay("markersV");
-
-          
-
             markerOverlay.Markers.Add(marker);
             marker.ToolTipMode = MarkerTooltipMode.OnMouseOver;
-            marker.ToolTipText = string.Format(l.ShortName);
+            marker.ToolTipText = string.Format("Bus");
             gMapControl1.Overlays.Add(markerOverlay);
         }
 
@@ -258,9 +254,11 @@ namespace Route__Managment
             list();
             Refresh();
 
-            ThreadStart delegado = new ThreadStart(readingList);
-            Thread hilo = new Thread(delegado); 
-            hilo.Start();
+            //ThreadStart delegado = new ThreadStart(readingList);
+            //Thread hilo = new Thread(delegado); 
+            //hilo.Start();
+
+            readingList();
 
 
         }
@@ -622,20 +620,37 @@ namespace Route__Managment
 
         public void readingList()
         {
-            String index = listBox.SelectedItem.ToString();
 
-            foreach (Line v in MetroCa.Lines)
-            {
-                if (v.ShortName.Equals(index))
-                {
-                   gMapControl1.Refresh();
-                   paintList(v.latitudeBus(v.LineId), v.lenghtBus(v.LineId), v);
-                   List<Double> lat = MetroCa.latitudeLine(v.LineId);
-                   List<Double> len = MetroCa.lenghtLine(v.LineId);
-                   paintList(lat, len, v);
-                   this.Refresh();
-                }
-            }
+           // String index = comboBoxLines.Text;
+
+
+            //foreach (Line v in MetroCa.Lines)
+            //{
+               // if (v.ShortName.Equals(index))
+                //{
+                    // gMapControl1.Refresh();
+                    //paintList(v.latitudeBus(v.LineId), v.lenghtBus(v.LineId), v);
+                    //List<Double> lat = MetroCa.latitudeLine(v.LineId);
+                    //List<Double> len = MetroCa.lenghtLine(v.LineId);
+                    //paintList(lat, len, v);
+                    //this.Refresh();
+
+
+                    StreamReader st = new StreamReader("datagrams.csv");
+                    String line = "";
+                    st.ReadLine();
+                    while ((line = st.ReadLine()) != null)
+                    {
+                       String[] lines = line.Split(';');
+                        String[] timer = lines[10].Split(' ');
+                        String[] timerH = timer[1].Split('.');
+                        Time.Text = timerH[0] + ":" + timerH[1] + ":" + timerH[2];  
+                        int lat = Convert.ToInt32(4);
+                        int len = Convert.ToInt32(5);
+                        paintBus(lat,len);
+                     }
+                //}
+            //}
         }
 
         public void paintList(List<Double> lista1, List<Double> lista2 ,Line l)
@@ -646,7 +661,7 @@ namespace Route__Managment
                 int i = 0;
                 while (i < x1.Length)
                 {
-                    paintBus(x1[i], x2[i], l);
+                    paintBus(x1[i], x2[i]);
                     gMapControl1.Zoom = 11;
                     gMapControl1.Zoom = 11.01;
                     Thread.Sleep(100);

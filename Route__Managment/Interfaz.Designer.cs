@@ -51,7 +51,8 @@
             this.Sector7 = new System.Windows.Forms.CheckBox();
             this.Sector8 = new System.Windows.Forms.CheckBox();
             this.AllSectors = new System.Windows.Forms.CheckBox();
-            this.listBox = new System.Windows.Forms.ListBox();
+            this.comboBoxLines = new System.Windows.Forms.ComboBox();
+            this.Time = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.zoomBar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -77,7 +78,7 @@
             this.gMapControl1.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Integer;
             this.gMapControl1.SelectedAreaFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
             this.gMapControl1.ShowTileGridLines = false;
-            this.gMapControl1.Size = new System.Drawing.Size(933, 612);
+            this.gMapControl1.Size = new System.Drawing.Size(1033, 612);
             this.gMapControl1.TabIndex = 0;
             this.gMapControl1.Zoom = 0D;
             // 
@@ -85,7 +86,7 @@
             // 
             this.button1.BackColor = System.Drawing.Color.Cyan;
             this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(12, 278);
+            this.button1.Location = new System.Drawing.Point(7, 345);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(96, 37);
             this.button1.TabIndex = 1;
@@ -95,7 +96,7 @@
             // 
             // zoomBar
             // 
-            this.zoomBar.Location = new System.Drawing.Point(7, 544);
+            this.zoomBar.Location = new System.Drawing.Point(7, 562);
             this.zoomBar.Maximum = 25;
             this.zoomBar.Name = "zoomBar";
             this.zoomBar.Size = new System.Drawing.Size(101, 45);
@@ -112,7 +113,7 @@
             // 
             this.button2.BackColor = System.Drawing.Color.Cyan;
             this.button2.ForeColor = System.Drawing.Color.Black;
-            this.button2.Location = new System.Drawing.Point(12, 334);
+            this.button2.Location = new System.Drawing.Point(7, 401);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(96, 37);
             this.button2.TabIndex = 4;
@@ -124,7 +125,7 @@
             // 
             this.button3.BackColor = System.Drawing.Color.Cyan;
             this.button3.ForeColor = System.Drawing.Color.Black;
-            this.button3.Location = new System.Drawing.Point(12, 456);
+            this.button3.Location = new System.Drawing.Point(7, 507);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(96, 37);
             this.button3.TabIndex = 5;
@@ -174,7 +175,7 @@
             // 
             this.Simulate.BackColor = System.Drawing.Color.Cyan;
             this.Simulate.ForeColor = System.Drawing.Color.Black;
-            this.Simulate.Location = new System.Drawing.Point(12, 397);
+            this.Simulate.Location = new System.Drawing.Point(7, 455);
             this.Simulate.Name = "Simulate";
             this.Simulate.Size = new System.Drawing.Size(96, 37);
             this.Simulate.TabIndex = 11;
@@ -304,16 +305,24 @@
             this.AllSectors.UseVisualStyleBackColor = true;
             this.AllSectors.CheckedChanged += new System.EventHandler(this.AllSectors_CheckedChanged);
             // 
-            // listBox
+            // comboBoxLines
             // 
-            this.listBox.BackColor = System.Drawing.SystemColors.InfoText;
-            this.listBox.ForeColor = System.Drawing.SystemColors.Info;
-            this.listBox.FormattingEnabled = true;
-            this.listBox.Location = new System.Drawing.Point(1053, 9);
-            this.listBox.Name = "listBox";
-            this.listBox.Size = new System.Drawing.Size(94, 602);
-            this.listBox.TabIndex = 22;
-            this.listBox.SelectedIndexChanged += new System.EventHandler(this.listBox_SelectedIndexChanged);
+            this.comboBoxLines.FormattingEnabled = true;
+            this.comboBoxLines.Location = new System.Drawing.Point(1045, 9);
+            this.comboBoxLines.Name = "comboBoxLines";
+            this.comboBoxLines.Size = new System.Drawing.Size(93, 21);
+            this.comboBoxLines.TabIndex = 22;
+            // 
+            // Time
+            // 
+            this.Time.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.Time.AutoSize = true;
+            this.Time.Font = new System.Drawing.Font("MS Outlook", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Time.Location = new System.Drawing.Point(15, 278);
+            this.Time.Name = "Time";
+            this.Time.Size = new System.Drawing.Size(76, 24);
+            this.Time.TabIndex = 23;
+            this.Time.Text = "RELOJ";
             // 
             // Interfaz
             // 
@@ -321,7 +330,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1150, 619);
-            this.Controls.Add(this.listBox);
+            this.Controls.Add(this.Time);
+            this.Controls.Add(this.comboBoxLines);
             this.Controls.Add(this.AllSectors);
             this.Controls.Add(this.Sector8);
             this.Controls.Add(this.Sector7);
@@ -377,7 +387,8 @@
         private System.Windows.Forms.CheckBox Sector7;
         private System.Windows.Forms.CheckBox Sector8;
         private System.Windows.Forms.CheckBox AllSectors;
-        private System.Windows.Forms.ListBox listBox;
+        private System.Windows.Forms.ComboBox comboBoxLines;
+        private System.Windows.Forms.Label Time;
     }
 }
 
