@@ -276,11 +276,13 @@ namespace Route__Managment
             
             Refresh();
 
-            //ThreadStart delegado = new ThreadStart(readingList);
-            //Thread hilo = new Thread(delegado); 
-            //hilo.Start();
+            ThreadStart delegado = new ThreadStart(readingList);
+            Thread hilo = new Thread(delegado); 
+            hilo.Start();
 
-            readingList();
+           // readingList();
+
+            
 
 
         }
@@ -363,6 +365,8 @@ namespace Route__Managment
                 points.Add(p4);
                 points.Add(p5);
                 points.Add(p6);
+
+                
 
                 poligonos1 = new GMapPolygon(points, "Poligono");
                 markerOverlay1.Polygons.Add(poligonos1);
@@ -665,15 +669,20 @@ namespace Route__Managment
 
                     while ((line = st.ReadLine()) != null)
                     {
+<<<<<<< HEAD
                 //MessageBox.Show(".");
                        String[] lines = line.Split(';');
                         
+=======
+                        String[] lines = line.Split(';');
+>>>>>>> 95a08cc6c1f2413bf7f46d8996fdbea01a49c399
                         String[] timer = lines[10].Split(' ');
                         String[] timerH = timer[1].Split('.');
                         String times = timerH[0] + ":" + timerH[1] + ":" + timerH[2];
                         Time.Text = times;
                         int lat = Convert.ToInt32(4);
                         int len = Convert.ToInt32(5);
+<<<<<<< HEAD
                         paintBus(lat, len);
                         //MessageBox.Show(times);
                 if (anterior == times)
@@ -685,6 +694,12 @@ namespace Route__Managment
                     anterior = times;
                     paintBus(lat, len);
                 }
+=======
+                        paintBus(lat,len);
+                        gMapControl1.Zoom = 11;
+                        gMapControl1.Zoom = 11.01;                            
+                        gMapControl1.Overlays.Clear();
+>>>>>>> 95a08cc6c1f2413bf7f46d8996fdbea01a49c399
             }
         }
 
@@ -708,7 +723,7 @@ namespace Route__Managment
         }
         private void listBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            readingList();
+           // readingList();
         }
 
         private void Sector4_CheckedChanged(object sender, EventArgs e)
