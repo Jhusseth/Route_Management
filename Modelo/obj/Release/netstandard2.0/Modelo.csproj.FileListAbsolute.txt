@@ -1,0 +1,8 @@
+D:\Proyectos_GIT\Integrador\Route_Management\Modelo\bin\Release\netstandard2.0\Modelo.deps.json
+D:\Proyectos_GIT\Integrador\Route_Management\Modelo\bin\Release\netstandard2.0\Modelo.dll
+D:\Proyectos_GIT\Integrador\Route_Management\Modelo\bin\Release\netstandard2.0\Modelo.pdb
+D:\Proyectos_GIT\Integrador\Route_Management\Modelo\obj\Release\netstandard2.0\Modelo.csprojAssemblyReference.cache
+D:\Proyectos_GIT\Integrador\Route_Management\Modelo\obj\Release\netstandard2.0\Modelo.AssemblyInfoInputs.cache
+D:\Proyectos_GIT\Integrador\Route_Management\Modelo\obj\Release\netstandard2.0\Modelo.AssemblyInfo.cs
+D:\Proyectos_GIT\Integrador\Route_Management\Modelo\obj\Release\netstandard2.0\Modelo.dll
+D:\Proyectos_GIT\Integrador\Route_Management\Modelo\obj\Release\netstandard2.0\Modelo.pdb
