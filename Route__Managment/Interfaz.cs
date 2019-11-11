@@ -75,8 +75,9 @@ namespace Route__Managment
         public void list()
         {
             List<string> items = new List<string>();
+			items.Add("");
 			items.Add("TODAS");
-            foreach (int id in MetroCa.Lines.Keys)
+			foreach (int id in MetroCa.Lines.Keys)
             {
 				Line v = (Line) MetroCa.Lines[id];
                 items.Add(v.ShortName);
@@ -169,6 +170,7 @@ namespace Route__Managment
 			if (buses.Count > 0)
 			{
 				string draw = listBox.Text;
+				removeAllM();
 				drawBus(draw);
 			}
 			else
@@ -191,7 +193,6 @@ namespace Route__Managment
 
         public void clear()
         {
-            gMapControl1.Overlays.Clear();
             Sector1.Enabled = true;
             Sector2.Enabled = true;
             Sector3.Enabled = true;
@@ -213,6 +214,7 @@ namespace Route__Managment
 
         private void button3_Click(object sender, EventArgs e)
         {
+			removeAllM();
             clear();
 		}
 
@@ -559,6 +561,7 @@ namespace Route__Managment
 			tiempo.DataSource = items;
 
 			list();
+			upload_btn.Enabled = false;
 		}
 
 		private void Button4_Click_1(object sender, EventArgs e)
@@ -724,9 +727,20 @@ namespace Route__Managment
 			return mayor;
 		}
 
+		private void removeAllM()
+		{
+			if (gMapControl1.Overlays.Count > 0)
+			{
+				gMapControl1.Overlays.Clear();
+				gMapControl1.Refresh();
+			}
+		}
+
 
 		private void drawBus(string draw)
 		{
+			//removeAllM();
+
 			List<Bus> theDefinitiveList = buses;
 
 			String[] reloj2 = theDefinitiveList[0].hour.Split(' ');
@@ -745,7 +759,6 @@ namespace Route__Managment
 						Console.WriteLine("{0}, {1}", theLine.ShortName, draw);
 						if (theLine.ShortName.Equals(draw))
 						{
-							//verificarZone(theDefinitiveList[i]);
 							busAllShow(theDefinitiveList[i].latitude, theDefinitiveList[i].longitude, theDefinitiveList[i].busId, theLine.LineId);
 						}
 					}
@@ -797,11 +810,11 @@ namespace Route__Managment
 			}
 			if (Sector3.Checked == true)
 			{
-				busZone(bus.latitude, bus.longitude, 2, bus.busId, bus.lineId);
+				busZone(bus.latitude, bus.longitude, 5, bus.busId, bus.lineId);
 			}
 			if (Sector4.Checked == true)
 			{
-				busZone(bus.latitude, bus.longitude, 6, bus.busId, bus.lineId);
+				busZone(bus.latitude, bus.longitude, 5, bus.busId, bus.lineId);
 			}
 			if (Sector5.Checked == true)
 			{
@@ -815,7 +828,7 @@ namespace Route__Managment
 			}
 			if (Sector7.Checked == true)
 			{
-				busZone(bus.latitude, bus.longitude, 6, bus.busId, bus.lineId);
+				busZone(bus.latitude, bus.longitude, 7, bus.busId, bus.lineId);
 
 			}
 

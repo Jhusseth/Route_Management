@@ -30,7 +30,7 @@ namespace Modelo
             BusStops = new Hashtable();
             Lines = new Hashtable();
 			this.zonas = new List<Zone>();
-			loadZones();
+			zones();
 		}
 
         public void deserializeS()
@@ -75,8 +75,7 @@ namespace Modelo
         public void dataReadingLines(String file)
         {
             StreamReader st = new StreamReader(file);
-            String lin = "";
-            st.ReadLine();            
+            String lin = "";            
             while ((lin = st.ReadLine()) != null)
             {
                 String[] line = lin.Split(';');
@@ -92,31 +91,31 @@ namespace Modelo
             dataReadingLines("lines.csv");
         }
 
-		public void loadZones()
+		public void zones()
 		{
-			Zone z0 = new Zone(3.457664, 3.441622, -76.598407, -76.524088);
-			zonas.Add(z0);
+			Zone zona1 = new Zone(3.457664, 3.441622, -76.598407, -76.524088);
+			zonas.Add(zona1);
 
-			Zone z1 = new Zone(3.380145, 3.287627, -76.598407, -76.449366);
-			zonas.Add(z1);
+			Zone zona2 = new Zone(3.380145, 3.287627, -76.598407, -76.449366);
+			zonas.Add(zona2);
 
-			Zone z2 = new Zone(3.516009, 3.457664, -76.598407, -76.505034);
-			zonas.Add(z2);
+			Zone zona3 = new Zone(3.516009, 3.457664, -76.598407, -76.505034);
+			zonas.Add(zona3);
 
-			Zone z3 = new Zone(3.516009, 3.449274, -76.505034, 76.449366);
-			zonas.Add(z3);
+			Zone zona4 = new Zone(3.516009, 3.449274, -76.505034, 76.449366);
+			zonas.Add(zona4);
 
-			Zone z4 = new Zone(3.449274, 3.442681, -76.524088, -76.460200);
-			zonas.Add(z4);
+			Zone zona5 = new Zone(3.449274, 3.442681, -76.524088, -76.460200);
+			zonas.Add(zona5);
 
-			Zone z5 = new Zone(3.442681, 3.380145, -76.524088, -76.460200);
-			zonas.Add(z5);
+			Zone zona6 = new Zone(3.442681, 3.380145, -76.524088, -76.460200);
+			zonas.Add(zona6);
 
-			Zone z6 = new Zone(3.441622, 3.380145, -76.598407, -76.524088);
-			zonas.Add(z6);
+			Zone zona7 = new Zone(3.441622, 3.380145, -76.598407, -76.524088);
+			zonas.Add(zona7);
 
-			Zone z7 = new Zone(3.441622, 3.380145, -76.598407, -76.524088);
-			zonas.Add(z7);
+			Zone zona8 = new Zone(3.441622, 3.380145, -76.598407, -76.524088);
+			zonas.Add(zona8);
 		}
 
 		public int isZone(double altitud, double longitud)
