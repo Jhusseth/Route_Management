@@ -33,6 +33,7 @@ namespace Modelo
 			zones();
 		}
 
+
         public void deserializeS()
         {
             FileStream fs = new FileStream("DataFile.dat", FileMode.Open);
