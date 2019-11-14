@@ -50,12 +50,7 @@ namespace Route__Managment
 		double Initiallatitude = 3.42158;
         double initialLength = -76.5205;
         private MetroCali MetroCa;
-
-        private String anterior;
-
 		private Hashtable ht;
-
-		Thread h;
 
 		public Interfaz()
         {

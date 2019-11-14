@@ -24,3 +24,12 @@ D:\Proyectos_GIT\Integrador\Route_Management\Modelo\obj\Debug\netstandard2.0\Mod
 D:\Proyectos_GIT\Integrador\Route_Management\Modelo\obj\Debug\netstandard2.0\Modelo.AssemblyInfo.cs
 D:\Proyectos_GIT\Integrador\Route_Management\Modelo\obj\Debug\netstandard2.0\Modelo.dll
 D:\Proyectos_GIT\Integrador\Route_Management\Modelo\obj\Debug\netstandard2.0\Modelo.pdb
+C:\Users\santi\projects\repos\Route_Management\Modelo\bin\Debug\netstandard2.0\Modelo.deps.json
+C:\Users\santi\projects\repos\Route_Management\Modelo\bin\Debug\netstandard2.0\Modelo.dll
+C:\Users\santi\projects\repos\Route_Management\Modelo\bin\Debug\netstandard2.0\Modelo.pdb
+C:\Users\santi\projects\repos\Route_Management\Modelo\obj\Debug\netstandard2.0\Modelo.csprojAssemblyReference.cache
+C:\Users\santi\projects\repos\Route_Management\Modelo\obj\Debug\netstandard2.0\Modelo.csproj.CoreCompileInputs.cache
+C:\Users\santi\projects\repos\Route_Management\Modelo\obj\Debug\netstandard2.0\Modelo.AssemblyInfoInputs.cache
+C:\Users\santi\projects\repos\Route_Management\Modelo\obj\Debug\netstandard2.0\Modelo.AssemblyInfo.cs
+C:\Users\santi\projects\repos\Route_Management\Modelo\obj\Debug\netstandard2.0\Modelo.dll
+C:\Users\santi\projects\repos\Route_Management\Modelo\obj\Debug\netstandard2.0\Modelo.pdb
