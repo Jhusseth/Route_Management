@@ -11,15 +11,37 @@ namespace UnitTestRoute_Management
     [TestClass]
     public class UnitTest1
     {
-    
+
+        MetroCali mc = new MetroCali();
 
         [TestMethod]
-        public void TestIsZone()
+        public void TestIsZoneA()
         {
-            MetroCali mc = new MetroCali();
-            //mc.isZone(3.30, 75.78);
             int exceptedZone = 1;
             Assert.AreEqual(exceptedZone, mc.isZone(3.287627, -76.449366));
+        }
+
+        [TestMethod]
+        public void TestIsZoneB()
+        {
+            int exceptedZoneB = -1;
+            Assert.AreEqual(exceptedZoneB, mc.isZone(3.832123, 73.38929));
+        }
+
+        [TestMethod]
+        public void TestAddLine()
+        {
+            Line lin = new Line(17, "E21", "Universidades-Menga");
+            mc.addLines(lin, 17);
+            Assert.IsTrue(mc.Lines.ContainsKey(17));
+            
+        }
+
+        [TestMethod]
+        public void TestDataReadingLine()
+        {
+            mc.dataReadingLines("TextTemplate1.tt");
+            Assert.IsTrue(mc.Lines.ContainsKey(131));
         }
 
     }
