@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\jeank\\source\\repos\\Route__Managment\\Modelo\\Modelo.csproj": {}
+    "D:\\Proyectos_GIT\\Integrador\\Route_Management\\Modelo\\Modelo.csproj": {}
   },
   "projects": {
-    "C:\\Users\\jeank\\source\\repos\\Route__Managment\\Modelo\\Modelo.csproj": {
+    "D:\\Proyectos_GIT\\Integrador\\Route_Management\\Modelo\\Modelo.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jeank\\source\\repos\\Route__Managment\\Modelo\\Modelo.csproj",
+        "projectUniqueName": "D:\\Proyectos_GIT\\Integrador\\Route_Management\\Modelo\\Modelo.csproj",
         "projectName": "Modelo",
-        "projectPath": "C:\\Users\\jeank\\source\\repos\\Route__Managment\\Modelo\\Modelo.csproj",
-        "packagesPath": "C:\\Users\\jeank\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jeank\\source\\repos\\Route__Managment\\Modelo\\obj\\",
+        "projectPath": "D:\\Proyectos_GIT\\Integrador\\Route_Management\\Modelo\\Modelo.csproj",
+        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
+        "outputPath": "D:\\Proyectos_GIT\\Integrador\\Route_Management\\Modelo\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\jeank\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -49,10 +46,16 @@
             }
           },
           "imports": [
-            "net461"
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
           ],
           "assetTargetFallback": true,
-          "warn": true
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

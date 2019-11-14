@@ -6,6 +6,7 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Route__Managment", "Route__Managment\Route__Managment.csproj", "{B88C5AB8-C823-4BEF-9AF3-7EC6F9B279AF}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Modelo", "Modelo\Modelo.csproj", "{57D30B1F-9B99-4743-84B8-48EFC7FBBCA4}"
+<<<<<<< HEAD
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{A663E574-415C-415D-BD14-13DEBF405AFB}"
 EndProject
@@ -14,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestRoute_Management", 
 		{57D30B1F-9B99-4743-84B8-48EFC7FBBCA4} = {57D30B1F-9B99-4743-84B8-48EFC7FBBCA4}
 		{B88C5AB8-C823-4BEF-9AF3-7EC6F9B279AF} = {B88C5AB8-C823-4BEF-9AF3-7EC6F9B279AF}
 	EndProjectSection
+=======
+>>>>>>> master
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
