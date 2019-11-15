@@ -357,6 +357,7 @@
 			this.gMapControl1.Size = new System.Drawing.Size(973, 674);
 			this.gMapControl1.TabIndex = 0;
 			this.gMapControl1.Zoom = 0D;
+			this.gMapControl1.OnMapZoomChanged += new GMap.NET.MapZoomChanged(this.MouseEventHandler);
 			// 
 			// panelMap
 			// 

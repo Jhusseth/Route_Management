@@ -44,28 +44,30 @@ namespace Route__Managment
         GMapPolygon poligonos7;
         GMapPolygon poligonos8;
 
+		GMapOverlay Poligono;
+
 
 		List<Bus> buses;
 
 		double Initiallatitude = 3.42158;
         double initialLength = -76.5205;
         private MetroCali MetroCa;
-		private Hashtable ht;
+
+		private bool isVisible;
 
 		public Interfaz()
         {
             InitializeComponent();
             MetroCa = new MetroCali();
-			ht = new Hashtable();
 			buses =  new List<Bus>();
+			isVisible = false;
+			Poligono = new GMapOverlay("Poligono");
 		}
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            MetroCa.deserializeS();
-            paintStations();
-        }
-
+			paintStations();
+		}
 
         public void list()
         {
@@ -82,20 +84,40 @@ namespace Route__Managment
 
         public void paintStations()
         {
-            foreach (String de in MetroCa.BusStations.Keys)
-            {
-                BusStation b = (BusStation)MetroCa.BusStations[de];
-                if ((b.Latitude1 >= 3.447095 && b.Latitude1 <= 3.449836) && (b.Lenght >= -76.512240 && b.Lenght <= -76.546208) &&
-                    (b.Latitude1 >= 0)) ;
-                {
+			//foreach (String de in MetroCa.BusStations.Keys)
+			//{
+			//	BusStation b = (BusStation)MetroCa.BusStations[de];
+			//	showStations(b.Latitude1, b.Lenght, b.LongName);
+			//}
+			//refreshMap();
 
-                }
-                showStations(b.Latitude1, b.Lenght, b.LongName);
-            }
+
+			StreamReader st = new StreamReader("stopStations.csv");
+			String lin = "";
+			while ((lin = st.ReadLine()) != null)
+			{
+				String[] line = lin.Split(';');
+				String shortName = line[2];
+				String longName = line[3];
+				Double lat = Convert.ToDouble(line[6]);
+				Double len = Convert.ToDouble(line[7]);
+				showStations(lat, len, shortName);
+				refreshMap();
+			}
+		}
+
+		public void paintPolyStops()
+		{
+			for (int i = 0; i < MetroCa.StopStations.Count; i++)
+			{
+				showStops(MetroCa.StopStations[i].Latitude, MetroCa.StopStations[i].Lenght, MetroCa.StopStations[i].ShortName);
+			}
 			refreshMap();
-        }
+		}
 
-        public void paintStops()
+
+
+		public void paintStops()
         {
             foreach (String de in MetroCa.BusStops.Keys)
             {
@@ -114,14 +136,14 @@ namespace Route__Managment
 
             marker = new GMarkerGoogle(point, bmpMaker);
 
-            markerOverlay = new GMapOverlay("markers");
+            markerOverlay = new GMapOverlay("markersStop");
             markerOverlay.Markers.Add(marker);
             marker.ToolTipMode = MarkerTooltipMode.OnMouseOver;
             marker.ToolTipText = string.Format(name);
             gMapControl1.Overlays.Add(markerOverlay);
         }
 
-        public void showStops(double lat, double len, String name)
+		public void showStops(double lat, double len, String name)
         {
             PointLatLng point = new PointLatLng(lat, len);
             Bitmap bmpMaker = (Bitmap)Image.FromFile("marker.png");
@@ -142,6 +164,7 @@ namespace Route__Managment
             gMapControl1.MinZoom = 1;
             gMapControl1.MaxZoom = 100;
             gMapControl1.Zoom = 13;
+			zoomBar.Value = (int) gMapControl1.Zoom;
 			CheckForIllegalCrossThreadCalls = false;
         }
 
@@ -174,14 +197,13 @@ namespace Route__Managment
 			}
 		}
 
-        private void ZoomBar_Scroll(object sender, EventArgs e)
-        {
-            gMapControl1.Zoom = zoomBar.Value;
+		private void ZoomBar_Scroll(object sender, EventArgs e)
+		{
+			gMapControl1.Zoom = zoomBar.Value;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            MetroCa.deserializeP();
             paintStops();
         }
 
@@ -216,7 +238,7 @@ namespace Route__Managment
         private void UpdateMap_Tick(object sender, EventArgs e)
         {
 
-        }
+		}
         private void AllSectors_CheckedChanged(object sender, EventArgs e)
         {
             if (AllSectors.Checked == true)
@@ -289,9 +311,8 @@ namespace Route__Managment
                 poligonos1 = new GMapPolygon(points, "Poligono");
                 markerOverlay1.Polygons.Add(poligonos1);
                 gMapControl1.Overlays.Add(markerOverlay1);
-                gMapControl1.Zoom = 11;
-                gMapControl1.Zoom = 11.2;
-            }
+				refreshMap();
+			}
             else
             {
                 markerOverlay1.Clear();
@@ -317,9 +338,8 @@ namespace Route__Managment
                 poligonos2 = new GMapPolygon(points, "Poligono");
                 markerOverlay2.Polygons.Add(poligonos2);
                 gMapControl1.Overlays.Add(markerOverlay2);
-                gMapControl1.Zoom = 11;
-                gMapControl1.Zoom = 11.2;
-            }
+				refreshMap();
+			}
             else
             {
                 markerOverlay2.Clear();
@@ -343,9 +363,8 @@ namespace Route__Managment
                 poligonos3 = new GMapPolygon(points, "Poligono");
                 markerOverlay3.Polygons.Add(poligonos3);
                 gMapControl1.Overlays.Add(markerOverlay3);
-                gMapControl1.Zoom = 11;
-                gMapControl1.Zoom = 11.2;
-            }
+				refreshMap();
+			}
             else
             {
                 markerOverlay3.Clear();
@@ -369,9 +388,8 @@ namespace Route__Managment
                 poligonos8 = new GMapPolygon(points, "Poligono");
                 markerOverlay8.Polygons.Add(poligonos8);
                 gMapControl1.Overlays.Add(markerOverlay8);
-                gMapControl1.Zoom = 11;
-                gMapControl1.Zoom = 11.2;
-            }
+				refreshMap();
+			}
             else
             {
                 markerOverlay8.Clear();
@@ -397,8 +415,7 @@ namespace Route__Managment
                 poligonos7 = new GMapPolygon(points, "Poligono");
                 markerOverlay7.Polygons.Add(poligonos7);
                 gMapControl1.Overlays.Add(markerOverlay7);
-                gMapControl1.Zoom = 11;
-                gMapControl1.Zoom = 11.2;
+				refreshMap();
             }
             else
             {
@@ -427,9 +444,8 @@ namespace Route__Managment
                 poligonos4 = new GMapPolygon(points, "Poligono");
                 markerOverlay4.Polygons.Add(poligonos4);
                 gMapControl1.Overlays.Add(markerOverlay4);
-                gMapControl1.Zoom = 11;
-                gMapControl1.Zoom = 11.2;
-            }
+				refreshMap();
+			}
             else
             {
                 markerOverlay4.Clear();
@@ -456,9 +472,8 @@ namespace Route__Managment
                 poligonos5 = new GMapPolygon(points, "Poligono");
                 markerOverlay5.Polygons.Add(poligonos5);
                 gMapControl1.Overlays.Add(markerOverlay5);
-                gMapControl1.Zoom = 11;
-                gMapControl1.Zoom = 11.2;
-            }
+				refreshMap();
+			}
             else
             {
                 markerOverlay5.Clear();
@@ -492,9 +507,8 @@ namespace Route__Managment
                 poligonos6 = new GMapPolygon(points, "Poligono");
                 markerOverlay6.Polygons.Add(poligonos6);
                 gMapControl1.Overlays.Add(markerOverlay6);
-                gMapControl1.Zoom = 11;
-                gMapControl1.Zoom = 11.2;
-            }
+				refreshMap();
+			}
             else
             {
                 markerOverlay6.Clear();
@@ -546,7 +560,9 @@ namespace Route__Managment
 
 		private void Button4_Click(object sender, EventArgs e)
         {
-           MetroCa.dataSerealize();
+            MetroCa.dataSerealize();
+			MetroCa.deserializeS();
+			MetroCa.deserializeP();
 			List<string> items = new List<string>();
 
 			items.Add("60");
@@ -811,23 +827,19 @@ namespace Route__Managment
 			if (Sector5.Checked == true)
 			{
 				busZone(bus.latitude, bus.longitude, 4, bus.busId, bus.lineId);
-
 			}
 			if (Sector6.Checked == true)
 			{
 				busZone(bus.latitude, bus.longitude, 1, bus.busId, bus.lineId);
-
 			}
 			if (Sector7.Checked == true)
 			{
 				busZone(bus.latitude, bus.longitude, 7, bus.busId, bus.lineId);
-
 			}
 
 			if (Sector8.Checked == true)
 			{
 				busZone(bus.latitude, bus.longitude, 7, bus.busId, bus.lineId);
-
 			}
 		}
 
@@ -874,10 +886,127 @@ namespace Route__Managment
 			marck.ToolTip = theTip;
 		}
 
+		public void PolygonsInStops()
+		{
+			int j;
+			for (int i = 0; i < MetroCa.StopStations.Count; i++)
+			{
+				j = i;
+				String name = MetroCa.StopStations[i].LongName.Substring(0, MetroCa.StopStations[i].LongName.Length - 3);
+				String nameCompare = MetroCa.StopStations[j + 1].LongName.Substring(0, MetroCa.StopStations[j + 1].LongName.Length - 3);
+				List<Stop> listStopStation = new List<Stop>();
+				listStopStation.Add(MetroCa.StopStations[i]);
+				while (name.Trim().Equals(nameCompare.Trim()))
+				{
+					j++;
 
+					if (j < MetroCa.StopStations.Count)
+					{
+
+						if ((j + 1) < MetroCa.StopStations.Count)
+						{
+							listStopStation.Add(MetroCa.StopStations[j]);
+							nameCompare = MetroCa.StopStations[j + 1].LongName.Substring(0, MetroCa.StopStations[j + 1].LongName.Length - 3);
+						}
+						else
+						{
+							nameCompare = "";
+						}
+
+					}
+					else
+					{
+						nameCompare = "";
+					}
+					
+				}
+				PolygonStation(ConvexHull(listStopStation, listStopStation.Count));
+				i = j;
+			}
+		}
+
+		public List<Stop> ConvexHull(List<Stop> polyStop, int n)
+		{
+
+			List<Stop> convex = new List<Stop>();
+			int l = 0;
+
+			for (int i = 1; i < n; i++)
+			{
+				if (polyStop[i].Lenght < polyStop[l].Lenght)
+				{
+					l = i;
+				}
+			}
+
+			int p = l, q;
+
+			do
+			{
+				convex.Add(polyStop[p]);
+
+				q = (p + 1) % n;
+
+				for (int i = 0; i < n; i++)
+				{
+					if (Address(polyStop[p], polyStop[i], polyStop[q]) == 2)
+						q = i;
+				}
+				p = q;
+			} while (p != l);
+
+			return convex;
+		}
+
+		public int Address(Stop ponit1, Stop point2, Stop ponit3)
+		{
+			double value = (point2.Latitude - ponit1.Latitude) * (ponit3.Lenght - point2.Lenght) - (point2.Lenght - ponit1.Lenght) * (ponit3.Latitude - point2.Latitude);
+
+			if (value == 0)
+			{
+				return 0;
+			}
+
+			return (value > 0) ? 1 : 2;
+		}
+
+		private void PolygonStation(List<Stop> polyStop)
+		{
+			List<PointLatLng> puntos = new List<PointLatLng>();
+			double lat, len;
+			for (int i = 0; i < polyStop.Count; i++)
+			{
+				lat = polyStop[i].Latitude;
+				len = polyStop[i].Lenght;
+				puntos.Add(new PointLatLng(lat, len));
+			}
+			GMapPolygon polygonPoint = new GMapPolygon(puntos, "Poligono");
+			Poligono.Polygons.Add(polygonPoint);
+			gMapControl1.Overlays.Add(Poligono);
+			refreshMap();
+		}
 		private void tiempo_SelectedIndexChanged(object sender, EventArgs e)
 		{
 
+		}
+
+		public void MouseEventHandler()
+		{
+			String zoom1 = gMapControl1.Zoom.ToString();
+			int zoom = int.Parse(zoom1);
+			if (zoom >= 16 && !isVisible)
+			{
+				//paintPolyStops();
+				//PolygonsInStops();
+				isVisible = true;
+			}
+			else if (zoom < 16)
+			{
+				//Poligono.Clear();
+				//paintStations();
+				isVisible = false;
+				refreshMap();
+			}
 		}
 	}
 }

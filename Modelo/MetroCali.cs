@@ -14,6 +14,7 @@ namespace Modelo
         private Hashtable busStations;
         private Hashtable busStops;
         private Hashtable lines;
+		private List<Stop> stopsPolygon;
 
 		public List<Zone> zonas { get; set; }
 
@@ -24,10 +25,13 @@ namespace Modelo
         
         public Hashtable Lines { get => lines; set => lines = value; }
 
-        public MetroCali()
+		public List<Stop> StopStations { get => stopsPolygon; set => stopsPolygon = value; }
+
+		public MetroCali()
         {
             BusStations = new Hashtable();
-            BusStops = new Hashtable();
+			stopsPolygon = new List<Stop>();
+			BusStops = new Hashtable();
             Lines = new Hashtable();
 			this.zonas = new List<Zone>();
 			zones();
@@ -72,8 +76,24 @@ namespace Modelo
             }
         }
 
-  
-        public void dataReadingLines(String file)
+		public void dataReadingStops(String file)
+		{
+			StreamReader st = new StreamReader(file);
+			String lin = "";
+			while ((lin = st.ReadLine()) != null)
+			{
+				String[] line = lin.Split(';');
+				String shortName = line[2];
+				String longName = line[3];
+				Double lat = Convert.ToDouble(line[6]);
+				Double len = Convert.ToDouble(line[7]);
+				Stop stop = new Stop(shortName,longName,lat, len); 
+				stopsPolygon.Add(stop);
+			}
+		}
+
+
+		public void dataReadingLines(String file)
         {
             StreamReader st = new StreamReader(file);
 
@@ -92,6 +112,7 @@ namespace Modelo
         public void dataSerealize()
         {
             dataReadingLines("lines.csv");
+			dataReadingStops("stopStations.csv");
         }
 
 		public void zones()
