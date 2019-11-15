@@ -190,32 +190,32 @@ namespace Modelo
 			return pos;
 		}
 
-		public string getTimeDeviation(int time)
+		public string stateTimeBus(int time)
 		{
 
 			string type = "";
-			double num = 0;
-			string posneg = "";
+			double value = 0;
+			string stateBus = "";
 			if (time > 0)
 			{
-				posneg = " Adelantado";
+				stateBus = " Adelantado";
 			}
 			else if (time < 0)
 			{
-				posneg = " de Retrazo";
+				stateBus = " de Retrazo";
 				time = Math.Abs(time);
 			}
 			if (time > 60)
 			{
 				type = "Minutos";
-				num = time / 60.0;
+				value = time / 60.0;
 			}
 			else
 			{
 				type = "Segundos";
-				num = time;
+				value = time;
 			}
-			return num.ToString("0.00") + " " + type + posneg;
+			return value.ToString("0.00") + " " + type + stateBus;
 		}
 
 		public void addLines(Line line, int lineId) {
