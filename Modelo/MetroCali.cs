@@ -102,7 +102,6 @@ namespace Modelo
 				String[] infoStop = line.Split(';');
 				StopPolygon newStop = new StopPolygon(infoStop[0],int.Parse(infoStop[1]),infoStop[2], infoStop[3], double.Parse(infoStop[6]), double.Parse(infoStop[7]));
 				PolygonStations.Add(newStop);
-				//busStations.Add(newStop.Id, bs);
 			}
 		}
 

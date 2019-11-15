@@ -85,18 +85,12 @@ namespace Route__Managment
 
         public void paintStations()
         {
-			//foreach (String de in MetroCa.BusStations.Keys)
-			//{
-			//	BusStation b = (BusStation)MetroCa.BusStations[de];
-			//	showStations(b.Latitude1, b.Lenght, b.LongName);
-			//}
-
-			//foreach (var p in MetroCa.PolygonStations)
-			//{
-			//	PolygonStops n = (PolygonStops) p;
-			//	ShowStations(n.Latitude, n.Lenght, n.ShortName);
-			//}
-			//refreshMap();
+			foreach (String de in MetroCa.BusStations.Keys)
+			{
+				BusStation b = (BusStation)MetroCa.BusStations[de];
+				showStations(b.Latitude1, b.Lenght, b.LongName);
+			}
+			refreshMap();
 
 		}
 
@@ -555,7 +549,7 @@ namespace Route__Managment
 		private void Button4_Click(object sender, EventArgs e)
         {
             MetroCa.dataSerealize();
-			//MetroCa.deserializeS();
+			MetroCa.deserializeS();
 			MetroCa.dataread();
 			MetroCa.deserializeP();
 			List<string> items = new List<string>();
@@ -991,14 +985,14 @@ namespace Route__Managment
 			int zoom = int.Parse(zoom1);
 			if (zoom >= 16 && !isVisible)
 			{
-				//paintpolystops();
+				paintPolyStops();
 				PolygonsInStops();
 				isVisible = true;
 			}
 			else if (zoom < 16)
 			{
-				Poligono.Clear();
-				//Paintstations();
+				removeAllM();
+				paintStations();
 				isVisible = false;
 				refreshMap();
 			}
