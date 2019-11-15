@@ -99,7 +99,6 @@ namespace Modelo
 			String line = "";
 			while ((line = read.ReadLine()) != null)
 			{
-				line = read.ReadLine();
 				String[] infoStop = line.Split(';');
 				StopPolygon newStop = new StopPolygon(infoStop[0],int.Parse(infoStop[1]),infoStop[2], infoStop[3], double.Parse(infoStop[6]), double.Parse(infoStop[7]));
 				PolygonStations.Add(newStop);

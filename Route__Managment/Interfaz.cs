@@ -104,7 +104,7 @@ namespace Route__Managment
 		{
 			for (int i = 0; i < MetroCa.PolygonStations.Count; i++)
 			{
-				showStops(MetroCa.PolygonStations[i].Latitude, MetroCa.PolygonStations[i].Lenght, MetroCa.PolygonStations[i].ShortName);
+				showStations(MetroCa.PolygonStations[i].Latitude, MetroCa.PolygonStations[i].Lenght, MetroCa.PolygonStations[i].ShortName);
 			}
 			refreshMap();
 		}
@@ -126,7 +126,7 @@ namespace Route__Managment
         {
 
             PointLatLng point = new PointLatLng(lat, len);
-            Bitmap bmpMaker = (Bitmap)Image.FromFile("stationMarker.png");
+            Bitmap bmpMaker = (Bitmap)Image.FromFile("Station-MIO.png");
 
             marker = new GMarkerGoogle(point, bmpMaker);
 
@@ -888,7 +888,7 @@ namespace Route__Managment
 			{
 				j = i;
 				String name = MetroCa.PolygonStations[i].LongName.Substring(0, MetroCa.PolygonStations[i].LongName.Length - 3);
-				String nameCompare = MetroCa.PolygonStations[j + 1].LongName.Substring(0, MetroCa.PolygonStations[j + 1].LongName.Length - 3);
+				String nameCompare = MetroCa.PolygonStations[j+1].LongName.Substring(0, MetroCa.PolygonStations[j+1].LongName.Length - 3);
 				List<StopPolygon> listStopStation = new List<StopPolygon>();
 				listStopStation.Add(MetroCa.PolygonStations[i]);
 				while (name.Trim().Equals(nameCompare.Trim()))
@@ -987,21 +987,21 @@ namespace Route__Managment
 
 		public void MouseEventHandler()
 		{
-			//String zoom1 = gMapControl1.Zoom.ToString();
-			//int zoom = int.Parse(zoom1);
-			//if (zoom >= 16 && !isVisible)
-			//{
-			//	paintPolyStops();
-			//	PolygonsInStops();
-			//	isVisible = true;
-			//}
-			//else if (zoom < 16)
-			//{
-			//	Poligono.Clear();
-			//	paintStations();
-			//	isVisible = false;
-			//	refreshMap();
-			//}
+			string zoom1 = gMapControl1.Zoom.ToString();
+			int zoom = int.Parse(zoom1);
+			if (zoom >= 16 && !isVisible)
+			{
+				//paintpolystops();
+				PolygonsInStops();
+				isVisible = true;
+			}
+			else if (zoom < 16)
+			{
+				Poligono.Clear();
+				//Paintstations();
+				isVisible = false;
+				refreshMap();
+			}
 		}
 	}
 }
