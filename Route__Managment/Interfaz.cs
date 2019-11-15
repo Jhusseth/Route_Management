@@ -66,7 +66,8 @@ namespace Route__Managment
 
         private void Button1_Click(object sender, EventArgs e)
         {
-			paintStations();
+			//paintStations();
+			paintPolyStops();
 		}
 
         public void list()
@@ -89,28 +90,21 @@ namespace Route__Managment
 			//	BusStation b = (BusStation)MetroCa.BusStations[de];
 			//	showStations(b.Latitude1, b.Lenght, b.LongName);
 			//}
+
+			//foreach (var p in MetroCa.PolygonStations)
+			//{
+			//	PolygonStops n = (PolygonStops) p;
+			//	ShowStations(n.Latitude, n.Lenght, n.ShortName);
+			//}
 			//refreshMap();
 
-
-			StreamReader st = new StreamReader("stopStations.csv");
-			String lin = "";
-			while ((lin = st.ReadLine()) != null)
-			{
-				String[] line = lin.Split(';');
-				String shortName = line[2];
-				String longName = line[3];
-				Double lat = Convert.ToDouble(line[6]);
-				Double len = Convert.ToDouble(line[7]);
-				showStations(lat, len, shortName);
-				refreshMap();
-			}
 		}
 
 		public void paintPolyStops()
 		{
-			for (int i = 0; i < MetroCa.StopStations.Count; i++)
+			for (int i = 0; i < MetroCa.PolygonStations.Count; i++)
 			{
-				showStops(MetroCa.StopStations[i].Latitude, MetroCa.StopStations[i].Lenght, MetroCa.StopStations[i].ShortName);
+				showStops(MetroCa.PolygonStations[i].Latitude, MetroCa.PolygonStations[i].Lenght, MetroCa.PolygonStations[i].ShortName);
 			}
 			refreshMap();
 		}
@@ -561,7 +555,8 @@ namespace Route__Managment
 		private void Button4_Click(object sender, EventArgs e)
         {
             MetroCa.dataSerealize();
-			MetroCa.deserializeS();
+			//MetroCa.deserializeS();
+			MetroCa.dataread();
 			MetroCa.deserializeP();
 			List<string> items = new List<string>();
 
@@ -889,24 +884,24 @@ namespace Route__Managment
 		public void PolygonsInStops()
 		{
 			int j;
-			for (int i = 0; i < MetroCa.StopStations.Count; i++)
+			for (int i = 0; i < MetroCa.PolygonStations.Count; i++)
 			{
 				j = i;
-				String name = MetroCa.StopStations[i].LongName.Substring(0, MetroCa.StopStations[i].LongName.Length - 3);
-				String nameCompare = MetroCa.StopStations[j + 1].LongName.Substring(0, MetroCa.StopStations[j + 1].LongName.Length - 3);
-				List<Stop> listStopStation = new List<Stop>();
-				listStopStation.Add(MetroCa.StopStations[i]);
+				String name = MetroCa.PolygonStations[i].LongName.Substring(0, MetroCa.PolygonStations[i].LongName.Length - 3);
+				String nameCompare = MetroCa.PolygonStations[j + 1].LongName.Substring(0, MetroCa.PolygonStations[j + 1].LongName.Length - 3);
+				List<StopPolygon> listStopStation = new List<StopPolygon>();
+				listStopStation.Add(MetroCa.PolygonStations[i]);
 				while (name.Trim().Equals(nameCompare.Trim()))
 				{
 					j++;
 
-					if (j < MetroCa.StopStations.Count)
+					if (j < MetroCa.PolygonStations.Count)
 					{
 
-						if ((j + 1) < MetroCa.StopStations.Count)
+						if ((j + 1) < MetroCa.PolygonStations.Count)
 						{
-							listStopStation.Add(MetroCa.StopStations[j]);
-							nameCompare = MetroCa.StopStations[j + 1].LongName.Substring(0, MetroCa.StopStations[j + 1].LongName.Length - 3);
+							listStopStation.Add(MetroCa.PolygonStations[j]);
+							nameCompare = MetroCa.PolygonStations[j + 1].LongName.Substring(0, MetroCa.PolygonStations[j + 1].LongName.Length - 3);
 						}
 						else
 						{
@@ -925,10 +920,10 @@ namespace Route__Managment
 			}
 		}
 
-		public List<Stop> ConvexHull(List<Stop> polyStop, int n)
+		public List<StopPolygon> ConvexHull(List<StopPolygon> polyStop, int n)
 		{
 
-			List<Stop> convex = new List<Stop>();
+			List<StopPolygon> convex = new List<StopPolygon>();
 			int l = 0;
 
 			for (int i = 1; i < n; i++)
@@ -958,7 +953,7 @@ namespace Route__Managment
 			return convex;
 		}
 
-		public int Address(Stop ponit1, Stop point2, Stop ponit3)
+		public int Address(StopPolygon ponit1, StopPolygon point2, StopPolygon ponit3)
 		{
 			double value = (point2.Latitude - ponit1.Latitude) * (ponit3.Lenght - point2.Lenght) - (point2.Lenght - ponit1.Lenght) * (ponit3.Latitude - point2.Latitude);
 
@@ -970,7 +965,7 @@ namespace Route__Managment
 			return (value > 0) ? 1 : 2;
 		}
 
-		private void PolygonStation(List<Stop> polyStop)
+		private void PolygonStation(List<StopPolygon> polyStop)
 		{
 			List<PointLatLng> puntos = new List<PointLatLng>();
 			double lat, len;
@@ -980,7 +975,7 @@ namespace Route__Managment
 				len = polyStop[i].Lenght;
 				puntos.Add(new PointLatLng(lat, len));
 			}
-			GMapPolygon polygonPoint = new GMapPolygon(puntos, "Poligono");
+			GMapPolygon polygonPoint = new GMapPolygon(puntos, "Polygono");
 			Poligono.Polygons.Add(polygonPoint);
 			gMapControl1.Overlays.Add(Poligono);
 			refreshMap();
@@ -992,21 +987,21 @@ namespace Route__Managment
 
 		public void MouseEventHandler()
 		{
-			String zoom1 = gMapControl1.Zoom.ToString();
-			int zoom = int.Parse(zoom1);
-			if (zoom >= 16 && !isVisible)
-			{
-				//paintPolyStops();
-				//PolygonsInStops();
-				isVisible = true;
-			}
-			else if (zoom < 16)
-			{
-				//Poligono.Clear();
-				//paintStations();
-				isVisible = false;
-				refreshMap();
-			}
+			//String zoom1 = gMapControl1.Zoom.ToString();
+			//int zoom = int.Parse(zoom1);
+			//if (zoom >= 16 && !isVisible)
+			//{
+			//	paintPolyStops();
+			//	PolygonsInStops();
+			//	isVisible = true;
+			//}
+			//else if (zoom < 16)
+			//{
+			//	Poligono.Clear();
+			//	paintStations();
+			//	isVisible = false;
+			//	refreshMap();
+			//}
 		}
 	}
 }

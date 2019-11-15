@@ -14,7 +14,7 @@ namespace Modelo
         private Hashtable busStations;
         private Hashtable busStops;
         private Hashtable lines;
-		private List<Stop> stopsPolygon;
+		private List<StopPolygon> sPoly;
 
 		public List<Zone> zonas { get; set; }
 
@@ -25,12 +25,12 @@ namespace Modelo
         
         public Hashtable Lines { get => lines; set => lines = value; }
 
-		public List<Stop> StopStations { get => stopsPolygon; set => stopsPolygon = value; }
+		public List<StopPolygon> PolygonStations { get => sPoly; set => sPoly = value; }
 
 		public MetroCali()
         {
             BusStations = new Hashtable();
-			stopsPolygon = new List<Stop>();
+			PolygonStations = new List<StopPolygon>();
 			BusStops = new Hashtable();
             Lines = new Hashtable();
 			this.zonas = new List<Zone>();
@@ -76,19 +76,34 @@ namespace Modelo
             }
         }
 
-		public void dataReadingStops(String file)
+		//public void dataReadingStops(String file)
+		//{
+		//	StreamReader st = new StreamReader(file);
+		//	String lin = "";
+		//	while ((lin = st.ReadLine()) != null)
+		//	{
+		//		String[] line = lin.Split(';');
+		//		String shortName = line[2];
+		//		String longName = line[3];
+		//		Double lat = Convert.ToDouble(line[6]);
+		//		Double len = Convert.ToDouble(line[7]);
+		//		//PolygonStops stop = new PolygonStops(shortName,longName,lat, len); 
+		//		PolygonStations.Add(stop);
+		//	}
+		//}
+
+		public void dataread()
 		{
-			StreamReader st = new StreamReader(file);
-			String lin = "";
-			while ((lin = st.ReadLine()) != null)
+			StreamReader read;
+			read = new StreamReader("stopStations.csv");
+			String line = "";
+			while ((line = read.ReadLine()) != null)
 			{
-				String[] line = lin.Split(';');
-				String shortName = line[2];
-				String longName = line[3];
-				Double lat = Convert.ToDouble(line[6]);
-				Double len = Convert.ToDouble(line[7]);
-				Stop stop = new Stop(shortName,longName,lat, len); 
-				stopsPolygon.Add(stop);
+				line = read.ReadLine();
+				String[] infoStop = line.Split(';');
+				StopPolygon newStop = new StopPolygon(infoStop[0],int.Parse(infoStop[1]),infoStop[2], infoStop[3], double.Parse(infoStop[6]), double.Parse(infoStop[7]));
+				PolygonStations.Add(newStop);
+				//busStations.Add(newStop.Id, bs);
 			}
 		}
 
@@ -112,7 +127,7 @@ namespace Modelo
         public void dataSerealize()
         {
             dataReadingLines("lines.csv");
-			dataReadingStops("stopStations.csv");
+			//dataReadingStops("stopStations.csv");
         }
 
 		public void zones()
