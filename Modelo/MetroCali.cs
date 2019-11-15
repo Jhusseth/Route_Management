@@ -79,25 +79,25 @@ namespace Modelo
             }
         }
 
-		public void dataread()
+		public void uploadStatiosStops()
 		{
-			StreamReader read;
-			read = new StreamReader("stopStations.csv");
+			StreamReader reader;
+			reader = new StreamReader("stopStations.csv");
 			String line = "";
-			while ((line = read.ReadLine()) != null)
+			while ((line = reader.ReadLine()) != null)
 			{
-				String[] infoStop = line.Split(';');
-				StopPolygon newStop = new StopPolygon(infoStop[0], int.Parse(infoStop[1]), infoStop[2], infoStop[3], double.Parse(infoStop[6]), double.Parse(infoStop[7]));
-				PolygonStations.Add(newStop);
+				String[] stops = line.Split(';');
+				StopPolygon stop = new StopPolygon(stops[0], int.Parse(stops[1]), stops[2], stops[3], double.Parse(stops[6]), double.Parse(stops[7]));
+				PolygonStations.Add(stop);
 			}
 		}
 
-		public void dataReadOperational()
+		public void uploadOperationalDates()
 		{
-			StreamReader read = new StreamReader("operational.csv");
+			StreamReader reader = new StreamReader("operational.csv");
 			String line = "";
-			read.ReadLine();
-			while ((line = read.ReadLine()) != null)
+			reader.ReadLine();
+			while ((line = reader.ReadLine()) != null)
 			{
 				String[] dates = line.Split(';');
 			

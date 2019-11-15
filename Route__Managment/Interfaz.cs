@@ -65,7 +65,7 @@ namespace Route__Managment
 			isVisible = false;
 			Poligono = new GMapOverlay("Poligono");
 			validate = " ";
-			MetroCa.dataReadOperational();
+			MetroCa.uploadOperationalDates();
 		}
 
         private void Button1_Click(object sender, EventArgs e)
@@ -570,7 +570,7 @@ namespace Route__Managment
         {
             MetroCa.dataSerealize();
 			MetroCa.deserializeS();
-			MetroCa.dataread();
+			MetroCa.uploadStatiosStops();
 			MetroCa.deserializeP();
 			List<string> items = new List<string>();
 
@@ -857,11 +857,11 @@ namespace Route__Managment
 			if (MetroCa.isZone(lat, longi) == zone)
 			{
 				PointLatLng point = new PointLatLng(lat, longi);
-				GMapMarker theMarker = new GMarkerGoogle(point, new Bitmap("bus.png"));
-				addLabelPointBus(theMarker, busId, lineId,tripId);
+				GMapMarker markerZone = new GMarkerGoogle(point, new Bitmap("bus.png"));
+				dataMarkerBus(markerZone, busId, lineId,tripId);
 
 				GMapOverlay markers = new GMapOverlay("markers");
-				markers.Markers.Add(theMarker);
+				markers.Markers.Add(markerZone);
 				gMapControl1.Overlays.Add(markers);
 			}
 		}
@@ -869,32 +869,32 @@ namespace Route__Managment
 		private void busAllShow(double lat, double longi, int busId, int lineId, int tripId)
 		{
 			PointLatLng point = new PointLatLng(lat, longi);
-			GMapMarker theMarker = new GMarkerGoogle(point, new Bitmap("bus.png"));
-			addLabelPointBus(theMarker, busId, lineId,tripId);
+			GMapMarker markerB = new GMarkerGoogle(point, new Bitmap("bus.png"));
+			dataMarkerBus(markerB, busId, lineId,tripId);
 
 			GMapOverlay markers = new GMapOverlay("markers");
-			markers.Markers.Add(theMarker);
+			markers.Markers.Add(markerB);
 			gMapControl1.Overlays.Add(markers);
 		}
 
-		private void addLabelPointBus(GMapMarker marck, int busId, int lineId, int tripId)
+		private void dataMarkerBus(GMapMarker marck, int busId, int lineId, int tripId)
 		{
-			Line ruta = ((Line)(MetroCa.Lines[lineId]));
+			Line line = ((Line)(MetroCa.Lines[lineId]));
 			String state = "";
-			if (ruta != null)
+			if (line != null)
 			{
-				OperationalData operation = ((OperationalData)(MetroCa.StateBusOperation[busId + "" + tripId]));
-				if (operation != null)
+				OperationalData stateOperationalDates = ((OperationalData)(MetroCa.StateBusOperation[busId + "" + tripId]));
+				if (stateOperationalDates != null)
 				{
-					int time = operation.DesviationTime;
-					marck.ToolTipText = $"ID: {busId}, \nRuta: {ruta.ShortName}, \nDesc: {ruta.description}, \nEstado de Operacion: {MetroCa.getTimeDeviation(time)}";
+					int time = stateOperationalDates.DesviationTime;
+					marck.ToolTipText = $"ID: {busId}, \nRuta: {line.ShortName}, \nDesc: {line.description}, \nEstado de Operacion: {MetroCa.getTimeDeviation(time)}";
 					state = MetroCa.getTimeDeviation(time);
 				}
 				else
 				{
 					var rand = new Random();
 					int num = rand.Next(-20, 20);
-					marck.ToolTipText = $"ID: {busId}, \nRuta: {ruta.ShortName}, \nDesc: {ruta.description}, \nEstado de Operacion: {MetroCa.getTimeDeviation(num)}";
+					marck.ToolTipText = $"ID: {busId}, \nRuta: {line.ShortName}, \nDesc: {line.description}, \nEstado de Operacion: {MetroCa.getTimeDeviation(num)}";
 					state = MetroCa.getTimeDeviation(num);
 				}
 			}
@@ -903,20 +903,20 @@ namespace Route__Managment
 				marck.ToolTipText = $"ID: {busId}";
 			}
 
-			GMapToolTip theTip = new GMapToolTip(marck);
+			GMapToolTip toolTipMarK = new GMapToolTip(marck);
 
 			if (state.Contains("Adelantado")) {
 				
-			    theTip.Fill = new SolidBrush(Color.Green);
-			    theTip.Foreground = new SolidBrush(Color.Black);
+			    toolTipMarK.Fill = new SolidBrush(Color.Green);
+			    toolTipMarK.Foreground = new SolidBrush(Color.Black);
 		    }
 			else
 			{
-				theTip.Fill = new SolidBrush(Color.Red);
-				theTip.Foreground = new SolidBrush(Color.Black);
+				toolTipMarK.Fill = new SolidBrush(Color.Red);
+				toolTipMarK.Foreground = new SolidBrush(Color.Black);
 			}
 
-			marck.ToolTip = theTip;
+			marck.ToolTip = toolTipMarK;
 		}
 
 		public void PolygonsInStops()
@@ -1030,9 +1030,10 @@ namespace Route__Managment
 			     int zoom = int.Parse(zoom1);
 			     if (zoom >= 16 && !isVisible)
 			     {
-				      paintPolyStops();
-				      PolygonsInStops();
-				      isVisible = true;
+					removeAllM();
+					PolygonsInStops();
+					paintPolyStops();
+					isVisible = true;
 			     }
 			      if (zoom < 16)
 			     {
