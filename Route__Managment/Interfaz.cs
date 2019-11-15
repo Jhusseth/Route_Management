@@ -65,6 +65,7 @@ namespace Route__Managment
 			isVisible = false;
 			Poligono = new GMapOverlay("Poligono");
 			validate = " ";
+			MetroCa.dataReadOperational();
 		}
 
         private void Button1_Click(object sender, EventArgs e)
@@ -132,7 +133,22 @@ namespace Route__Managment
             marker.ToolTipMode = MarkerTooltipMode.OnMouseOver;
             marker.ToolTipText = string.Format(name);
             gMapControl1.Overlays.Add(markerOverlay);
+			PaintOperationals();
         }
+
+		private void PaintOperationals()
+		{
+			Graphics g = this.CreateGraphics();
+			
+			timesTest(g);
+			
+		}
+
+		public void timesTest(Graphics g)
+		{
+			Pen blackPen = new Pen(Color.FromArgb(255, 0, 0, 0), 5);
+			g.DrawRectangle(blackPen,500, 300, 100, 50);
+		}
 
 		public void showStops(double lat, double len, String name)
         {
@@ -760,7 +776,7 @@ namespace Route__Managment
 						Console.WriteLine("{0}, {1}", theLine.ShortName, draw);
 						if (theLine.ShortName.Equals(draw))
 						{
-							busAllShow(theDefinitiveList[i].latitude, theDefinitiveList[i].longitude, theDefinitiveList[i].busId, theLine.LineId);
+							busAllShow(theDefinitiveList[i].latitude, theDefinitiveList[i].longitude, theDefinitiveList[i].busId, theLine.LineId, theDefinitiveList[i].tripId);
 						}
 					}
 				}
@@ -773,7 +789,7 @@ namespace Route__Managment
 					Line theLine = ((Line)(MetroCa.Lines[theDefinitiveList[i].lineId]));
 					if (theLine != null)
 					{
-						busAllShow(theDefinitiveList[i].latitude, theDefinitiveList[i].longitude, theDefinitiveList[i].busId, theLine.LineId);
+						busAllShow(theDefinitiveList[i].latitude, theDefinitiveList[i].longitude, theDefinitiveList[i].busId, theLine.LineId, theDefinitiveList[i].tripId);
 					}
 				}
 				refreshMap();
@@ -802,47 +818,47 @@ namespace Route__Managment
 		{
 			if (Sector1.Checked == true)
 			{
-				busZone(bus.latitude, bus.longitude, 0, bus.busId, bus.lineId);
+				busZone(bus.latitude, bus.longitude, 0, bus.busId, bus.lineId, bus.tripId);
 			}
 		
 			if (Sector2.Checked == true)
 			{
-				busZone(bus.latitude, bus.longitude, 3, bus.busId, bus.lineId);
+				busZone(bus.latitude, bus.longitude, 3, bus.busId, bus.lineId, bus.tripId);
 			}
 			if (Sector3.Checked == true)
 			{
-				busZone(bus.latitude, bus.longitude, 5, bus.busId, bus.lineId);
+				busZone(bus.latitude, bus.longitude, 5, bus.busId, bus.lineId, bus.tripId);
 			}
 			if (Sector4.Checked == true)
 			{
-				busZone(bus.latitude, bus.longitude, 5, bus.busId, bus.lineId);
+				busZone(bus.latitude, bus.longitude, 5, bus.busId, bus.lineId, bus.tripId);
 			}
 			if (Sector5.Checked == true)
 			{
-				busZone(bus.latitude, bus.longitude, 4, bus.busId, bus.lineId);
+				busZone(bus.latitude, bus.longitude, 4, bus.busId, bus.lineId, bus.tripId);
 			}
 			if (Sector6.Checked == true)
 			{
-				busZone(bus.latitude, bus.longitude, 1, bus.busId, bus.lineId);
+				busZone(bus.latitude, bus.longitude, 1, bus.busId, bus.lineId, bus.tripId);
 			}
 			if (Sector7.Checked == true)
 			{
-				busZone(bus.latitude, bus.longitude, 7, bus.busId, bus.lineId);
+				busZone(bus.latitude, bus.longitude, 7, bus.busId, bus.lineId, bus.tripId);
 			}
 
 			if (Sector8.Checked == true)
 			{
-				busZone(bus.latitude, bus.longitude, 7, bus.busId, bus.lineId);
+				busZone(bus.latitude, bus.longitude, 7, bus.busId, bus.lineId,bus.tripId);
 			}
 		}
 
-		private void busZone(double lat, double longi, int zone, int busId, int lineId)
+		private void busZone(double lat, double longi, int zone, int busId, int lineId, int tripId)
 		{
 			if (MetroCa.isZone(lat, longi) == zone)
 			{
 				PointLatLng point = new PointLatLng(lat, longi);
 				GMapMarker theMarker = new GMarkerGoogle(point, new Bitmap("bus.png"));
-				addLabelPointBus(theMarker, busId, lineId);
+				addLabelPointBus(theMarker, busId, lineId,tripId);
 
 				GMapOverlay markers = new GMapOverlay("markers");
 				markers.Markers.Add(theMarker);
@@ -850,31 +866,55 @@ namespace Route__Managment
 			}
 		}
 
-		private void busAllShow(double lat, double longi, int busId, int lineId)
+		private void busAllShow(double lat, double longi, int busId, int lineId, int tripId)
 		{
 			PointLatLng point = new PointLatLng(lat, longi);
 			GMapMarker theMarker = new GMarkerGoogle(point, new Bitmap("bus.png"));
-			addLabelPointBus(theMarker, busId, lineId);
+			addLabelPointBus(theMarker, busId, lineId,tripId);
 
 			GMapOverlay markers = new GMapOverlay("markers");
 			markers.Markers.Add(theMarker);
 			gMapControl1.Overlays.Add(markers);
 		}
 
-		private void addLabelPointBus(GMapMarker marck, int busId, int lineId)
+		private void addLabelPointBus(GMapMarker marck, int busId, int lineId, int tripId)
 		{
 			Line ruta = ((Line)(MetroCa.Lines[lineId]));
+			String state = "";
 			if (ruta != null)
 			{
-				marck.ToolTipText = $"ID: {busId}, \nRuta: {ruta.ShortName}, \nDesc: {ruta.description}";
+				OperationalData operation = ((OperationalData)(MetroCa.StateBusOperation[busId + "" + tripId]));
+				if (operation != null)
+				{
+					int time = operation.DesviationTime;
+					marck.ToolTipText = $"ID: {busId}, \nRuta: {ruta.ShortName}, \nDesc: {ruta.description}, \nEstado de Operacion: {MetroCa.getTimeDeviation(time)}";
+					state = MetroCa.getTimeDeviation(time);
+				}
+				else
+				{
+					var rand = new Random();
+					int num = rand.Next(-20, 20);
+					marck.ToolTipText = $"ID: {busId}, \nRuta: {ruta.ShortName}, \nDesc: {ruta.description}, \nEstado de Operacion: {MetroCa.getTimeDeviation(num)}";
+					state = MetroCa.getTimeDeviation(num);
+				}
 			}
 			else
 			{
 				marck.ToolTipText = $"ID: {busId}";
 			}
+
 			GMapToolTip theTip = new GMapToolTip(marck);
-			theTip.Fill = new SolidBrush(Color.Black);
-			theTip.Foreground = new SolidBrush(Color.White);
+
+			if (state.Contains("Adelantado")) {
+				
+			    theTip.Fill = new SolidBrush(Color.Green);
+			    theTip.Foreground = new SolidBrush(Color.Black);
+		    }
+			else
+			{
+				theTip.Fill = new SolidBrush(Color.Red);
+				theTip.Foreground = new SolidBrush(Color.Black);
+			}
 
 			marck.ToolTip = theTip;
 		}
@@ -1003,5 +1043,8 @@ namespace Route__Managment
 			      }
             }
 		}
+
+
+
 	}
 }

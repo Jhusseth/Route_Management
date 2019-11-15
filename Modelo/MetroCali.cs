@@ -27,6 +27,8 @@ namespace Modelo
 
 		public List<StopPolygon> PolygonStations { get => sPoly; set => sPoly = value; }
 
+		public Hashtable StateBusOperation { get; set; }
+
 		public MetroCali()
         {
             BusStations = new Hashtable();
@@ -35,6 +37,7 @@ namespace Modelo
             Lines = new Hashtable();
 			this.zonas = new List<Zone>();
 			zones();
+			this.StateBusOperation = new Hashtable();
 		}
 
 
@@ -76,22 +79,6 @@ namespace Modelo
             }
         }
 
-		//public void dataReadingStops(String file)
-		//{
-		//	StreamReader st = new StreamReader(file);
-		//	String lin = "";
-		//	while ((lin = st.ReadLine()) != null)
-		//	{
-		//		String[] line = lin.Split(';');
-		//		String shortName = line[2];
-		//		String longName = line[3];
-		//		Double lat = Convert.ToDouble(line[6]);
-		//		Double len = Convert.ToDouble(line[7]);
-		//		//PolygonStops stop = new PolygonStops(shortName,longName,lat, len); 
-		//		PolygonStations.Add(stop);
-		//	}
-		//}
-
 		public void dataread()
 		{
 			StreamReader read;
@@ -100,8 +87,40 @@ namespace Modelo
 			while ((line = read.ReadLine()) != null)
 			{
 				String[] infoStop = line.Split(';');
-				StopPolygon newStop = new StopPolygon(infoStop[0],int.Parse(infoStop[1]),infoStop[2], infoStop[3], double.Parse(infoStop[6]), double.Parse(infoStop[7]));
+				StopPolygon newStop = new StopPolygon(infoStop[0], int.Parse(infoStop[1]), infoStop[2], infoStop[3], double.Parse(infoStop[6]), double.Parse(infoStop[7]));
 				PolygonStations.Add(newStop);
+			}
+		}
+
+		public void dataReadOperational()
+		{
+			StreamReader read = new StreamReader("operational.csv");
+			String line = "";
+			read.ReadLine();
+			while ((line = read.ReadLine()) != null)
+			{
+				String[] dates = line.Split(';');
+			
+				String busId = dates[0];
+				int dataTime =int.Parse(dates[3]);
+				String lineId = dates[4];
+				String tripId = dates[5];
+				String llave = busId + tripId;
+
+				OperationalData stateOperational = new OperationalData(busId,tripId,lineId,dataTime);
+				add(llave, stateOperational);
+			}
+		}
+
+		public void add(string llave, OperationalData stateOperational)
+		{
+			foreach (String d in StateBusOperation.Keys)
+			{
+				if (!llave.Equals(d))
+				{
+					StateBusOperation.Add(llave, stateOperational);
+				}
+
 			}
 		}
 
@@ -125,7 +144,6 @@ namespace Modelo
         public void dataSerealize()
         {
             dataReadingLines("lines.csv");
-			//dataReadingStops("stopStations.csv");
         }
 
 		public void zones()
@@ -170,6 +188,34 @@ namespace Modelo
 				}
 			}
 			return pos;
+		}
+
+		public string getTimeDeviation(int time)
+		{
+
+			string type = "";
+			double num = 0;
+			string posneg = "";
+			if (time > 0)
+			{
+				posneg = " Adelantado";
+			}
+			else if (time < 0)
+			{
+				posneg = " de Retrazo";
+				time = Math.Abs(time);
+			}
+			if (time > 60)
+			{
+				type = "Minutos";
+				num = time / 60.0;
+			}
+			else
+			{
+				type = "Segundos";
+				num = time;
+			}
+			return num.ToString("0.00") + " " + type + posneg;
 		}
 
 		public void addLines(Line line, int lineId) {
