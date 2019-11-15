@@ -49,6 +49,8 @@ namespace Route__Managment
 
 		List<Bus> buses;
 
+		String validate;
+
 		double Initiallatitude = 3.42158;
         double initialLength = -76.5205;
         private MetroCali MetroCa;
@@ -62,12 +64,13 @@ namespace Route__Managment
 			buses =  new List<Bus>();
 			isVisible = false;
 			Poligono = new GMapOverlay("Poligono");
+			validate = " ";
 		}
 
         private void Button1_Click(object sender, EventArgs e)
         {
-			//paintStations();
-			paintPolyStops();
+			paintStations();
+			validate = "Stations";
 		}
 
         public void list()
@@ -120,7 +123,7 @@ namespace Route__Managment
         {
 
             PointLatLng point = new PointLatLng(lat, len);
-            Bitmap bmpMaker = (Bitmap)Image.FromFile("Station-MIO.png");
+            Bitmap bmpMaker = (Bitmap)Image.FromFile("Station_MIO.png");
 
             marker = new GMarkerGoogle(point, bmpMaker);
 
@@ -134,7 +137,7 @@ namespace Route__Managment
 		public void showStops(double lat, double len, String name)
         {
             PointLatLng point = new PointLatLng(lat, len);
-            Bitmap bmpMaker = (Bitmap)Image.FromFile("marker.png");
+            Bitmap bmpMaker = (Bitmap)Image.FromFile("MIO_Stop.png");
             marker = new GMarkerGoogle(point, bmpMaker);
             markerOverlay = new GMapOverlay("markersP");
             markerOverlay.Markers.Add(marker);
@@ -193,7 +196,8 @@ namespace Route__Managment
         private void button2_Click(object sender, EventArgs e)
         {
             paintStops();
-        }
+			validate = "Stops";
+		}
 
 
         public void clear()
@@ -981,21 +985,23 @@ namespace Route__Managment
 
 		public void MouseEventHandler()
 		{
-			string zoom1 = gMapControl1.Zoom.ToString();
-			int zoom = int.Parse(zoom1);
-			if (zoom >= 16 && !isVisible)
-			{
-				paintPolyStops();
-				PolygonsInStops();
-				isVisible = true;
-			}
-			else if (zoom < 16)
-			{
-				removeAllM();
-				paintStations();
-				isVisible = false;
-				refreshMap();
-			}
+			if (validate.Equals("Stations")) { 
+	             string zoom1 = gMapControl1.Zoom.ToString();
+			     int zoom = int.Parse(zoom1);
+			     if (zoom >= 16 && !isVisible)
+			     {
+				      paintPolyStops();
+				      PolygonsInStops();
+				      isVisible = true;
+			     }
+			      if (zoom < 16)
+			     {
+					  removeAllM();
+				      paintStations();
+				      isVisible = false;
+				      refreshMap();
+			      }
+            }
 		}
 	}
 }
