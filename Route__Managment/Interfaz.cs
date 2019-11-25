@@ -575,8 +575,9 @@ namespace Route__Managment
 			List<string> items = new List<string>();
 
 			items.Add("60");
+			items.Add("45");
 			items.Add("30");
-			items.Add("5");
+			items.Add("15");
 			items.Add("1");
 			tiempo.DataSource = items;
 
@@ -887,14 +888,14 @@ namespace Route__Managment
 				if (stateOperationalDates != null)
 				{
 					int time = stateOperationalDates.DesviationTime;
-					marck.ToolTipText = $"Ruta: {line.ShortName}, \nInfo: {line.description}, \nEstado de Operacion: {MetroCa.stateTimeBus(time)}";
+					marck.ToolTipText = $"Ruta: {line.ShortName}, \nEstado de Operacion: {MetroCa.stateTimeBus(time)}";
 					state = MetroCa.stateTimeBus(time);
 				}
 				else
 				{
 					var rand = new Random();
 					int num = rand.Next(-20, 20);
-					marck.ToolTipText = $"Ruta: {line.ShortName}, \nInfo: {line.description}, \nEstado de Operacion: {MetroCa.stateTimeBus(num)}";
+					marck.ToolTipText = $"Ruta: {line.ShortName}, \nEstado de Operacion: {MetroCa.stateTimeBus(num)}";
 					state = MetroCa.stateTimeBus(num);
 				}
 			}
