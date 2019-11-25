@@ -887,14 +887,14 @@ namespace Route__Managment
 				if (stateOperationalDates != null)
 				{
 					int time = stateOperationalDates.DesviationTime;
-					marck.ToolTipText = $"ID: {busId}, \nRuta: {line.ShortName}, \nDesc: {line.description}, \nEstado de Operacion: {MetroCa.stateTimeBus(time)}";
+					marck.ToolTipText = $"Ruta: {line.ShortName}, \nInfo: {line.description}, \nEstado de Operacion: {MetroCa.stateTimeBus(time)}";
 					state = MetroCa.stateTimeBus(time);
 				}
 				else
 				{
 					var rand = new Random();
 					int num = rand.Next(-20, 20);
-					marck.ToolTipText = $"ID: {busId}, \nRuta: {line.ShortName}, \nDesc: {line.description}, \nEstado de Operacion: {MetroCa.stateTimeBus(num)}";
+					marck.ToolTipText = $"Ruta: {line.ShortName}, \nInfo: {line.description}, \nEstado de Operacion: {MetroCa.stateTimeBus(num)}";
 					state = MetroCa.stateTimeBus(num);
 				}
 			}
