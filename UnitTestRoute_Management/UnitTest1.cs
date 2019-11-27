@@ -44,5 +44,22 @@ namespace UnitTestRoute_Management
             Assert.IsTrue(mc.Lines.ContainsKey(131));
         }
 
+        [TestMethod]
+        public void TestAdd()
+        {
+            OperationalData op = new OperationalData("000", "universidades-menga", "A12A", 5 );
+            mc.add(op.BusId, op);
+            Assert.IsFalse(mc.StateBusOperation.ContainsKey(op.BusId));
+
+        }
+
+
+        [TestMethod]
+        public void TestStateTimeBus()
+        {
+            Assert.AreNotEqual(mc.stateTimeBus(90), "1.50 Minutos Adelantado");
+            
+        }
+
     }
 }

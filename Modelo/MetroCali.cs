@@ -215,7 +215,8 @@ namespace Modelo
 				type = "Segundos";
 				value = time;
 			}
-			return value.ToString("0.00") + " " + type + stateBus;
+
+            return value.ToString("0.00") + " " + type + stateBus; ;
 		}
 
 		public void addLines(Line line, int lineId) {
